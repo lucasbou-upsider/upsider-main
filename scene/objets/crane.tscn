@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://c506knx52o5sl"]
+
+[ext_resource type="Texture2D" uid="uid://cm1s1gxq7wdeg" path="res://sprite/Paper-Pixels-8x8/UI.png" id="1_e85oq"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_agkko"]
+
+[node name="crane" type="RigidBody2D"]
+mass = 0.27
+gravity_scale = 0.5
+constant_torque = 100.0
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(3, 3)
+texture = ExtResource("1_e85oq")
+region_enabled = true
+region_rect = Rect2(62.6568, 31.5362, 10.2449, 11.1678)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_agkko")

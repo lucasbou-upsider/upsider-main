@@ -1,0 +1,63 @@
+[gd_scene load_steps=8 format=3 uid="uid://cnwd7i72yf2cn"]
+
+[ext_resource type="Texture2D" uid="uid://b64u51vlxrpdv" path="res://sprite/regen.png" id="1_6j8wl"]
+[ext_resource type="Script" uid="uid://lbt5d520n45q" path="res://script/objet/regen.gd" id="1_atrwh"]
+[ext_resource type="Texture2D" uid="uid://bxqwxsryem6me" path="res://2d_lights_and_shadows_neutral_point_light.webp" id="3_jn2cu"]
+[ext_resource type="AudioStream" uid="uid://qquckj8g0fx6" path="res://son/regen.wav" id="4_mlluu"]
+
+[sub_resource type="Curve" id="Curve_4gosb"]
+_data = [Vector2(0.0260417, 0.802198), 0.0, 0.0, 0, 0, Vector2(0.822917, 0.10989), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Gradient" id="Gradient_sk1l7"]
+offsets = PackedFloat32Array(0, 0.713415)
+colors = PackedColorArray(0.941176, 0.921569, 0.870588, 1, 0.764706, 0.717647, 0.592157, 1)
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_wk1e4"]
+radius = 8.0
+height = 60.0
+
+[node name="regen" type="StaticBody2D"]
+script = ExtResource("1_atrwh")
+
+[node name="AnimatedSprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -39)
+scale = Vector2(3, 3)
+texture = ExtResource("1_6j8wl")
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="."]
+position = Vector2(0, -1)
+emission_shape = 3
+emission_rect_extents = Vector2(20, 1)
+gravity = Vector2(0, -980)
+scale_amount_min = 5.43
+scale_amount_max = 10.91
+scale_amount_curve = SubResource("Curve_4gosb")
+color_ramp = SubResource("Gradient_sk1l7")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(-30, 0, -48, 9, 46, 9, 27, 0)
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0, -6)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_wk1e4")
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+position = Vector2(0, -30)
+color = Color(0.905882, 0.866667, 0.760784, 1)
+energy = 0.1
+texture = ExtResource("3_jn2cu")
+texture_scale = 0.5
+
+[node name="Regen" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_mlluu")
+
+[node name="Regen_inversé" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_mlluu")
+pitch_scale = 1.1
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
+[connection signal="area_exited" from="Area2D" to="." method="_on_area_2d_area_exited"]

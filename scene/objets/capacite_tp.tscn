@@ -1,0 +1,100 @@
+[gd_scene load_steps=10 format=3 uid="uid://cv844ygeo7xv2"]
+
+[ext_resource type="Texture2D" uid="uid://cg7apvi138r4w" path="res://sprite/player/capacité/point_tp.png" id="1_a6qfv"]
+[ext_resource type="Script" uid="uid://defepdet56dak" path="res://script/objet/capacite_tp.gd" id="1_wecr8"]
+[ext_resource type="Texture2D" uid="uid://bj5i2hxikreti" path="res://sprite/player/capacité/bambou.png" id="3_xccka"]
+
+[sub_resource type="Animation" id="Animation_so4fc"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("fleche/Sprite2D:offset")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_l4a7s"]
+resource_name = "default"
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("fleche/Sprite2D:offset")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 1), Vector2(0, -1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_fr3q5"]
+_data = {
+&"RESET": SubResource("Animation_so4fc"),
+&"default": SubResource("Animation_l4a7s")
+}
+
+[sub_resource type="Curve" id="Curve_q4u6o"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.744792, 0.538462), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Gradient" id="Gradient_up72y"]
+colors = PackedColorArray(0.427451, 0.909804, 0.439216, 1, 0.578579, 0.982061, 0.578603, 1)
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_dvtm7"]
+height = 48.0
+
+[node name="capacite_tp" type="Node2D"]
+script = ExtResource("1_wecr8")
+
+[node name="fleche" type="Node2D" parent="."]
+position = Vector2(0, -50)
+
+[node name="Sprite2D" type="Sprite2D" parent="fleche"]
+position = Vector2(0, -5)
+scale = Vector2(4.21875, 4.27344)
+texture = ExtResource("1_a6qfv")
+offset = Vector2(0, 1)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="fleche"]
+root_node = NodePath("../..")
+libraries = {
+&"": SubResource("AnimationLibrary_fr3q5")
+}
+autoplay = "default"
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="fleche"]
+position = Vector2(0, -14)
+amount = 4
+lifetime = 0.3
+emission_shape = 1
+emission_sphere_radius = 3.0
+gravity = Vector2(0, -980)
+scale_amount_min = 4.0
+scale_amount_max = 5.0
+scale_amount_curve = SubResource("Curve_q4u6o")
+color_ramp = SubResource("Gradient_up72y")
+
+[node name="bambou" type="Node2D" parent="."]
+position = Vector2(0, 3)
+
+[node name="Sprite2D" type="Sprite2D" parent="bambou"]
+position = Vector2(1.90735e-06, -5.75)
+scale = Vector2(4.78125, 5.6875)
+texture = ExtResource("3_xccka")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0, -4)
+shape = SubResource("CapsuleShape2D_dvtm7")
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
+[connection signal="area_exited" from="Area2D" to="." method="_on_area_2d_area_exited"]

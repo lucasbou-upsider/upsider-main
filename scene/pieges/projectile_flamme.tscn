@@ -1,0 +1,177 @@
+[gd_scene load_steps=19 format=3 uid="uid://bk4gnvgwynhyr"]
+
+[ext_resource type="Script" uid="uid://cfv08r8wvevpg" path="res://projectile_flamme.gd" id="1_60cnd"]
+[ext_resource type="Texture2D" uid="uid://ptcgy7r5ips1" path="res://sprite/Paper-Pixels-8x8/missile_lance_lumiere.png" id="2_jgp7r"]
+[ext_resource type="Texture2D" uid="uid://bxqwxsryem6me" path="res://2d_lights_and_shadows_neutral_point_light.webp" id="3_gwhng"]
+[ext_resource type="Texture2D" uid="uid://cbwnm0gf8mre4" path="res://Explosion_Sheet.png" id="4_rmmwh"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kjjb1"]
+atlas = ExtResource("2_jgp7r")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kymvj"]
+atlas = ExtResource("2_jgp7r")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s2lyh"]
+atlas = ExtResource("2_jgp7r")
+region = Rect2(32, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_21syk"]
+atlas = ExtResource("2_jgp7r")
+region = Rect2(64, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6jdkc"]
+atlas = ExtResource("2_jgp7r")
+region = Rect2(0, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_da1ms"]
+atlas = ExtResource("2_jgp7r")
+region = Rect2(32, 64, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_bky6c"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kjjb1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kymvj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s2lyh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_21syk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6jdkc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_da1ms")
+}],
+"loop": true,
+"name": &"default",
+"speed": 10.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_cqelw"]
+radius = 2.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_48s8k"]
+radius = 15.5322
+
+[sub_resource type="Curve" id="Curve_y1kuw"]
+_data = [Vector2(0.0208333, 0.802198), 0.0, 0.0, 0, 0, Vector2(0.770833, 0.175824), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_ej6jp"]
+particles_animation = true
+particles_anim_h_frames = 5
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="Gradient" id="Gradient_8uf4t"]
+colors = PackedColorArray(0.993722, 0.678689, 0, 1, 0.972549, 0.780392, 0, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_tndxd"]
+gradient = SubResource("Gradient_8uf4t")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_epsc1"]
+particle_flag_disable_z = true
+emission_shape_offset = Vector3(1, 1, 1)
+emission_shape = 1
+emission_sphere_radius = 15.98
+angle_min = 1.07288e-05
+angle_max = 1.07288e-05
+inherit_velocity_ratio = -0.605
+gravity = Vector3(0, 0, 0)
+scale_min = 2.0
+scale_max = 2.0
+color_ramp = SubResource("GradientTexture1D_tndxd")
+anim_speed_min = 1.5
+anim_speed_max = 2.0
+
+[node name="projectile_flamme" type="Node2D"]
+scale = Vector2(2, 2)
+script = ExtResource("1_60cnd")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+modulate = Color(1, 0.837209, 0.66382, 1)
+position = Vector2(0.333333, 1.66667)
+sprite_frames = SubResource("SpriteFrames_bky6c")
+frame_progress = 0.523137
+
+[node name="Area2D" type="Area2D" parent="." groups=["projectile"]]
+position = Vector2(0.333333, 2)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(-0.333333, -2)
+shape = SubResource("CircleShape2D_cqelw")
+
+[node name="Area_explosion" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area_explosion"]
+shape = SubResource("CircleShape2D_48s8k")
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="."]
+emitting = false
+amount = 15
+lifetime = 0.5
+emission_shape = 1
+emission_sphere_radius = 1.0
+gravity = Vector2(0, -980)
+scale_amount_min = 4.0
+scale_amount_max = 5.0
+scale_amount_curve = SubResource("Curve_y1kuw")
+color = Color(1, 0.835294, 0.662745, 1)
+
+[node name="CPUParticles2D2" type="CPUParticles2D" parent="."]
+emitting = false
+amount = 15
+lifetime = 0.2
+one_shot = true
+explosiveness = 0.61
+direction = Vector2(100, 100)
+spread = 180.0
+gravity = Vector2(0, 0)
+initial_velocity_max = 122.9
+scale_amount_min = 4.0
+scale_amount_max = 5.0
+scale_amount_curve = SubResource("Curve_y1kuw")
+color = Color(1, 0.835294, 0.662745, 1)
+
+[node name="CPUParticles_explosion" type="CPUParticles2D" parent="."]
+emitting = false
+amount = 70
+lifetime = 0.3
+one_shot = true
+explosiveness = 0.61
+direction = Vector2(100, 100)
+spread = 180.0
+gravity = Vector2(0, 0)
+initial_velocity_max = 122.9
+scale_amount_min = 10.0
+scale_amount_max = 11.0
+scale_amount_curve = SubResource("Curve_y1kuw")
+color = Color(1, 0.835294, 0.662745, 1)
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+energy = 0.1
+texture = ExtResource("3_gwhng")
+texture_scale = 0.1
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+material = SubResource("CanvasItemMaterial_ej6jp")
+emitting = false
+amount = 50
+process_material = SubResource("ParticleProcessMaterial_epsc1")
+texture = ExtResource("4_rmmwh")
+lifetime = 0.5
+randomness = 0.42
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
+[connection signal="area_shape_entered" from="Area2D" to="." method="_on_area_2d_area_shape_entered"]
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="area_entered" from="Area_explosion" to="." method="_on_area_explosion_area_entered"]
+[connection signal="area_exited" from="Area_explosion" to="." method="_on_area_explosion_area_exited"]

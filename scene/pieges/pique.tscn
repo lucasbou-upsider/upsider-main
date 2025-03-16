@@ -1,0 +1,88 @@
+[gd_scene load_steps=11 format=3 uid="uid://crimdvllce30m"]
+
+[ext_resource type="Script" uid="uid://3wwddl0knwes" path="res://script/piege/pique.gd" id="1_oe2pi"]
+[ext_resource type="Texture2D" uid="uid://bl8u705iki4j7" path="res://sprite/Paper-Pixels-8x8/pique.png" id="2_4sx4q"]
+[ext_resource type="Texture2D" uid="uid://caw430pts8h8p" path="res://sprite/Paper-Pixels-8x8/Tiles.png" id="2_peh7s"]
+[ext_resource type="Texture2D" uid="uid://bxqwxsryem6me" path="res://2d_lights_and_shadows_neutral_point_light.webp" id="3_0ypw3"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_hfcmg"]
+radius = 4.33333
+height = 11.3333
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oiu2p"]
+atlas = ExtResource("2_peh7s")
+region = Rect2(135, 8, 9, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_060rs"]
+atlas = ExtResource("2_peh7s")
+region = Rect2(135, 24, 9, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ynqxx"]
+atlas = ExtResource("2_peh7s")
+region = Rect2(135, 40, 9, 8)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_f1q2o"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oiu2p")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_060rs")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ynqxx")
+}],
+"loop": true,
+"name": &"default",
+"speed": 2.0
+}]
+
+[sub_resource type="Curve" id="Curve_c21sl"]
+_data = [Vector2(0, 0.912088), 0.0, 0.0, 0, 0, Vector2(0.791667, 0.648352), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[node name="pique" type="StaticBody2D"]
+scale = Vector2(3, 3)
+script = ExtResource("1_oe2pi")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(3, 3.33333)
+scale = Vector2(2, 2)
+texture = ExtResource("2_4sx4q")
+region_rect = Rect2(64.8317, 64.4287, 7.21171, 7.55842)
+
+[node name="Area2D" type="Area2D" parent="."]
+position = Vector2(0, -3)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0, 4.66667)
+shape = SubResource("CapsuleShape2D_hfcmg")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(-4.33333, -5.66667)
+scale = Vector2(1.13889, 1.14583)
+sprite_frames = SubResource("SpriteFrames_f1q2o")
+autoplay = "default"
+frame_progress = 0.266845
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+scale = Vector2(0.2, 0.2)
+energy = 0.1
+shadow_enabled = true
+texture = ExtResource("3_0ypw3")
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="."]
+position = Vector2(0, 6)
+amount = 5
+lifetime = 0.4
+lifetime_randomness = 0.07
+emission_shape = 3
+emission_rect_extents = Vector2(5, 1)
+gravity = Vector2(0, -980)
+scale_amount_min = 4.0
+scale_amount_max = 4.0
+scale_amount_curve = SubResource("Curve_c21sl")
+color = Color(0.670588, 0.670588, 0.670588, 1)
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]

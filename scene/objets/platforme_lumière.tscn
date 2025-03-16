@@ -1,0 +1,35 @@
+[gd_scene load_steps=6 format=3 uid="uid://cwshlmt7ig0mh"]
+
+[ext_resource type="Script" uid="uid://5td5nje05r5v" path="res://script/objet/platforme_lumière.gd" id="1_mdl58"]
+[ext_resource type="Texture2D" uid="uid://caw430pts8h8p" path="res://sprite/Paper-Pixels-8x8/Tiles.png" id="2_5y0kc"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0aux1"]
+size = Vector2(28, 12)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wvb2k"]
+atlas = ExtResource("2_5y0kc")
+region = Rect2(32, 63, 16, 9)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_lupyk"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wvb2k")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="platforme_lumière" type="StaticBody2D"]
+scale = Vector2(3, 3)
+script = ExtResource("1_mdl58")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 1)
+shape = SubResource("RectangleShape2D_0aux1")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, 2.38419e-07)
+scale = Vector2(1.875, 1.72222)
+sprite_frames = SubResource("SpriteFrames_lupyk")
