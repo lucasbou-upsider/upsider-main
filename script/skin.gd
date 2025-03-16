@@ -92,6 +92,7 @@ func _on_button_2_pressed() -> void:
 func _on_button_pressed() -> void:
 	numplayer -= 1
 	nombredeplayer = GameManager.skin_debloquer.size()
+	nombredeplayer -= 1
 	if numplayer == -1:
 		numplayer = nombredeplayer
 	print(nombredeplayer)
