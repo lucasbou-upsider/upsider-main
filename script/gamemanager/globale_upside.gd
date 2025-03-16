@@ -32,3 +32,8 @@ func activation(nbr):
 func _process(_delta: float) -> void:
 	if marteau == true:
 		levier_casse = false
+		
+
+func succes():
+	if upside_debloque.size() == 1:
+		Succes.succes_fini.append(4)

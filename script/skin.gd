@@ -9,33 +9,14 @@ extends AnimatedSprite2D
 var marche = true
 var dernier_player_debloquer 
 var limite_player_debloquer 
-var player2 = false
-var player3 = false
 
 func _ready() -> void:
-	if GameManager.skin_debloquer.size() == 1:
-		box_container.visible = false
-		description_skin.visible = false
-	
-	
-	if GameManager.skin_debloquer.has(2):
-		player2 = true
-	if GameManager.skin_debloquer.has(3):
-		player3 = true
-	print(player2)
-	print(player3)
-
-
-	GameManager.skin_debloquer.sort()#trie le tableau des player
-	print(GameManager.skin_debloquer)
-	limite_player_debloquer = GameManager.skin_debloquer.back() + 1
-	dernier_player_debloquer = GameManager.skin_debloquer.back()
-	
 	if GameManager.nouv_skin == true:
 		etoile_skin.visible = true
-
-
+		
 func _process(_delta: float) -> void:
+	actualisation()
+	
 	if marche == false:
 		if GameManager.skin_player == 1:
 			play("player_base")
@@ -69,6 +50,19 @@ func _process(_delta: float) -> void:
 		if GameManager.skin_player == 4:
 			play("marche_meven") 
 
+func actualisation():
+	if GameManager.skin_debloquer.size() == 1:
+		box_container.visible = false
+		description_skin.visible = false
+
+
+	GameManager.skin_debloquer.sort()#trie le tableau des player
+	limite_player_debloquer = GameManager.skin_debloquer.back() + 1
+	dernier_player_debloquer = GameManager.skin_debloquer.back()
+
+
+
+##changement de skin##
 
 var numplayer = 0
 var nombredeplayer 
@@ -79,7 +73,6 @@ func _on_button_2_pressed() -> void:
 		numplayer = 0
 	print(nombredeplayer)
 	print("le numplayer est " + str(numplayer))
-	print("le kk ets le num" + str(GameManager.skin_debloquer.back()))
 	GameManager.skin_player = GameManager.skin_debloquer.get(numplayer)
 	#GameManager.skin_player += 1
 	#if GameManager.skin_player == limite_player_debloquer:
