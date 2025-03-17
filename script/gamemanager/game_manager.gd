@@ -1,4 +1,6 @@
 extends Node
+#language
+var language = ["fr", "en"]
 
 #nombre de platforme restant
 var platforme = 3

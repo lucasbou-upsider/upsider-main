@@ -71,16 +71,8 @@ func _on_button_2_pressed() -> void:
 	nombredeplayer = GameManager.skin_debloquer.size()
 	if numplayer == nombredeplayer:
 		numplayer = 0
-	print(nombredeplayer)
 	print("le numplayer est " + str(numplayer))
 	GameManager.skin_player = GameManager.skin_debloquer.get(numplayer)
-	#GameManager.skin_player += 1
-	#if GameManager.skin_player == limite_player_debloquer:
-		#GameManager.skin_player = 1
-	#if GameManager.skin_player == 2 and player2 == false:
-		#GameManager.skin_player +=1
-	#if GameManager.skin_player == 3 and player3 == false:
-		#GameManager.skin_player += 1
 	print("le skin du joueur est le numero " + str(GameManager.skin_player))
 func _on_button_pressed() -> void:
 	numplayer -= 1
@@ -88,16 +80,8 @@ func _on_button_pressed() -> void:
 	nombredeplayer -= 1
 	if numplayer == -1:
 		numplayer = nombredeplayer
-	print(nombredeplayer)
 	print("le numplayer est " + str(numplayer))
 	GameManager.skin_player = GameManager.skin_debloquer.get(numplayer)
-	#GameManager.skin_player -=1
-	#if GameManager.skin_player == 0:
-		#GameManager.skin_player = dernier_player_debloquer
-	#if GameManager.skin_player == 2 and player2 == false:
-		#GameManager.skin_player -=1
-	#if GameManager.skin_player == 3 and player3 == false:
-		#GameManager.skin_player -= 1
 	print("le skin du joueur est le numero " + str(GameManager.skin_player))
 
 func _on_arret_annimation_area_entered(_area: Area2D) -> void:

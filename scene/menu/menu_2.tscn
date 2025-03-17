@@ -3108,6 +3108,13 @@ offset_top = 639.0
 offset_right = 553.0
 offset_bottom = 639.0
 
+[node name="language" type="Button" parent="menu_1/option"]
+layout_mode = 0
+offset_left = -537.0
+offset_top = -620.0
+offset_right = -529.0
+offset_bottom = -612.0
+
 [node name="Label" type="Label" parent="menu_1"]
 layout_mode = 1
 anchors_preset = 8
@@ -3164,3 +3171,4 @@ stream = ExtResource("6_4ywp1")
 [connection signal="pressed" from="menu_1/button/jouer" to="." method="_on_jouer_pressed"]
 [connection signal="pressed" from="menu_1/button/quit" to="." method="_on_quit_pressed"]
 [connection signal="pressed" from="menu_1/button/credits" to="." method="_on_credits_pressed"]
+[connection signal="pressed" from="menu_1/option/language" to="." method="_on_language_pressed"]
