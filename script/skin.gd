@@ -18,18 +18,32 @@ func _process(_delta: float) -> void:
 	actualisation()
 	
 	if marche == false:
-		if GameManager.skin_player == 1:
-			play("player_base")
-			description_skin.text = "le skin de base de tous les joueurs"
-		if GameManager.skin_player == 2:
-			description_skin.text = "skin assiste permettant que les plateformes durent plus longtemps"
-			play("player_nerd")
-		if GameManager.skin_player == 3:
-			description_skin.text = "skin ayant le pouvoir de se teleporter"
-			play("player_sylvan")
-		if GameManager.skin_player == 4:
-			description_skin.text = "skin allant beaucoup trop vite"
-			play("player_meven")
+		if GameManager.language == "FR":
+			if GameManager.skin_player == 1:
+				play("player_base")
+				description_skin.text = "le skin de base de tous les joueurs"
+			if GameManager.skin_player == 2:
+				description_skin.text = "skin assiste permettant que les plateformes durent plus longtemps"
+				play("player_nerd")
+			if GameManager.skin_player == 3:
+				description_skin.text = "skin ayant le pouvoir de se teleporter"
+				play("player_sylvan")
+			if GameManager.skin_player == 4:
+				description_skin.text = "skin allant beaucoup trop vite"
+				play("player_meven")
+		if GameManager.language == "EN":
+			if GameManager.skin_player == 1:
+				play("player_base")
+				description_skin.text = "the base skin of all players"
+			if GameManager.skin_player == 2:
+				description_skin.text = "skin assists allowing platforms to last longer"
+				play("player_nerd")
+			if GameManager.skin_player == 3:
+				description_skin.text = "skin with the power to teleport"
+				play("player_sylvan")
+			if GameManager.skin_player == 4:
+				description_skin.text = "skin going too fast"
+				play("player_meven")
 
 	#afficher l'etoile
 	if GameManager.skin_player == 2:
@@ -65,16 +79,15 @@ func actualisation():
 ##changement de skin##
 
 var numplayer = 0
-var nombredeplayer 
 func _on_button_2_pressed() -> void:
 	numplayer += 1
-	nombredeplayer = GameManager.skin_debloquer.size()
-	if numplayer == nombredeplayer:
+	if numplayer == GameManager.skin_debloquer.size():
 		numplayer = 0
 	print("le numplayer est " + str(numplayer))
 	GameManager.skin_player = GameManager.skin_debloquer.get(numplayer)
 	print("le skin du joueur est le numero " + str(GameManager.skin_player))
 func _on_button_pressed() -> void:
+	var nombredeplayer 
 	numplayer -= 1
 	nombredeplayer = GameManager.skin_debloquer.size()
 	nombredeplayer -= 1

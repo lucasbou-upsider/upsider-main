@@ -1,6 +1,6 @@
 extends Node
 #language
-var language = ["fr", "en"]
+var language = "EN"
 
 #nombre de platforme restant
 var platforme = 3

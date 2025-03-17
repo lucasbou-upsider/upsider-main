@@ -1,18 +1,25 @@
 extends Control
 
 @onready var language: Button = $menu_1/option/language
-var input_language = 0
+
+@onready var jouer: Button = $menu_1/button/jouer
+@onready var quit: Button = $menu_1/button/quit
 
 func _ready() -> void:
 	MusicController.play_music("menu")
 
-
-
 func _process(_delta: float) -> void:
-	if input_language == GameManager.language.size():
-		input_language = 0
-	language.text = GameManager.language.get(input_language)
+	language.text = GameManager.language
+	langue()
 	
+	
+func langue():
+	if GameManager.language == "EN":
+		jouer.text = "Play"
+		quit.text = "Exit"
+	if GameManager.language == "FR":
+		jouer.text = "Jouer"
+		quit.text = "Quitter"
 
 
 func _on_jouer_pressed() -> void:
@@ -31,4 +38,7 @@ func _on_credits_pressed() -> void:
 
 
 func _on_language_pressed() -> void:
-	input_language += 1
+	if GameManager.language == "EN":
+		GameManager.language = "FR"
+	elif GameManager.language == "FR":
+		GameManager.language = "EN"

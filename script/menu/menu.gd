@@ -10,8 +10,13 @@ extends Control
 @onready var levier_actif: Label = $compteur_de_mort/levier_actif
 @onready var speedrun_button: CheckButton = $mode_speedrun/speedrun_button
 @onready var temps_speedrun_monde_1: Label = $"menu_1/monde 1/temps_speedrun_monde_1"
+@onready var quit: Button = $menu_1/option/BoxContainer2/quit
+@onready var titre_monde_1: Label = $"menu_1/monde 1/titre"
+@onready var titre_monde_2: Label = $"menu_1/monde 2/Label2"
+@onready var label_speedrun: Label = $mode_speedrun/Label_speedrun
 
 #niv
+@onready var niv_1: Button = $"menu_1/monde 1/BoxContainer/niv1"
 @onready var niv_2: Button = $"menu_1/monde 1/BoxContainer/niv 2"
 @onready var niv_3: Button = $"menu_1/monde 1/BoxContainer/niv 3"
 @onready var niv_4: Button = $"menu_1/monde 1/BoxContainer/niv 4"
@@ -133,8 +138,40 @@ func _ready() -> void:
 
 
 func _process(_delta: float) -> void:
-	pass
+	langue()
 
+func langue():
+	#niveau
+
+	var nom_niveau = "lvl"
+	if GameManager.language == "EN":
+		nom_niveau = "lvl "
+	else:
+		nom_niveau = "niv "
+	niv_1.text = nom_niveau + "1"
+	niv_2.text = nom_niveau + "2" 
+	niv_3.text = nom_niveau + "3" 
+	niv_4.text = nom_niveau + "4" 
+	niv_5.text = nom_niveau + "5" 
+	niv_6.text = nom_niveau + "6" 
+	niv_7.text = nom_niveau + "7" 
+	niv_8.text = nom_niveau + "8" 
+	niv_9.text = nom_niveau + "9"
+	#option
+	
+	if GameManager.language == "EN":
+		quit.text = "Exit"
+		niv_bonus_1.text = "bonus level"
+		niv_bonus_1.set_deferred("theme_override_font_sizes/font_size", 15)
+		titre_monde_1.text = "-world 1"
+		titre_monde_2.text = "-world 2"
+		label_speedrun.text = "speedrun mode"
+	else:
+		quit.text = "Quitter"
+		niv_bonus_1.text = "niv bonus"
+		titre_monde_1.text = "-monde 1"
+		titre_monde_2.text = "-monde 2"
+		label_speedrun.text = "mode speedrun"
 
 #bouton niv
 func _on_niv_1_pressed() -> void:

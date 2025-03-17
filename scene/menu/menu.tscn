@@ -3733,23 +3733,22 @@ sprite_frames = SubResource("SpriteFrames_86fwu")
 
 [node name="BoxContainer2" type="BoxContainer" parent="menu_1/monde 1"]
 layout_mode = 0
-offset_left = -35.0
+offset_left = -37.0
 offset_top = 199.0
-offset_right = 40.0
+offset_right = 38.0
 offset_bottom = 227.0
 theme_override_constants/separation = 10
 vertical = true
 script = ExtResource("6_c27m6")
 
 [node name="niv_bonus_1" type="Button" parent="menu_1/monde 1/BoxContainer2"]
-visible = false
 layout_mode = 2
 theme_override_fonts/font = ExtResource("4_xwok8")
+theme_override_font_sizes/font_size = 0
 text = "niv bonus"
 
 [node name="étoile_bonus_1" type="AnimatedSprite2D" parent="menu_1/monde 1/BoxContainer2/niv_bonus_1"]
-visible = false
-position = Vector2(93, 8)
+position = Vector2(100, 12)
 scale = Vector2(3.75, 3.4375)
 sprite_frames = SubResource("SpriteFrames_86fwu")
 
@@ -3921,7 +3920,7 @@ offset_top = 574.0
 offset_right = 49.0
 offset_bottom = 600.0
 
-[node name="Label" type="Label" parent="mode_speedrun"]
+[node name="Label_speedrun" type="Label" parent="mode_speedrun"]
 layout_mode = 0
 offset_left = 46.0
 offset_top = 574.0

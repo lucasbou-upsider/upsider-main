@@ -1,7 +1,8 @@
-[gd_scene load_steps=20 format=4 uid="uid://r8vvo4bu8xev"]
+[gd_scene load_steps=21 format=4 uid="uid://r8vvo4bu8xev"]
 
 [ext_resource type="Script" uid="uid://c00fhjeexjfcg" path="res://script/niv.gd" id="1_p7d1h"]
 [ext_resource type="Texture2D" uid="uid://caw430pts8h8p" path="res://sprite/Paper-Pixels-8x8/Tiles.png" id="2_pifg2"]
+[ext_resource type="Script" uid="uid://cq3prscs1tep6" path="res://script/menu/tuto.gd" id="3_i0ina"]
 [ext_resource type="FontFile" uid="uid://c6drrdopvgm8h" path="res://BabaMediumPixels.ttf" id="3_jvuj0"]
 [ext_resource type="PackedScene" uid="uid://crimdvllce30m" path="res://scene/pieges/pique.tscn" id="4_rfnrm"]
 [ext_resource type="Texture2D" uid="uid://q38dlrruj0c0" path="res://sprite/Paper-Pixels-8x8/no-shadow/Tiles.png" id="5_845aa"]
@@ -1556,12 +1557,13 @@ layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
+script = ExtResource("3_i0ina")
 
 [node name="Label" type="Label" parent="tuto"]
 layout_mode = 0
 offset_left = 495.0
 offset_top = 272.0
-offset_right = 1007.0
+offset_right = 899.0
 offset_bottom = 353.0
 theme_override_fonts/font = ExtResource("3_jvuj0")
 theme_override_font_sizes/font_size = 22

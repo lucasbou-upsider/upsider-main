@@ -3086,6 +3086,7 @@ theme_override_font_sizes/font_size = 32
 text = "Jouer"
 
 [node name="quit" type="Button" parent="menu_1/button"]
+clip_contents = true
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 6
@@ -3110,10 +3111,12 @@ offset_bottom = 639.0
 
 [node name="language" type="Button" parent="menu_1/option"]
 layout_mode = 0
-offset_left = -537.0
-offset_top = -620.0
-offset_right = -529.0
-offset_bottom = -612.0
+offset_left = -546.0
+offset_top = -634.0
+offset_right = -524.0
+offset_bottom = -603.0
+theme_override_fonts/font = ExtResource("4_k84a1")
+text = "FR"
 
 [node name="Label" type="Label" parent="menu_1"]
 layout_mode = 1
