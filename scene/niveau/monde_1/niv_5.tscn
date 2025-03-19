@@ -1589,7 +1589,8 @@ script = ExtResource("10_vevfn")
 pieces_requis_bonus = 4
 
 [node name="Sprite2D" type="Sprite2D" parent="score_bonus"]
-scale = Vector2(4, 4)
+position = Vector2(-0.749994, -2.75)
+scale = Vector2(4.64286, 4.6875)
 texture = ExtResource("11_ko08h")
 
 [node name="Ui" type="Sprite2D" parent="score_bonus"]
@@ -1609,10 +1610,15 @@ theme_override_fonts/font = ExtResource("8_mjndd")
 text = "score"
 
 [node name="depose_piece_bonus" type="Area2D" parent="score_bonus"]
-position = Vector2(-0.25, 0.25)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="score_bonus/depose_piece_bonus"]
 shape = SubResource("CapsuleShape2D_x53dd")
+
+[node name="PointLight2D" type="PointLight2D" parent="score_bonus"]
+scale = Vector2(0.6, 0.6)
+energy = 0.2
+shadow_enabled = true
+texture = ExtResource("15_6xrw7")
 
 [node name="player" parent="." groups=["player_collision"] instance=ExtResource("3_pig3i")]
 position = Vector2(664, 392)

@@ -4,7 +4,7 @@ extends Node2D
 @onready var sprite_2d: Sprite2D = $Sprite2D
 @onready var point_light_2d: PointLight2D = $PointLight2D
 
-func _on_area_2d_area_entered(area: Area2D) -> void:
+func _on_area_2d_area_entered(_area: Area2D) -> void:
 	GlobaleUpside.marteau = true
 	GlobaleUpside.debloquage_marteau_animation = true
 	sprite_2d.visible = false

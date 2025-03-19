@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=4 uid="uid://damypvd244nw"]
+[gd_scene load_steps=23 format=4 uid="uid://damypvd244nw"]
 
 [ext_resource type="Script" uid="uid://c00fhjeexjfcg" path="res://script/niv.gd" id="1_oa016"]
 [ext_resource type="Texture2D" uid="uid://caw430pts8h8p" path="res://sprite/Paper-Pixels-8x8/Tiles.png" id="2_c18hl"]
@@ -15,6 +15,7 @@
 [ext_resource type="FontFile" uid="uid://c6drrdopvgm8h" path="res://BabaMediumPixels.ttf" id="12_xo7nx"]
 [ext_resource type="Texture2D" uid="uid://bxqwxsryem6me" path="res://2d_lights_and_shadows_neutral_point_light.webp" id="14_fccx5"]
 [ext_resource type="PackedScene" uid="uid://cnwd7i72yf2cn" path="res://scene/objets/regen.tscn" id="14_i30r3"]
+[ext_resource type="Script" uid="uid://3fgwvhc2mhde" path="res://script/menu/tuto_2.gd" id="16_pd0u7"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_bvok8"]
 
@@ -1672,16 +1673,24 @@ position = Vector2(14, 312)
 [node name="regen" parent="." instance=ExtResource("14_i30r3")]
 position = Vector2(1852, 226)
 
-[node name="regen2" parent="." instance=ExtResource("14_i30r3")]
-position = Vector2(12, 345)
+[node name="tuto_2" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("16_pd0u7")
 
-[node name="Label" type="Label" parent="regen2"]
-offset_left = -194.0
-offset_top = -134.0
-offset_right = 206.0
-offset_bottom = -111.0
+[node name="Label" type="Label" parent="tuto_2"]
+layout_mode = 0
+offset_left = -182.0
+offset_top = 211.0
+offset_right = 226.0
+offset_bottom = 234.0
 theme_override_fonts/font = ExtResource("12_xo7nx")
 text = "Ce regen te permet de regagner toutes tes plateformes"
+
+[node name="regen2" parent="." instance=ExtResource("14_i30r3")]
+position = Vector2(12, 345)
 
 [node name="particule" type="Node2D" parent="."]
 

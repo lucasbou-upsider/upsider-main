@@ -42,6 +42,8 @@ extends Control
 
 @onready var tuto: Control = $tuto
 
+var text_nombre_de_mort = "nombre de mort : "
+var text_nombre_de_levier = "nombre de levier actif : "
 
 func _ready() -> void:
 	MusicController.play_music("menu")#lance la musique
@@ -125,24 +127,26 @@ func _ready() -> void:
 	if GameManager.niv_bonus_1_debloque == true or mode_admin == true:
 		niv_bonus_1.visible = true
 
-
+	#traduction text comteur de levier et de mort 
+	if GameManager.language == "EN":
+		text_nombre_de_levier = "number of active levers : "
+		text_nombre_de_mort = "number of deaths : "
 
 	#texte compteur de mort
-	mort.text = "nombre de mort : " + str(GameManager.mort)
+	mort.text = text_nombre_de_mort + str(GameManager.mort)
 
 	#text levier 
 	if GlobaleUpside.levier_casse == false:
 		levier_actif.visible = true
-		levier_actif.text = "nombre de levier actif : " + str(GlobaleUpside.levier_actif)
+		levier_actif.text = text_nombre_de_levier + str(GlobaleUpside.levier_actif)
 
 
 
 func _process(_delta: float) -> void:
-	langue()
+	traduction()
 
-func langue():
+func traduction():
 	#niveau
-
 	var nom_niveau = "lvl"
 	if GameManager.language == "EN":
 		nom_niveau = "lvl "
@@ -166,12 +170,6 @@ func langue():
 		titre_monde_1.text = "-world 1"
 		titre_monde_2.text = "-world 2"
 		label_speedrun.text = "speedrun mode"
-	else:
-		quit.text = "Quitter"
-		niv_bonus_1.text = "niv bonus"
-		titre_monde_1.text = "-monde 1"
-		titre_monde_2.text = "-monde 2"
-		label_speedrun.text = "mode speedrun"
 
 #bouton niv
 func _on_niv_1_pressed() -> void:

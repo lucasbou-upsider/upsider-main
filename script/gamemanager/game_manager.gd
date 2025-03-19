@@ -27,7 +27,7 @@ var mode_capacite = false
 var skin_player = 1
 
 #player débloqué
-var skin_debloquer: Array = [1, 4, 3]
+var skin_debloquer: Array = [1]
 
 #capacité tp position
 var tp_position = 0

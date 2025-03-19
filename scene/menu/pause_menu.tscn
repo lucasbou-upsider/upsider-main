@@ -97,7 +97,7 @@ offset_right = 54.0
 offset_bottom = 36.0
 color = Color(0.372549, 0.372549, 0.372549, 0.764706)
 
-[node name="Label" type="Label" parent="confirmation"]
+[node name="Label_confirmation" type="Label" parent="confirmation"]
 layout_mode = 0
 offset_left = -75.0
 offset_top = -21.0
@@ -108,11 +108,13 @@ theme_override_font_sizes/font_size = 8
 text = "Etes-vous sur de vouloir quitter ?"
 
 [node name="BoxContainer" type="BoxContainer" parent="confirmation"]
+clip_contents = true
 layout_mode = 0
 offset_left = -34.0
 offset_top = 4.0
 offset_right = 12.0
 offset_bottom = 22.0
+alignment = 1
 script = ExtResource("2_vag6w")
 
 [node name="oui" type="Button" parent="confirmation/BoxContainer"]

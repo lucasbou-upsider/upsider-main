@@ -2,9 +2,7 @@ extends Node2D
 
 var depose_piece_bonus_possible = false
 @export var pieces_requis_bonus = 0
-@onready var particule_caisse: CPUParticles2D = $player/particule_caisse
 @onready var score_bonus: Label = $score_bonus
-@onready var menue_victoire: Control = $player/victoire
 @onready var player: script_player = $"../player"
 
 func _ready() -> void:
