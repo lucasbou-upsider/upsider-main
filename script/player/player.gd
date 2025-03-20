@@ -25,6 +25,7 @@ func _physics_process(delta: float) -> void:
 	indicateur_platforme()
 	succes()
 	capacite()
+	max_piece()
 	
 	if GameManager.player_mort == true:
 		mort()
@@ -100,6 +101,15 @@ func animate():
 				animated_sprite_2d.play("idle_meven")
 			if velocity:
 				animated_sprite_2d.play("run_meven")
+
+#piece maximum atteint
+func max_piece():
+	if GameManager.piece == GameManager.max_piece:
+		GameManager.piece_desactiver = true
+	else:
+		GameManager.piece_desactiver = false
+		
+
 
 var arret: Array = []
 

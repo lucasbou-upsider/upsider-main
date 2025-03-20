@@ -1,4 +1,4 @@
-[gd_scene load_steps=171 format=3 uid="uid://bwdbh0xgqvc0l"]
+[gd_scene load_steps=172 format=3 uid="uid://bwdbh0xgqvc0l"]
 
 [ext_resource type="Script" uid="uid://bnq17e044h40s" path="res://script/player/player.gd" id="1_60u5d"]
 [ext_resource type="Texture2D" uid="uid://2pijvm8rlt0w" path="res://sprite/player/Player_sylvan_animation.png" id="2_24ii5"]
@@ -1247,11 +1247,15 @@ tracks/0/keys = {
 "values": [Vector2(1, 1), Vector2(1.2, 1.2)]
 }
 
+[sub_resource type="Animation" id="Animation_v4iqv"]
+resource_name = "max_piece"
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_ej27r"]
 _data = {
 &"RESET": SubResource("Animation_ehq1v"),
 &"capacite_sylvan": SubResource("Animation_20p2w"),
 &"dezoom_camera": SubResource("Animation_1ea2g"),
+&"max_piece": SubResource("Animation_v4iqv"),
 &"saut": SubResource("Animation_y2p5v"),
 &"skin_base": SubResource("Animation_4ja17"),
 &"skin_meven": SubResource("Animation_bup7g"),

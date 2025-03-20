@@ -19,8 +19,18 @@ func _process(_delta: float) -> void:
 		collision_shape_2d.disabled = true
 		sprite_2d.visible = false
 		point_light_2d.visible = false
+	if GameManager.piece_desactiver == true:
+		piece_desactiver()
+	else:
+		sprite_2d.play("default")
 
+func piece_desactiver():
+	sprite_2d.play("piece_desactiver")
+	collision_shape_2d.disabled = true
 	
+
+
+
 func _on_area_2d_area_entered(_area: Area2D) -> void:
 	cpu_particles_2d.emitting = true
 	GameManager.platforme = GameManager.max_platforme

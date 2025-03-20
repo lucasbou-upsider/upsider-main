@@ -1,8 +1,9 @@
-[gd_scene load_steps=15 format=3 uid="uid://bk6d4eojfj81a"]
+[gd_scene load_steps=20 format=3 uid="uid://bk6d4eojfj81a"]
 
 [ext_resource type="Script" uid="uid://b3roju6hw3plv" path="res://script/objet/piece.gd" id="1_pevh8"]
 [ext_resource type="Texture2D" uid="uid://8lr3d1ygiwto" path="res://sprite/piece.png" id="2_3rpew"]
 [ext_resource type="Texture2D" uid="uid://bxqwxsryem6me" path="res://2d_lights_and_shadows_neutral_point_light.webp" id="3_5l77b"]
+[ext_resource type="Texture2D" uid="uid://bg3g442qkxwag" path="res://sprite/piece_desactiver.png" id="3_bf23w"]
 [ext_resource type="AudioStream" uid="uid://ci7ttjdglkbg5" path="res://son/piece.wav" id="4_antl0"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_e2b6l"]
@@ -19,6 +20,22 @@ region = Rect2(0, 20, 20, 20)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_xuukp"]
 atlas = ExtResource("2_3rpew")
+region = Rect2(20, 20, 20, 20)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1ql48"]
+atlas = ExtResource("3_bf23w")
+region = Rect2(0, 0, 20, 20)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bkta0"]
+atlas = ExtResource("3_bf23w")
+region = Rect2(20, 0, 20, 20)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qleym"]
+atlas = ExtResource("3_bf23w")
+region = Rect2(0, 20, 20, 20)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_53unc"]
+atlas = ExtResource("3_bf23w")
 region = Rect2(20, 20, 20, 20)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_4vs35"]
@@ -38,6 +55,23 @@ animations = [{
 }],
 "loop": true,
 "name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1ql48")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bkta0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qleym")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_53unc")
+}],
+"loop": true,
+"name": &"piece_desactiver",
 "speed": 5.0
 }]
 
@@ -94,12 +128,11 @@ script = ExtResource("1_pevh8")
 position = Vector2(-1.5, -1)
 scale = Vector2(3, 3)
 sprite_frames = SubResource("SpriteFrames_4vs35")
-autoplay = "default"
-frame_progress = 0.728486
+frame_progress = 0.615655
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
-"": SubResource("AnimationLibrary_d40ns")
+&"": SubResource("AnimationLibrary_d40ns")
 }
 autoplay = "default"
 

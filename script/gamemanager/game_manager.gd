@@ -7,6 +7,8 @@ var platforme = 3
 var max_platforme = 3
 #nombre de piece
 var piece = 0
+var max_piece = 3
+var piece_desactiver = false
 #nombre de piece déposé dans la boite
 var piece_depose = 0
 var piece_bonus_depose = 0
@@ -27,7 +29,7 @@ var mode_capacite = false
 var skin_player = 1
 
 #player débloqué
-var skin_debloquer: Array = [1]
+var skin_debloquer: Array = [1, 4, 3]
 
 #capacité tp position
 var tp_position = 0
