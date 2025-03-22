@@ -11,7 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://dubo3is7cwgrx" path="res://sprite/player/player nerd.png" id="7_o1l6f"]
 [ext_resource type="Texture2D" uid="uid://cook8lejs67ic" path="res://sprite/player/Player_meven.png" id="7_wvotf"]
 [ext_resource type="Script" uid="uid://bljpw74iqvgll" path="res://script/skin.gd" id="8_hauyy"]
-[ext_resource type="Texture2D" uid="uid://pk3lrjxi0eug" path="res://sprite/player/Player_sylvan.png" id="10_o8p4e"]
+[ext_resource type="Texture2D" uid="uid://pk3lrjxi0eug" path="res://sprite/player/sylvan/Player_sylvan.png" id="10_o8p4e"]
 [ext_resource type="AudioStream" uid="uid://b4e8jpehvai7r" path="res://son/bouton_selection_out.wav" id="11_3s2x0"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_dppo1"]

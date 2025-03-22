@@ -32,14 +32,15 @@ func piece_desactiver():
 
 
 func _on_area_2d_area_entered(_area: Area2D) -> void:
-	cpu_particles_2d.emitting = true
-	GameManager.platforme = GameManager.max_platforme
-	GameManager.piece += 1
-	piece_collecte = true
-	GameManager.derniere_piece = position
-	son.play()
-	await get_tree().create_timer(1).timeout
-	son.stop()
+	if _area.get_parent() is script_player:
+		cpu_particles_2d.emitting = true
+		GameManager.platforme = GameManager.max_platforme
+		GameManager.piece += 1
+		piece_collecte = true
+		GameManager.derniere_piece = position
+		son.play()
+		await get_tree().create_timer(1).timeout
+		son.stop()
 
 #signal mort
 func _on_niv_1_mort() -> void:

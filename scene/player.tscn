@@ -1,18 +1,18 @@
 [gd_scene load_steps=172 format=3 uid="uid://bwdbh0xgqvc0l"]
 
 [ext_resource type="Script" uid="uid://bnq17e044h40s" path="res://script/player/player.gd" id="1_60u5d"]
-[ext_resource type="Texture2D" uid="uid://2pijvm8rlt0w" path="res://sprite/player/Player_sylvan_animation.png" id="2_24ii5"]
+[ext_resource type="Texture2D" uid="uid://2pijvm8rlt0w" path="res://sprite/player/sylvan/Player_sylvan_animation.png" id="2_24ii5"]
 [ext_resource type="Texture2D" uid="uid://dvjfysf6d4eq0" path="res://sprite/player/Player_base.png" id="2_wmrmh"]
 [ext_resource type="Texture2D" uid="uid://dubo3is7cwgrx" path="res://sprite/player/player nerd.png" id="3_jhmi8"]
 [ext_resource type="FontFile" uid="uid://c6drrdopvgm8h" path="res://BabaMediumPixels.ttf" id="4_2bqdh"]
 [ext_resource type="Script" uid="uid://d0l2ydrbwq4ot" path="res://scene/player_camera.gd" id="4_3qob2"]
-[ext_resource type="Texture2D" uid="uid://pk3lrjxi0eug" path="res://sprite/player/Player_sylvan.png" id="4_6yuhu"]
+[ext_resource type="Texture2D" uid="uid://pk3lrjxi0eug" path="res://sprite/player/sylvan/Player_sylvan.png" id="4_6yuhu"]
 [ext_resource type="Texture2D" uid="uid://cook8lejs67ic" path="res://sprite/player/Player_meven.png" id="4_bup7g"]
 [ext_resource type="Texture2D" uid="uid://bcuukfqr2ofha" path="res://sprite/Paper-Pixels-8x8/symbol platforme.png" id="5_5f03j"]
 [ext_resource type="Texture2D" uid="uid://bwjriimu4oh26" path="res://random_selection.png" id="5_dtlq7"]
-[ext_resource type="Texture2D" uid="uid://coh2uwrl6uqfk" path="res://sprite/player/Player_sylvan_sans_bambou.png" id="5_ksury"]
+[ext_resource type="Texture2D" uid="uid://coh2uwrl6uqfk" path="res://sprite/player/sylvan/Player_sylvan_sans_bambou.png" id="5_ksury"]
 [ext_resource type="AudioStream" uid="uid://cbi60t6gha1j4" path="res://son/mort.wav" id="7_j0yp8"]
-[ext_resource type="Texture2D" uid="uid://bvrdi5wod6qs4" path="res://sprite/player/Player_sylvan_animation_rattrapage.png" id="7_lpsgk"]
+[ext_resource type="Texture2D" uid="uid://bvrdi5wod6qs4" path="res://sprite/player/sylvan/Player_sylvan_animation_rattrapage.png" id="7_lpsgk"]
 [ext_resource type="AudioStream" uid="uid://bsbk85lcag27m" path="res://son/piece depo.wav" id="8_iso8g"]
 [ext_resource type="AudioStream" uid="uid://dokws4kt3m11n" path="res://son/perso_deblock_out.wav" id="9_2mmv3"]
 [ext_resource type="PackedScene" uid="uid://6gigug1p64xe" path="res://scene/menu/speedrun.tscn" id="14_vw1f8"]
@@ -1090,6 +1090,9 @@ tracks/0/keys = {
 "values": [Vector2(1.2, 1.2), Vector2(1, 1)]
 }
 
+[sub_resource type="Animation" id="Animation_v4iqv"]
+resource_name = "max_piece"
+
 [sub_resource type="Animation" id="Animation_y2p5v"]
 resource_name = "saut"
 tracks/0/type = "value"
@@ -1246,9 +1249,6 @@ tracks/0/keys = {
 "update": 0,
 "values": [Vector2(1, 1), Vector2(1.2, 1.2)]
 }
-
-[sub_resource type="Animation" id="Animation_v4iqv"]
-resource_name = "max_piece"
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_ej27r"]
 _data = {

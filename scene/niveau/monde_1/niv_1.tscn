@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=4 uid="uid://r8vvo4bu8xev"]
+[gd_scene load_steps=22 format=4 uid="uid://r8vvo4bu8xev"]
 
 [ext_resource type="Script" uid="uid://c00fhjeexjfcg" path="res://script/niv.gd" id="1_p7d1h"]
 [ext_resource type="Texture2D" uid="uid://caw430pts8h8p" path="res://sprite/Paper-Pixels-8x8/Tiles.png" id="2_pifg2"]
@@ -14,6 +14,7 @@
 [ext_resource type="Texture2D" uid="uid://bxqwxsryem6me" path="res://2d_lights_and_shadows_neutral_point_light.webp" id="12_m3xyl"]
 [ext_resource type="PackedScene" uid="uid://qdnj4dtpxum2" path="res://scene/upside/upside.tscn" id="13_16l46"]
 [ext_resource type="PackedScene" uid="uid://chgqeva33t1cy" path="res://scene/pieges/lance_lumière.tscn" id="13_shsn3"]
+[ext_resource type="PackedScene" uid="uid://chx4g7b47dma1" path="res://scene/objets/faux_sylvan.tscn" id="15_bsf8u"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_16l46"]
 
@@ -1545,6 +1546,7 @@ piece_requis = 3
 
 [node name="Parallax2D" type="Parallax2D" parent="."]
 scroll_scale = Vector2(0.85, 0.85)
+metadata/_edit_lock_ = true
 
 [node name="background" type="TileMapLayer" parent="Parallax2D"]
 position = Vector2(-1771, -246)
@@ -1605,6 +1607,9 @@ position = Vector2(968, 7)
 position = Vector2(389, 121)
 scale = Vector2(3.8125, 4.59375)
 texture = ExtResource("5_845aa")
+
+[node name="faux_sylvan" parent="." instance=ExtResource("15_bsf8u")]
+position = Vector2(2676, 333)
 
 [node name="sol" type="TileMapLayer" parent="."]
 position = Vector2(-1771, -246)

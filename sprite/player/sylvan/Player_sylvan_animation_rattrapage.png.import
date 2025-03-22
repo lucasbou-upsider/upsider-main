@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://coh2uwrl6uqfk"
-path="res://.godot/imported/Player_sylvan_sans_bambou.png-b2a196b59bc829959376a39c692dd10d.ctex"
+uid="uid://bvrdi5wod6qs4"
+path="res://.godot/imported/Player_sylvan_animation_rattrapage.png-ef1522ef7bfe61a2b184246872b9fe07.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprite/player/Player_sylvan_sans_bambou.png"
-dest_files=["res://.godot/imported/Player_sylvan_sans_bambou.png-b2a196b59bc829959376a39c692dd10d.ctex"]
+source_file="res://sprite/player/sylvan/Player_sylvan_animation_rattrapage.png"
+dest_files=["res://.godot/imported/Player_sylvan_animation_rattrapage.png-ef1522ef7bfe61a2b184246872b9fe07.ctex"]
 
 [params]
 

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://pk3lrjxi0eug"
-path="res://.godot/imported/Player_sylvan.png-13385e8de007ed0d0dfc3d5cd5f4659c.ctex"
+uid="uid://c15286hr3w1ic"
+path="res://.godot/imported/Player_sylvan_animation_fuite.png-30ee77098aa1453558d38c179018dfe4.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprite/player/Player_sylvan.png"
-dest_files=["res://.godot/imported/Player_sylvan.png-13385e8de007ed0d0dfc3d5cd5f4659c.ctex"]
+source_file="res://sprite/player/sylvan/Player_sylvan_animation_fuite.png"
+dest_files=["res://.godot/imported/Player_sylvan_animation_fuite.png-30ee77098aa1453558d38c179018dfe4.ctex"]
 
 [params]
 

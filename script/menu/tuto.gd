@@ -4,7 +4,7 @@ extends Control
 @onready var label_2: Label = $Label2
 @onready var label_3: Label = $Label3
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	if GameManager.language == "EN":
 		label.text = "Left-click to place a platform
 						(you only have 3 platforms!)"
