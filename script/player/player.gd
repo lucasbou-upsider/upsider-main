@@ -70,6 +70,7 @@ func animate():
 	
 	if GameManager.skin_player == 1:
 		GameManager.max_platforme = 3
+		GameManager.max_piece = 3
 		if GameManager.paused == false and GameManager.menue_victoire == false:
 			if !velocity:
 				animated_sprite_2d.play("idle")
@@ -78,6 +79,7 @@ func animate():
 
 	if GameManager.skin_player == 2:
 		GameManager.max_platforme = 3
+		GameManager.max_piece = 3
 		if GameManager.paused == false and GameManager.menue_victoire == false:
 			if !velocity:
 				animated_sprite_2d.play("idle_nerd")
@@ -86,6 +88,7 @@ func animate():
 
 	if GameManager.skin_player == 3:
 		GameManager.max_platforme = 3
+		GameManager.max_piece = 3
 		if GameManager.paused == false and GameManager.menue_victoire == false:
 			if GameManager.tp_pose == 1:
 				if !velocity:
@@ -101,6 +104,7 @@ func animate():
 	if GameManager.skin_player == 4:
 		animation_player.play("skin_meven")
 		GameManager.max_platforme = 2
+		GameManager.max_piece = 2
 		if GameManager.piece_desactiver == false:
 			JUMP_VELOCITY = -450.0
 			SPEED = 400.0
@@ -120,7 +124,7 @@ func max_piece():
 		GameManager.piece_desactiver = false
 		animation_maxpiece.play("RESET")
 		if GameManager.skin_player != 4:
-			SPEED = 300
+			SPEED = 350
 
 
 var arret: Array = []
