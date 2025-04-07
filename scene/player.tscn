@@ -1,4 +1,4 @@
-[gd_scene load_steps=172 format=3 uid="uid://bwdbh0xgqvc0l"]
+[gd_scene load_steps=175 format=3 uid="uid://bwdbh0xgqvc0l"]
 
 [ext_resource type="Script" uid="uid://bnq17e044h40s" path="res://script/player/player.gd" id="1_60u5d"]
 [ext_resource type="Texture2D" uid="uid://2pijvm8rlt0w" path="res://sprite/player/sylvan/Player_sylvan_animation.png" id="2_24ii5"]
@@ -1068,10 +1068,10 @@ tracks/0/path = NodePath("Player_camera:zoom")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.666667, 2.5, 3),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
+"times": PackedFloat32Array(0.666667, 2.5, 3),
+"transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
-"values": [Vector2(1.2, 1.2), Vector2(3, 3), Vector2(3, 3), Vector2(1, 1)]
+"values": [Vector2(3, 3), Vector2(3, 3), Vector2(1.2, 1.2)]
 }
 
 [sub_resource type="Animation" id="Animation_1ea2g"]
@@ -1260,6 +1260,116 @@ _data = {
 &"skin_base": SubResource("Animation_4ja17"),
 &"skin_meven": SubResource("Animation_bup7g"),
 &"zoom_camera": SubResource("Animation_jefrv")
+}
+
+[sub_resource type="Animation" id="Animation_iuf2t"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("maxpiece/ColorRectmaxpiece:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("maxpiece/Label:theme_override_colors/font_color")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 0, 0, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("maxpiece/Label:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("maxpiece/Label:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_42h83"]
+resource_name = "max_piece"
+length = 1.5
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("maxpiece/ColorRectmaxpiece:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.733333, 1.46667),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(0.788235, 0.247059, 0.113725, 0.0823529), Color(1, 1, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("maxpiece/Label:theme_override_colors/font_color")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.0333333, 0.733333, 1.46667),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 0, 0, 0.443137), Color(1, 0, 0, 0.945098), Color(1, 0, 0, 0.443137)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("maxpiece/Label:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.73, 1.46667),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0.0, 0.00872665, 0.0]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("maxpiece/Label:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_iuf2t"]
+_data = {
+&"RESET": SubResource("Animation_iuf2t"),
+&"max_piece": SubResource("Animation_42h83")
 }
 
 [sub_resource type="Curve" id="Curve_msi70"]
@@ -1754,7 +1864,7 @@ _data = {
 }
 
 [node name="CharacterBody2D" type="CharacterBody2D"]
-position = Vector2(4.76837e-07, -7.10543e-15)
+position = Vector2(4, 1)
 scale = Vector2(5, 5)
 collision_layer = 3
 collision_mask = 3
@@ -1776,6 +1886,32 @@ frame_progress = 0.808964
 libraries = {
 &"": SubResource("AnimationLibrary_ej27r")
 }
+
+[node name="maxpiece" type="CanvasLayer" parent="."]
+layer = 0
+
+[node name="ColorRectmaxpiece" type="ColorRect" parent="maxpiece"]
+offset_left = -124.0
+offset_top = -65.0
+offset_right = 1232.0
+offset_bottom = 720.0
+color = Color(1, 1, 1, 0)
+
+[node name="Animation_maxpiece" type="AnimationPlayer" parent="maxpiece"]
+root_node = NodePath("../..")
+libraries = {
+&"": SubResource("AnimationLibrary_iuf2t")
+}
+
+[node name="Label" type="Label" parent="maxpiece"]
+visible = false
+offset_left = 437.0
+offset_top = 13.0
+offset_right = 727.0
+offset_bottom = 36.0
+theme_override_colors/font_color = Color(1, 0, 0, 0)
+theme_override_fonts/font = ExtResource("4_2bqdh")
+text = "Aller déposer vos piece dans la boite !"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-1.19209e-07, 1.42109e-15)
@@ -1848,10 +1984,10 @@ one_shot = true
 
 [node name="Label" type="Label" parent="UI_debloquage"]
 visible = false
-offset_left = 414.0
-offset_top = -78.0
-offset_right = 662.0
-offset_bottom = -35.0
+offset_left = 400.0
+offset_top = -51.0
+offset_right = 648.0
+offset_bottom = -8.0
 scale = Vector2(1.5, 1.5)
 theme_override_colors/font_color = Color(1, 0.943532, 0.866336, 1)
 theme_override_fonts/font = ExtResource("4_2bqdh")

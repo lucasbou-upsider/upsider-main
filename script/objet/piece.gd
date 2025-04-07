@@ -23,11 +23,11 @@ func _process(_delta: float) -> void:
 		piece_desactiver()
 	else:
 		sprite_2d.play("default")
+		collision_shape_2d.disabled = false
 
 func piece_desactiver():
 	sprite_2d.play("piece_desactiver")
 	collision_shape_2d.disabled = true
-	
 
 
 

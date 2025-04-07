@@ -8,6 +8,7 @@ var nouv = false
 var can_jump = false
 var coyote_time = 0.3
 var zoom = false
+var nombre_zoom_camera := Vector2(0,0)
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 @onready var nouv_player: AnimationPlayer = $UI_debloquage/AnimationPlayer
 @onready var animationplatforme: AnimationPlayer = $platforme/Animationplatforme
@@ -15,6 +16,8 @@ var zoom = false
 @onready var pose_piece: AudioStreamPlayer = $son/pose_piece
 @onready var particule_mort: CPUParticles2D = $particule_mort
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
+@onready var player_camera: Camera2D = $Player_camera
+@onready var animation_maxpiece: AnimationPlayer = $maxpiece/Animation_maxpiece
 var crane = preload("res://scene/objets/crane.tscn")
 
 
@@ -26,6 +29,7 @@ func _physics_process(delta: float) -> void:
 	succes()
 	capacite()
 	max_piece()
+	
 	
 	if GameManager.player_mort == true:
 		mort()
@@ -65,6 +69,7 @@ func animate():
 			animated_sprite_2d.flip_h = false
 	
 	if GameManager.skin_player == 1:
+		GameManager.max_platforme = 3
 		if GameManager.paused == false and GameManager.menue_victoire == false:
 			if !velocity:
 				animated_sprite_2d.play("idle")
@@ -72,6 +77,7 @@ func animate():
 				animated_sprite_2d.play("run")
 
 	if GameManager.skin_player == 2:
+		GameManager.max_platforme = 3
 		if GameManager.paused == false and GameManager.menue_victoire == false:
 			if !velocity:
 				animated_sprite_2d.play("idle_nerd")
@@ -79,6 +85,7 @@ func animate():
 				animated_sprite_2d.play("run_nerd")
 
 	if GameManager.skin_player == 3:
+		GameManager.max_platforme = 3
 		if GameManager.paused == false and GameManager.menue_victoire == false:
 			if GameManager.tp_pose == 1:
 				if !velocity:
@@ -94,8 +101,9 @@ func animate():
 	if GameManager.skin_player == 4:
 		animation_player.play("skin_meven")
 		GameManager.max_platforme = 2
-		JUMP_VELOCITY = -450.0
-		SPEED = 400.0
+		if GameManager.piece_desactiver == false:
+			JUMP_VELOCITY = -450.0
+			SPEED = 400.0
 		if GameManager.paused == false and GameManager.menue_victoire == false:
 			if !velocity:
 				animated_sprite_2d.play("idle_meven")
@@ -106,9 +114,13 @@ func animate():
 func max_piece():
 	if GameManager.piece == GameManager.max_piece:
 		GameManager.piece_desactiver = true
+		animation_maxpiece.play("max_piece")
+		SPEED = 250
 	else:
 		GameManager.piece_desactiver = false
-		
+		animation_maxpiece.play("RESET")
+		if GameManager.skin_player != 4:
+			SPEED = 300
 
 
 var arret: Array = []
@@ -130,6 +142,11 @@ func debloquage():
 #ui platforme
 func indicateur_platforme():
 	animationplatforme.play(str(GameManager.platforme))
+
+func camera():
+	nombre_zoom_camera = player_camera.zoom
+
+
 
 #son quand une piece est posé
 func son_pose_piece():
