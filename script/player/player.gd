@@ -43,6 +43,7 @@ func _physics_process(delta: float) -> void:
 		$jump_timer.start(coyote_time)
 		
 	if GameManager.paused == false:
+		
 		if Input.is_action_just_released("saut") and velocity.y < 0:
 			velocity.y = JUMP_VELOCITY / 4
 
@@ -55,8 +56,10 @@ func _physics_process(delta: float) -> void:
 			velocity.x = direction * SPEED
 		else:
 			velocity.x = move_toward(velocity.x, 0, SPEED)
-
-		move_and_slide()
+	else:
+		velocity.x = 0
+	
+	move_and_slide()
 
 
 
@@ -162,6 +165,7 @@ func son_pose_piece():
 func mort():
 #	var crane_inst = crane.instantiate()
 #	add_child(crane_inst)
+	GameManager.paused = true
 	particule_mort.emitting = true
 	position = GameManager.derniere_piece
 	GameManager.platforme = GameManager.max_platforme
@@ -174,7 +178,9 @@ func mort():
 		#succes()
 		debloquage()
 	son_mort.play()
-	await get_tree().create_timer(1).timeout
+	await get_tree().create_timer(0.3).timeout
+	GameManager.paused = false
+	await get_tree().create_timer(0.7).timeout
 	son_mort.stop()
 
 var zoom_effectué = false

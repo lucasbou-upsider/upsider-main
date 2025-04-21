@@ -57,6 +57,9 @@ var camera_shake = false
 #niv bonus débloqué
 var niv_bonus_1_debloque = false
 
+#tuto
+var tuto_fini = false
+
 func _ready() -> void:
 	if skin_debloquer.has(2):
 		print("nop")

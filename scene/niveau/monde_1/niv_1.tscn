@@ -1561,6 +1561,30 @@ offset_right = 40.0
 offset_bottom = 40.0
 script = ExtResource("3_i0ina")
 
+[node name="tuto" type="CanvasLayer" parent="tuto"]
+visible = false
+
+[node name="ColorRect2" type="ColorRect" parent="tuto/tuto"]
+offset_left = -33.0
+offset_top = -14.0
+offset_right = 1195.0
+offset_bottom = 679.0
+color = Color(0.509286, 0.509286, 0.509286, 0.168627)
+
+[node name="PointLight2D" type="PointLight2D" parent="tuto/tuto"]
+position = Vector2(1098, 624)
+color = Color(1, 1, 1, 0.403922)
+texture = ExtResource("12_m3xyl")
+
+[node name="Label" type="Label" parent="tuto/tuto"]
+offset_left = 180.0
+offset_top = 28.0
+offset_right = 1008.0
+offset_bottom = 65.0
+theme_override_fonts/font = ExtResource("3_jvuj0")
+theme_override_font_sizes/font_size = 29
+text = "le nombre de platforme restante est affiché en bas a droite "
+
 [node name="Label" type="Label" parent="tuto"]
 layout_mode = 0
 offset_left = 495.0
@@ -1611,6 +1635,12 @@ texture = ExtResource("5_845aa")
 [node name="faux_sylvan" parent="." instance=ExtResource("15_bsf8u")]
 position = Vector2(2676, 333)
 
+[node name="faux_sylvan2" parent="." instance=ExtResource("15_bsf8u")]
+position = Vector2(1992, 409)
+
+[node name="faux_sylvan3" parent="." instance=ExtResource("15_bsf8u")]
+position = Vector2(1232, 255)
+
 [node name="sol" type="TileMapLayer" parent="."]
 position = Vector2(-1771, -246)
 scale = Vector2(5, 5)
@@ -1624,7 +1654,7 @@ tile_map_data = PackedByteArray("AABHAAkAAQABAAwAAABHAAoAAQABAA0AAABHAAsAAQABAA4
 tile_set = SubResource("TileSet_wl8ji")
 
 [node name="player" parent="." instance=ExtResource("6_7sdk4")]
-position = Vector2(460, 156)
+position = Vector2(457, 168)
 
 [node name="pause_menu" parent="player" instance=ExtResource("7_c1cq8")]
 visible = false
@@ -1692,7 +1722,7 @@ shadow_enabled = true
 texture = ExtResource("12_m3xyl")
 
 [node name="spawn" type="Marker2D" parent="."]
-position = Vector2(461, 156)
+position = Vector2(457, 168)
 
 [node name="particule" type="Node2D" parent="."]
 
