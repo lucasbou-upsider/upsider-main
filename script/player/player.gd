@@ -1,7 +1,7 @@
 extends CharacterBody2D
 class_name script_player
 
-var SPEED = 300.0
+var SPEED = 250.0
 var JUMP_VELOCITY = -400.0
 
 var nouv = false
@@ -28,7 +28,7 @@ func _physics_process(delta: float) -> void:
 	indicateur_platforme()
 	succes()
 	capacite()
-	max_piece()
+	#max_piece()
 	
 	
 	if GameManager.player_mort == true:
