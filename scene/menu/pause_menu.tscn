@@ -1,18 +1,18 @@
-[gd_scene load_steps=4 format=3 uid="uid://mmxfpe4nahxg"]
+[gd_scene format=3 uid="uid://mmxfpe4nahxg"]
 
 [ext_resource type="Script" uid="uid://cknrwswygjvxc" path="res://script/menu/pause_menu.gd" id="1_to0sn"]
 [ext_resource type="FontFile" uid="uid://c6drrdopvgm8h" path="res://BabaMediumPixels.ttf" id="1_usgfj"]
 [ext_resource type="Script" uid="uid://bppaapt00u4i" path="res://script/button.gd" id="2_vag6w"]
 
-[node name="pause_menu" type="CanvasLayer"]
+[node name="pause_menu" type="CanvasLayer" unique_id=31542306]
 script = ExtResource("1_to0sn")
 
-[node name="ColorRect" type="ColorRect" parent="."]
+[node name="ColorRect" type="ColorRect" parent="." unique_id=100601461]
 offset_right = 1153.0
 offset_bottom = 648.0
 color = Color(0.364706, 0.364706, 0.364706, 0.317647)
 
-[node name="BoxContainer" type="BoxContainer" parent="."]
+[node name="BoxContainer" type="BoxContainer" parent="." unique_id=767082816]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -30,13 +30,13 @@ vertical = true
 script = ExtResource("2_vag6w")
 intensity = -1.3
 
-[node name="menu" type="Button" parent="BoxContainer"]
+[node name="menu" type="Button" parent="BoxContainer" unique_id=895771178]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("1_usgfj")
 theme_override_font_sizes/font_size = 21
 text = "Retour au menu"
 
-[node name="BoxContainer2" type="BoxContainer" parent="."]
+[node name="BoxContainer2" type="BoxContainer" parent="." unique_id=41948376]
 offset_left = 418.0
 offset_top = 373.0
 offset_right = 550.0
@@ -47,13 +47,13 @@ vertical = true
 script = ExtResource("2_vag6w")
 intensity = -1.3
 
-[node name="quitter" type="Button" parent="BoxContainer2"]
+[node name="quitter" type="Button" parent="BoxContainer2" unique_id=299073083]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("1_usgfj")
 theme_override_font_sizes/font_size = 15
 text = "Quitter"
 
-[node name="Label" type="Label" parent="."]
+[node name="Label" type="Label" parent="." unique_id=520851556]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -70,7 +70,7 @@ theme_override_fonts/font = ExtResource("1_usgfj")
 theme_override_font_sizes/font_size = 500
 text = "UPSIDER"
 
-[node name="mort" type="Label" parent="."]
+[node name="mort" type="Label" parent="." unique_id=652260895]
 offset_left = 464.0
 offset_top = 140.0
 offset_right = 701.0
@@ -80,7 +80,7 @@ theme_override_fonts/font = ExtResource("1_usgfj")
 theme_override_font_sizes/font_size = 25
 text = "nombre de mort : 0"
 
-[node name="confirmation" type="Control" parent="."]
+[node name="confirmation" type="Control" parent="." unique_id=1545845951]
 layout_mode = 3
 anchors_preset = 0
 offset_left = 640.0
@@ -89,7 +89,7 @@ offset_right = 680.0
 offset_bottom = 365.0
 scale = Vector2(5, 5)
 
-[node name="ColorRect" type="ColorRect" parent="confirmation"]
+[node name="ColorRect" type="ColorRect" parent="confirmation" unique_id=1368902234]
 layout_mode = 0
 offset_left = -78.0
 offset_top = -34.0
@@ -97,7 +97,7 @@ offset_right = 54.0
 offset_bottom = 36.0
 color = Color(0.372549, 0.372549, 0.372549, 0.764706)
 
-[node name="Label_confirmation" type="Label" parent="confirmation"]
+[node name="Label_confirmation" type="Label" parent="confirmation" unique_id=887424167]
 layout_mode = 0
 offset_left = -75.0
 offset_top = -21.0
@@ -107,7 +107,7 @@ theme_override_fonts/font = ExtResource("1_usgfj")
 theme_override_font_sizes/font_size = 8
 text = "Etes-vous sur de vouloir quitter ?"
 
-[node name="BoxContainer" type="BoxContainer" parent="confirmation"]
+[node name="BoxContainer" type="BoxContainer" parent="confirmation" unique_id=75289453]
 clip_contents = true
 layout_mode = 0
 offset_left = -34.0
@@ -117,13 +117,13 @@ offset_bottom = 22.0
 alignment = 1
 script = ExtResource("2_vag6w")
 
-[node name="oui" type="Button" parent="confirmation/BoxContainer"]
+[node name="oui" type="Button" parent="confirmation/BoxContainer" unique_id=968010383]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("1_usgfj")
 theme_override_font_sizes/font_size = 8
 text = "Oui"
 
-[node name="non" type="Button" parent="confirmation/BoxContainer"]
+[node name="non" type="Button" parent="confirmation/BoxContainer" unique_id=962754370]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("1_usgfj")
 theme_override_font_sizes/font_size = 8

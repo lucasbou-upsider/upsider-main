@@ -49,10 +49,10 @@ func _ready() -> void:
 	MusicController.play_music("menu")#lance la musique
 	if GameManager.mort == 0:
 		mort.visible = false
-	#mode admin
-	if mode_admin == true:
-		var mode_admine_niv_debloque: Array = [1.0, 2.0, 3.0, 4.0, 5.0, 6.0, 7.0, 8.0, 9.0, 1.1]
-		GameManager.niv_fini.append_array(mode_admine_niv_debloque)
+	##mode admin
+	#if mode_admin == true:
+		#var mode_admine_niv_debloque: Array = [1.0, 2.0, 3.0, 4.0, 5.0, 6.0, 7.0, 8.0, 9.0, 1.1]
+		#GameManager.niv_fini.append_array(mode_admine_niv_debloque)
 
 	#etoile de fin de niv
 	if GameManager.niv_fini.has(1.0) == true:
@@ -124,8 +124,8 @@ func _ready() -> void:
 	
 
 
-	if GameManager.niv_bonus_1_debloque == true or mode_admin == true:
-		niv_bonus_1.visible = true
+	##if GameManager.niv_bonus_1_debloque == true or mode_admin == true:
+		#niv_bonus_1.visible = true
 
 	#traduction text comteur de levier et de mort 
 	if GameManager.language == "EN":
@@ -204,7 +204,7 @@ func _on_niv_bonus_1_pressed() -> void:
 	bouton()
 	get_tree().change_scene_to_file("res://scene/niveau/monde_1/niv_bonus_1.tscn")
 func _on_quit_button_down() -> void:
-	get_tree().quit()
+	GameManager.quit_game()
 func _on_quit_2_pressed() -> void:
 	get_tree().change_scene_to_file("res://scene/menu/menu_2.tscn")
 func _on_button_succes_pressed() -> void:
@@ -216,8 +216,16 @@ func bouton():
 
 
 func _on_check_button_toggled(_toggled_on: bool) -> void:
+	
 	if GameManager.mode_speedrun == false:
 		GameManager.mode_speedrun = true
 	elif GameManager.mode_speedrun == true:
 		GameManager.mode_speedrun = false
 	print(GameManager.mode_speedrun)
+
+@onready var roadmap_liste: Label = $Roadmap/Roadmap_liste
+func _on_roadmap_button_pressed() -> void:
+	if roadmap_liste.visible == false:
+		roadmap_liste.visible = true
+	else:
+		roadmap_liste.visible = false

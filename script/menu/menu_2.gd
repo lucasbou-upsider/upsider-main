@@ -29,7 +29,7 @@ func _on_jouer_pressed() -> void:
 
 func _on_quit_pressed() -> void:
 	$AudioStreamPlayer.play()
-	get_tree().quit()
+	GameManager.quit_game()
 
 
 func _on_credits_pressed() -> void:
@@ -42,3 +42,21 @@ func _on_language_pressed() -> void:
 		GameManager.language = "FR"
 	elif GameManager.language == "FR":
 		GameManager.language = "EN"
+
+#supprimer le fichier de sauvegarde
+func _on_delete_file_pressed() -> void:
+	var dir := DirAccess.open("user://")
+	if dir == null:
+		push_error("Impossible d'ouvrir le dossier")
+		return
+
+	if dir.file_exists("user://SaveFile.json"):
+		var err = dir.remove("user://SaveFile.json")
+		##!!!!!remettre les var à zero!!!!!##
+		GameManager.skin_debloquer = [1]
+		GameManager.niv_fini = []
+		print(err)
+		if err != OK:
+			push_error("Erreur lors de la suppression : %s" % err)
+	else:
+		print("Le fichier n'existe pas :", "user://SaveFile.json")

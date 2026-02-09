@@ -29,7 +29,7 @@ var mode_capacite = false
 var skin_player = 1
 
 #player débloqué
-var skin_debloquer: Array = [1, 4, 3]
+var skin_debloquer: Array = [1]
 var quete_sylvan := 0
 
 #capacité tp position
@@ -61,8 +61,9 @@ var niv_bonus_1_debloque = false
 var tuto_fini = false
 
 func _ready() -> void:
-	if skin_debloquer.has(2):
-		print("nop")
+	SaveLoad._load()
+	skin_debloquer = SaveLoad.content_to_save.skin_unlock
+	niv_fini = SaveLoad.content_to_save.niv_unlock
 
 func _process(_delta: float) -> void:
 	pass
@@ -71,3 +72,8 @@ func debloque(debloque_niv):
 	if debloque_niv == 1.1:
 		niv_bonus_1_debloque = true
 		
+func quit_game():
+	SaveLoad.content_to_save.skin_unlock = skin_debloquer
+	SaveLoad.content_to_save.niv_unlock = niv_fini
+	SaveLoad._save()
+	get_tree().quit()

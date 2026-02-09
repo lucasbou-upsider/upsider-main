@@ -16,10 +16,14 @@ var nombre_zoom_camera := Vector2(0,0)
 @onready var pose_piece: AudioStreamPlayer = $son/pose_piece
 @onready var particule_mort: CPUParticles2D = $particule_mort
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
-@onready var player_camera: Camera2D = $Player_camera
+@onready var player_camera: Camera2D = $"../Player_camera"
 @onready var animation_maxpiece: AnimationPlayer = $maxpiece/Animation_maxpiece
 var crane = preload("res://scene/objets/crane.tscn")
+@onready var jump_timer: Timer = $jump_timer
+@onready var jump_buffering_timer: Timer = $jump_buffering_timer
 
+var gravity = 800
+var fall_gravity = 900
 
 func _physics_process(delta: float) -> void:
 
@@ -35,18 +39,26 @@ func _physics_process(delta: float) -> void:
 		mort()
 	
 	if not is_on_floor():
-		velocity += get_gravity() * delta
-
-	if is_on_floor() and can_jump == false:
-		can_jump = true
-	elif can_jump == true and $jump_timer.is_stopped():
-		$jump_timer.start(coyote_time)
+		velocity.y += get_good_gravity() * delta
 		
 	if GameManager.paused == false:
 		
+		#coyote time
+		if is_on_floor() and can_jump == false :
+			can_jump = true
+		elif can_jump == true and jump_timer.is_stopped():
+			jump_timer.start(coyote_time)
+		
+
+		#jump buffering 
+		if Input.is_action_just_pressed("saut") and can_jump == false :
+			jump_buffering_timer.start()
+		if is_on_floor() and jump_buffering_timer.time_left != 0:
+			velocity.y = JUMP_VELOCITY 
+
+		#saut dosable
 		if Input.is_action_just_released("saut") and velocity.y < 0:
 			velocity.y = JUMP_VELOCITY / 4
-
 		if Input.is_action_just_pressed("saut") and can_jump == true:
 			can_jump = false
 			velocity.y = JUMP_VELOCITY
@@ -61,6 +73,10 @@ func _physics_process(delta: float) -> void:
 	
 	move_and_slide()
 
+func get_good_gravity():
+	if velocity.y < 0:
+		return gravity
+	return fall_gravity
 
 
 #animation
@@ -186,6 +202,7 @@ func mort():
 var zoom_effectué = false
 var gros_zoom = false
 
+#capa de sylvan
 func capacite():
 	if GameManager.skin_player == 3:
 		if Input.is_action_just_pressed("capacité") and gros_zoom == false:

@@ -1,11 +1,10 @@
-[gd_scene load_steps=175 format=3 uid="uid://bwdbh0xgqvc0l"]
+[gd_scene format=3 uid="uid://bwdbh0xgqvc0l"]
 
 [ext_resource type="Script" uid="uid://bnq17e044h40s" path="res://script/player/player.gd" id="1_60u5d"]
 [ext_resource type="Texture2D" uid="uid://2pijvm8rlt0w" path="res://sprite/player/sylvan/Player_sylvan_animation.png" id="2_24ii5"]
 [ext_resource type="Texture2D" uid="uid://dvjfysf6d4eq0" path="res://sprite/player/Player_base.png" id="2_wmrmh"]
 [ext_resource type="Texture2D" uid="uid://dubo3is7cwgrx" path="res://sprite/player/player nerd.png" id="3_jhmi8"]
 [ext_resource type="FontFile" uid="uid://c6drrdopvgm8h" path="res://BabaMediumPixels.ttf" id="4_2bqdh"]
-[ext_resource type="Script" uid="uid://d0l2ydrbwq4ot" path="res://scene/player_camera.gd" id="4_3qob2"]
 [ext_resource type="Texture2D" uid="uid://pk3lrjxi0eug" path="res://sprite/player/sylvan/Player_sylvan.png" id="4_6yuhu"]
 [ext_resource type="Texture2D" uid="uid://cook8lejs67ic" path="res://sprite/player/Player_meven.png" id="4_bup7g"]
 [ext_resource type="Texture2D" uid="uid://bcuukfqr2ofha" path="res://sprite/Paper-Pixels-8x8/symbol platforme.png" id="5_5f03j"]
@@ -976,82 +975,70 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Player_camera:zoom")
+tracks/1/path = NodePath("CollisionShape2D:shape")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(1, 1)]
+"update": 1,
+"values": [SubResource("CapsuleShape2D_r46ja")]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("CollisionShape2D:shape")
+tracks/2/path = NodePath("CollisionShape2D:position")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [SubResource("CapsuleShape2D_r46ja")]
+"update": 0,
+"values": [Vector2(-1.19209e-07, 1.42109e-15)]
 }
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("CollisionShape2D:position")
+tracks/3/path = NodePath("CollisionShape2D:scale")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(-1.19209e-07, 1.42109e-15)]
+"values": [Vector2(1, 1)]
 }
 tracks/4/type = "value"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("CollisionShape2D:scale")
+tracks/4/path = NodePath("Area2D/CollisionShape2D2:position")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(1, 1)]
+"values": [Vector2(-1.19209e-07, 0)]
 }
 tracks/5/type = "value"
 tracks/5/imported = false
 tracks/5/enabled = true
-tracks/5/path = NodePath("Area2D/CollisionShape2D2:position")
+tracks/5/path = NodePath("Area2D/CollisionShape2D2:scale")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(-1.19209e-07, 0)]
+"values": [Vector2(1, 1)]
 }
 tracks/6/type = "value"
 tracks/6/imported = false
 tracks/6/enabled = true
-tracks/6/path = NodePath("Area2D/CollisionShape2D2:scale")
+tracks/6/path = NodePath("Area2D/CollisionShape2D2:shape")
 tracks/6/interp = 1
 tracks/6/loop_wrap = true
 tracks/6/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(1, 1)]
-}
-tracks/7/type = "value"
-tracks/7/imported = false
-tracks/7/enabled = true
-tracks/7/path = NodePath("Area2D/CollisionShape2D2:shape")
-tracks/7/interp = 1
-tracks/7/loop_wrap = true
-tracks/7/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
@@ -1061,34 +1048,10 @@ tracks/7/keys = {
 [sub_resource type="Animation" id="Animation_20p2w"]
 resource_name = "capacité_sylvan"
 length = 3.0
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Player_camera:zoom")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0.666667, 2.5, 3),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [Vector2(3, 3), Vector2(3, 3), Vector2(1.2, 1.2)]
-}
 
 [sub_resource type="Animation" id="Animation_1ea2g"]
 resource_name = "dezoom_camera"
 length = 0.5
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Player_camera:zoom")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.333333),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector2(1.2, 1.2), Vector2(1, 1)]
-}
 
 [sub_resource type="Animation" id="Animation_v4iqv"]
 resource_name = "max_piece"
@@ -1237,18 +1200,6 @@ tracks/3/keys = {
 [sub_resource type="Animation" id="Animation_jefrv"]
 resource_name = "zoom_camera"
 length = 0.5
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Player_camera:zoom")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.3),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector2(1, 1), Vector2(1.2, 1.2)]
-}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_ej27r"]
 _data = {
@@ -1863,7 +1814,7 @@ _data = {
 &"RESET": SubResource("Animation_8o6b2")
 }
 
-[node name="CharacterBody2D" type="CharacterBody2D"]
+[node name="CharacterBody2D" type="CharacterBody2D" unique_id=1794513250]
 position = Vector2(4, 1)
 scale = Vector2(5, 5)
 collision_layer = 3
@@ -1871,10 +1822,10 @@ collision_mask = 3
 script = ExtResource("1_60u5d")
 metadata/_edit_group_ = true
 
-[node name="LightOccluder2D" type="LightOccluder2D" parent="."]
+[node name="LightOccluder2D" type="LightOccluder2D" parent="." unique_id=475283226]
 occluder = SubResource("OccluderPolygon2D_ithxx")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1274102381]
 position = Vector2(-9.68575e-08, 0)
 scale = Vector2(1.05, 1)
 sprite_frames = SubResource("SpriteFrames_20sw8")
@@ -1882,28 +1833,24 @@ animation = &"idle_meven"
 frame = 1
 frame_progress = 0.808964
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-libraries = {
-&"": SubResource("AnimationLibrary_ej27r")
-}
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1878166427]
+libraries/ = SubResource("AnimationLibrary_ej27r")
 
-[node name="maxpiece" type="CanvasLayer" parent="."]
+[node name="maxpiece" type="CanvasLayer" parent="." unique_id=1962341754]
 layer = 0
 
-[node name="ColorRectmaxpiece" type="ColorRect" parent="maxpiece"]
+[node name="ColorRectmaxpiece" type="ColorRect" parent="maxpiece" unique_id=945208923]
 offset_left = -124.0
 offset_top = -65.0
 offset_right = 1232.0
 offset_bottom = 720.0
 color = Color(1, 1, 1, 0)
 
-[node name="Animation_maxpiece" type="AnimationPlayer" parent="maxpiece"]
+[node name="Animation_maxpiece" type="AnimationPlayer" parent="maxpiece" unique_id=743834766]
 root_node = NodePath("../..")
-libraries = {
-&"": SubResource("AnimationLibrary_iuf2t")
-}
+libraries/ = SubResource("AnimationLibrary_iuf2t")
 
-[node name="Label" type="Label" parent="maxpiece"]
+[node name="Label" type="Label" parent="maxpiece" unique_id=1799948798]
 visible = false
 offset_left = 437.0
 offset_top = 13.0
@@ -1913,11 +1860,11 @@ theme_override_colors/font_color = Color(1, 0, 0, 0)
 theme_override_fonts/font = ExtResource("4_2bqdh")
 text = "Aller déposer vos piece dans la boite !"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=828702379]
 position = Vector2(-1.19209e-07, 1.42109e-15)
 shape = SubResource("CapsuleShape2D_r46ja")
 
-[node name="particule_caisse" type="CPUParticles2D" parent="."]
+[node name="particule_caisse" type="CPUParticles2D" parent="." unique_id=633949076]
 position = Vector2(-0.8, 0.8)
 emitting = false
 amount = 5
@@ -1937,7 +1884,7 @@ scale_amount_min = 3.0
 scale_amount_max = 5.0
 color = Color(0.576471, 0.482353, 0.415686, 1)
 
-[node name="particule_mort" type="CPUParticles2D" parent="."]
+[node name="particule_mort" type="CPUParticles2D" parent="." unique_id=1537259656]
 position = Vector2(-0.8, 0.8)
 emitting = false
 amount = 5
@@ -1957,32 +1904,29 @@ scale_amount_min = 3.0
 scale_amount_max = 5.0
 color = Color(0.921569, 0.239216, 0.290196, 1)
 
-[node name="particule_capacite" type="GPUParticles2D" parent="."]
+[node name="particule_capacite" type="GPUParticles2D" parent="." unique_id=1180608999]
 material = SubResource("CanvasItemMaterial_m6h6r")
 emitting = false
 texture = ExtResource("5_dtlq7")
 process_material = SubResource("ParticleProcessMaterial_j626c")
 
-[node name="Player_camera" type="Camera2D" parent="."]
-position = Vector2(-0.2, 1.42109e-15)
-position_smoothing_enabled = true
-script = ExtResource("4_3qob2")
-shake_fade = 1.0
-rando_steng = 20
+[node name="Area2D" type="Area2D" parent="." unique_id=97262482]
 
-[node name="Area2D" type="Area2D" parent="."]
-
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="Area2D"]
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Area2D" unique_id=1425374075]
 position = Vector2(-1.19209e-07, 0)
 shape = SubResource("CapsuleShape2D_dipal")
 
-[node name="jump_timer" type="Timer" parent="."]
+[node name="jump_timer" type="Timer" parent="." unique_id=931086821]
 wait_time = 0.3
 one_shot = true
 
-[node name="UI_debloquage" type="CanvasLayer" parent="."]
+[node name="jump_buffering_timer" type="Timer" parent="." unique_id=686835406]
+wait_time = 0.2
+one_shot = true
 
-[node name="Label" type="Label" parent="UI_debloquage"]
+[node name="UI_debloquage" type="CanvasLayer" parent="." unique_id=1644111057]
+
+[node name="Label" type="Label" parent="UI_debloquage" unique_id=1223562903]
 visible = false
 offset_left = 400.0
 offset_top = -51.0
@@ -1993,56 +1937,52 @@ theme_override_colors/font_color = Color(1, 0.943532, 0.866336, 1)
 theme_override_fonts/font = ExtResource("4_2bqdh")
 text = "nouveau personnage debloqué"
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="UI_debloquage"]
-libraries = {
-&"": SubResource("AnimationLibrary_x47vg")
-}
+[node name="AnimationPlayer" type="AnimationPlayer" parent="UI_debloquage" unique_id=354795254]
+libraries/ = SubResource("AnimationLibrary_x47vg")
 
-[node name="platforme" type="CanvasLayer" parent="."]
+[node name="platforme" type="CanvasLayer" parent="." unique_id=70180428]
 
-[node name="BoxContainer" type="BoxContainer" parent="platforme"]
+[node name="BoxContainer" type="BoxContainer" parent="platforme" unique_id=638236785]
 offset_right = 40.0
 offset_bottom = 40.0
 
-[node name="Sprite2D3" type="Sprite2D" parent="platforme/BoxContainer"]
+[node name="Sprite2D3" type="Sprite2D" parent="platforme/BoxContainer" unique_id=609285454]
 visible = false
 position = Vector2(1065, 625)
 scale = Vector2(6.75001, 6.75)
 texture = ExtResource("5_5f03j")
 
-[node name="Sprite2D2" type="Sprite2D" parent="platforme/BoxContainer"]
+[node name="Sprite2D2" type="Sprite2D" parent="platforme/BoxContainer" unique_id=1921065239]
 visible = false
 position = Vector2(1096, 625)
 scale = Vector2(6.75001, 6.75)
 texture = ExtResource("5_5f03j")
 
-[node name="Sprite2D" type="Sprite2D" parent="platforme/BoxContainer"]
+[node name="Sprite2D" type="Sprite2D" parent="platforme/BoxContainer" unique_id=544041358]
 visible = false
 position = Vector2(1127, 625)
 scale = Vector2(6.75001, 6.75)
 texture = ExtResource("5_5f03j")
 
-[node name="Animationplatforme" type="AnimationPlayer" parent="platforme"]
+[node name="Animationplatforme" type="AnimationPlayer" parent="platforme" unique_id=272155922]
 root_node = NodePath("../BoxContainer")
-libraries = {
-&"": SubResource("AnimationLibrary_rka7c")
-}
+libraries/ = SubResource("AnimationLibrary_rka7c")
 
-[node name="son" type="Node2D" parent="."]
+[node name="son" type="Node2D" parent="." unique_id=277751553]
 
-[node name="Mort" type="AudioStreamPlayer" parent="son"]
+[node name="Mort" type="AudioStreamPlayer" parent="son" unique_id=751593258]
 stream = ExtResource("7_j0yp8")
 volume_db = -5.0
 pitch_scale = 1.53
 
-[node name="pose_piece" type="AudioStreamPlayer" parent="son"]
+[node name="pose_piece" type="AudioStreamPlayer" parent="son" unique_id=1242337801]
 stream = ExtResource("8_iso8g")
 pitch_scale = 0.58
 
-[node name="debloque" type="AudioStreamPlayer" parent="son"]
+[node name="debloque" type="AudioStreamPlayer" parent="son" unique_id=1045126475]
 stream = ExtResource("9_2mmv3")
 pitch_scale = 1.03
 
-[node name="speedrun" parent="." instance=ExtResource("14_vw1f8")]
+[node name="speedrun" parent="." unique_id=962209460 instance=ExtResource("14_vw1f8")]
 
 [connection signal="timeout" from="jump_timer" to="." method="_on_jump_timer_timeout"]

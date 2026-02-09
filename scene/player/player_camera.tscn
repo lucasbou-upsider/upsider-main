@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://d4nbnajmtoanu"]
+
+[ext_resource type="Script" uid="uid://d0l2ydrbwq4ot" path="res://scene/player_camera.gd" id="1_5qwek"]
+
+[node name="Player_camera" type="Camera2D" unique_id=1032844500]
+position_smoothing_enabled = true
+script = ExtResource("1_5qwek")
+shake_fade = 1.0
+rando_steng = 20

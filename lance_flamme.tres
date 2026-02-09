@@ -1,4 +1,4 @@
-[gd_resource type="SpriteFrames" load_steps=22 format=3 uid="uid://i3t71603g2ph"]
+[gd_resource type="SpriteFrames" format=3 uid="uid://i3t71603g2ph"]
 
 [ext_resource type="Texture2D" uid="uid://bv6c255e55b8g" path="res://sprite/lance flamme.png" id="1_evo8y"]
 

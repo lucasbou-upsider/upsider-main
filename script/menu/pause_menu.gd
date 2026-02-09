@@ -45,7 +45,7 @@ func _on_quitter_pressed() -> void:
 
 
 func _on_oui_pressed() -> void:
-	get_tree().quit()
+	GameManager.quit_game()
 
 
 func _on_non_pressed() -> void:

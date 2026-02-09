@@ -115,6 +115,7 @@ func _victoire():
 	MusicController.stop_music()
 	GameManager.paused = true
 	GameManager.menue_victoire = true
+	GameManager.platforme = 0
 	menue_victoire.show()
 	Engine.time_scale = 0
 	if GameManager.niv_fini.has(niv):
