@@ -3907,8 +3907,6 @@ text = ">"
 
 [node name="Roadmap" type="Control" parent="." unique_id=1355863182]
 anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
 
 [node name="Roadmap_liste" type="Label" parent="Roadmap" unique_id=252004473]
 visible = false
@@ -3918,11 +3916,11 @@ offset_top = 43.0
 offset_right = 1146.0
 offset_bottom = 132.0
 theme_override_fonts/font = ExtResource("4_xwok8")
-text = "- Regler bug
-- systeme de sauvegarde
+text = "- Regler bug (speedrun 
+mod, sylvan)
+- ui pieces
 - + 2, 3 perso 
--monde 2 et 3
--debug speedrun mode "
+-monde 2 et 3"
 
 [node name="Roadmap_button" type="Button" parent="Roadmap" unique_id=1458894871]
 layout_mode = 0

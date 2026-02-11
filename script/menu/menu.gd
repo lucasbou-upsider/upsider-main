@@ -46,6 +46,7 @@ var text_nombre_de_mort = "nombre de mort : "
 var text_nombre_de_levier = "nombre de levier actif : "
 
 func _ready() -> void:
+	
 	MusicController.play_music("menu")#lance la musique
 	if GameManager.mort == 0:
 		mort.visible = false
@@ -124,8 +125,8 @@ func _ready() -> void:
 	
 
 
-	##if GameManager.niv_bonus_1_debloque == true or mode_admin == true:
-		#niv_bonus_1.visible = true
+	if GameManager.niv_bonus_1_debloque == true :
+		niv_bonus_1.visible = true
 
 	#traduction text comteur de levier et de mort 
 	if GameManager.language == "EN":
@@ -143,6 +144,10 @@ func _ready() -> void:
 
 
 func _process(_delta: float) -> void:
+	#if Input.is_action_just_pressed("droite"):
+		#print('mode admin')
+		#mode_admin = true
+	#print(mode_admin)
 	traduction()
 
 func traduction():

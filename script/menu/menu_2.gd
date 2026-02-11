@@ -4,6 +4,7 @@ extends Control
 
 @onready var jouer: Button = $menu_1/button/jouer
 @onready var quit: Button = $menu_1/button/quit
+@onready var delete_file: Button = $"menu_1/option/delete file"
 
 func _ready() -> void:
 	MusicController.play_music("menu")
@@ -17,10 +18,11 @@ func langue():
 	if GameManager.language == "EN":
 		jouer.text = "Play"
 		quit.text = "Exit"
+		delete_file.text = "delete file"
 	if GameManager.language == "FR":
 		jouer.text = "Jouer"
 		quit.text = "Quitter"
-
+		delete_file.text = "supprimer sauvegarde"
 
 func _on_jouer_pressed() -> void:
 	$AudioStreamPlayer.play()

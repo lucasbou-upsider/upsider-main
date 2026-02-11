@@ -29,7 +29,7 @@ var mode_capacite = false
 var skin_player = 1
 
 #player débloqué
-var skin_debloquer: Array = [1]
+var skin_debloquer: Array = [1, 3, 4]
 var quete_sylvan := 0
 
 #capacité tp position
