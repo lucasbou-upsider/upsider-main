@@ -38,7 +38,7 @@ var tp_pose = false
 var dans_area_reprendre_tp = false
 
 #mode speedrun
-var mode_speedrun = false
+var timer_visible = false
 var timer_speedrun = 0
 var temps_monde_1 = 0
 

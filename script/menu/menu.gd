@@ -47,6 +47,10 @@ var text_nombre_de_levier = "nombre de levier actif : "
 
 func _ready() -> void:
 	
+	#speedrun timer
+	if GameManager.timer_visible == true:
+		speedrun_button.set_pressed_no_signal(true)
+	
 	MusicController.play_music("menu")#lance la musique
 	if GameManager.mort == 0:
 		mort.visible = false
@@ -59,7 +63,7 @@ func _ready() -> void:
 	if GameManager.niv_fini.has(1.0) == true:
 		etoile_1.visible = true
 		etoile_1.play("recus")
-		speedrun_button.disabled = true
+		$mode_speedrun.visible = false
 	else:
 		niv_2.visible = false
 		tuto.visible = true
@@ -98,10 +102,10 @@ func _ready() -> void:
 	if GameManager.niv_fini.has(7.0) == true:
 		etoile_7.visible = true
 		etoile_7.play("recus")
-		if GameManager.mode_speedrun == true:
-			temps_speedrun_monde_1.text = str(GameManager.temps_monde_1)
-			if int(GameManager.temps_monde_1) <= 7.5:
-				GameManager.skin_debloquer.append(4)
+		GameManager.temps_monde_1 = GameManager.timer_speedrun
+		temps_speedrun_monde_1.text = str(GameManager.temps_monde_1)
+		if int(GameManager.temps_monde_1) <= 300: #300 secondes = 10min
+			GameManager.skin_debloquer.append(4)
 		else:
 			temps_speedrun_monde_1.visible = false
 	else :
@@ -221,12 +225,11 @@ func bouton():
 
 
 func _on_check_button_toggled(_toggled_on: bool) -> void:
-	
-	if GameManager.mode_speedrun == false:
-		GameManager.mode_speedrun = true
-	elif GameManager.mode_speedrun == true:
-		GameManager.mode_speedrun = false
-	print(GameManager.mode_speedrun)
+	if GameManager.timer_visible == false:
+		GameManager.timer_visible = true
+	elif GameManager.timer_visible == true:
+		GameManager.timer_visible = false
+	print(GameManager.timer_visible)
 
 @onready var roadmap_liste: Label = $Roadmap/Roadmap_liste
 func _on_roadmap_button_pressed() -> void:

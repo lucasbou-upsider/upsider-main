@@ -3,10 +3,9 @@ extends CanvasLayer
 var time = GameManager.timer_speedrun
 
 func _process(delta: float) -> void:
-	if GameManager.mode_speedrun == true:
-		time = float(time) + delta / 60
+	time = float(time) + delta 
 	
-		update_ui()
+	update_ui()
 
 	
 func update_ui():
@@ -19,4 +18,5 @@ func update_ui():
 		
 	GameManager.timer_speedrun = formated_time
 	
-	$Label.text = formated_time
+	if GameManager.timer_visible == true:
+		$Label.text = formated_time

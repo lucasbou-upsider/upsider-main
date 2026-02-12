@@ -1,10 +1,18 @@
-[gd_scene load_steps=2 format=3 uid="uid://6gigug1p64xe"]
+[gd_scene format=3 uid="uid://6gigug1p64xe"]
 
 [ext_resource type="Script" uid="uid://bs0a4ttngxgs6" path="res://script/menu/speedrun.gd" id="1_b8stw"]
+[ext_resource type="FontFile" uid="uid://c6drrdopvgm8h" path="res://BabaMediumPixels.ttf" id="2_w0ivp"]
 
-[node name="speedrun" type="CanvasLayer"]
+[node name="speedrun" type="CanvasLayer" unique_id=1237666244]
 script = ExtResource("1_b8stw")
 
-[node name="Label" type="Label" parent="."]
-offset_right = 40.0
-offset_bottom = 23.0
+[node name="Label" type="Label" parent="." unique_id=397722126]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -46.0
+offset_right = 46.0
+offset_bottom = 32.0
+grow_horizontal = 2
+theme_override_fonts/font = ExtResource("2_w0ivp")
+theme_override_font_sizes/font_size = 35
