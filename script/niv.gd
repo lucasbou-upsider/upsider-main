@@ -126,7 +126,7 @@ func _victoire():
 	#timer fin monde 1
 	if niv == 7:
 		GameManager.temps_monde_1 = GameManager.timer_speedrun
-
+	GameManager.save_game()
 
 #menue de pause
 func pausemenu():

@@ -57,6 +57,8 @@ func _on_delete_file_pressed() -> void:
 		##!!!!!remettre les var à zero!!!!!##
 		GameManager.skin_debloquer = [1]
 		GameManager.niv_fini = []
+		GameManager.mort = 0
+		GlobaleUpside.upside_debloque = []
 		print(err)
 		if err != OK:
 			push_error("Erreur lors de la suppression : %s" % err)

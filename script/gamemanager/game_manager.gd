@@ -64,7 +64,9 @@ func _ready() -> void:
 	SaveLoad._load()
 	skin_debloquer = SaveLoad.content_to_save.skin_unlock
 	niv_fini = SaveLoad.content_to_save.niv_unlock
-
+	mort = SaveLoad.content_to_save.number_of_death
+	temps_monde_1 = SaveLoad.content_to_save.speedrun_time_world1
+	GlobaleUpside.upside_debloque = SaveLoad.content_to_save.upside
 func _process(_delta: float) -> void:
 	pass
 
@@ -72,8 +74,11 @@ func debloque(debloque_niv):
 	if debloque_niv == 1.1:
 		niv_bonus_1_debloque = true
 		
-func quit_game():
+func save_game():
 	SaveLoad.content_to_save.skin_unlock = skin_debloquer
 	SaveLoad.content_to_save.niv_unlock = niv_fini
+	SaveLoad.content_to_save.number_of_death = mort
+	SaveLoad.content_to_save.speedrun_time_world1 = temps_monde_1
+	SaveLoad.content_to_save.upside = GlobaleUpside.upside_debloque
 	SaveLoad._save()
-	get_tree().quit()
+	print("game saved")

@@ -10,14 +10,14 @@ var coyote_time = 0.3
 var zoom = false
 var nombre_zoom_camera := Vector2(0,0)
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
-@onready var nouv_player: AnimationPlayer = $UI_debloquage/AnimationPlayer
-@onready var animationplatforme: AnimationPlayer = $platforme/Animationplatforme
+@onready var nouv_player: AnimationPlayer = $ui/UI_debloquage/AnimationPlayer
+@onready var animationplatforme: AnimationPlayer = $ui/platforme/Animationplatforme
 @onready var son_mort: AudioStreamPlayer = $son/Mort
 @onready var pose_piece: AudioStreamPlayer = $son/pose_piece
 @onready var particule_mort: CPUParticles2D = $particule_mort
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var player_camera: Camera2D = $"../Player_camera"
-@onready var animation_maxpiece: AnimationPlayer = $maxpiece/Animation_maxpiece
+@onready var animation_maxpiece: AnimationPlayer = $ui/maxpiece/Animation_maxpiece
 var crane = preload("res://scene/objets/crane.tscn")
 @onready var jump_timer: Timer = $jump_timer
 @onready var jump_buffering_timer: Timer = $jump_buffering_timer
@@ -29,7 +29,7 @@ func _physics_process(delta: float) -> void:
 
 	animate()
 	debloquage()
-	indicateur_platforme()
+	ui()
 	succes()
 	capacite()
 	#max_piece()
@@ -84,8 +84,10 @@ func animate():
 	if GameManager.menue_victoire == false and GameManager.paused == false:
 		if Input.is_action_just_pressed("gauche"):
 			animated_sprite_2d.flip_h = true
+			animated_sprite_2d.offset.x = -1.5
 		if Input.is_action_just_pressed("droite"):
 			animated_sprite_2d.flip_h = false
+			animated_sprite_2d.offset.x = 0
 	
 	if GameManager.skin_player == 1:
 		GameManager.max_platforme = 3
@@ -163,8 +165,11 @@ func debloquage():
 		nouv_player.play("debloquage_marteau")
 
 #ui platforme
-func indicateur_platforme():
+func ui():
+	#ui platforme
 	animationplatforme.play(str(GameManager.platforme))
+	#ui pieces
+	$ui/piece/LabelUiPiece.text = str("= " + str(GameManager.platforme))
 
 func camera():
 	nombre_zoom_camera = player_camera.zoom

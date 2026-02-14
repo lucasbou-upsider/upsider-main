@@ -213,7 +213,8 @@ func _on_niv_bonus_1_pressed() -> void:
 	bouton()
 	get_tree().change_scene_to_file("res://scene/niveau/monde_1/niv_bonus_1.tscn")
 func _on_quit_button_down() -> void:
-	GameManager.quit_game()
+	GameManager.save_game()
+	get_tree().quit()
 func _on_quit_2_pressed() -> void:
 	get_tree().change_scene_to_file("res://scene/menu/menu_2.tscn")
 func _on_button_succes_pressed() -> void:

@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://crimdvllce30m"]
+[gd_scene format=3 uid="uid://crimdvllce30m"]
 
 [ext_resource type="Script" uid="uid://3wwddl0knwes" path="res://script/piege/pique.gd" id="1_oe2pi"]
 [ext_resource type="Texture2D" uid="uid://bl8u705iki4j7" path="res://sprite/Paper-Pixels-8x8/pique.png" id="2_4sx4q"]
@@ -42,37 +42,37 @@ animations = [{
 _data = [Vector2(0, 0.912088), 0.0, 0.0, 0, 0, Vector2(0.791667, 0.648352), 0.0, 0.0, 0, 0]
 point_count = 2
 
-[node name="pique" type="StaticBody2D"]
+[node name="pique" type="StaticBody2D" unique_id=1023599458]
 scale = Vector2(3, 3)
 script = ExtResource("1_oe2pi")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=528583782]
 position = Vector2(3, 3.33333)
 scale = Vector2(2, 2)
 texture = ExtResource("2_4sx4q")
 region_rect = Rect2(64.8317, 64.4287, 7.21171, 7.55842)
 
-[node name="Area2D" type="Area2D" parent="."]
+[node name="Area2D" type="Area2D" parent="." unique_id=810040149]
 position = Vector2(0, -3)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1623864652]
 position = Vector2(0, 4.66667)
 shape = SubResource("CapsuleShape2D_hfcmg")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1214870939]
 position = Vector2(-4.33333, -5.66667)
 scale = Vector2(1.13889, 1.14583)
 sprite_frames = SubResource("SpriteFrames_f1q2o")
 autoplay = "default"
 frame_progress = 0.266845
 
-[node name="PointLight2D" type="PointLight2D" parent="."]
+[node name="PointLight2D" type="PointLight2D" parent="." unique_id=2052488614]
 scale = Vector2(0.2, 0.2)
 energy = 0.1
 shadow_enabled = true
 texture = ExtResource("3_0ypw3")
 
-[node name="CPUParticles2D" type="CPUParticles2D" parent="."]
+[node name="CPUParticles2D" type="CPUParticles2D" parent="." unique_id=1595584666]
 position = Vector2(0, 6)
 amount = 5
 lifetime = 0.4

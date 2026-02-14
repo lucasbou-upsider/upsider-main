@@ -3108,6 +3108,7 @@ offset_right = 553.0
 offset_bottom = 639.0
 
 [node name="language" type="Button" parent="menu_1/option" unique_id=1262714144]
+visible = false
 layout_mode = 0
 offset_left = -546.0
 offset_top = -633.0

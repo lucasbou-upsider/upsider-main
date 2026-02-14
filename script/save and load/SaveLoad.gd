@@ -4,7 +4,10 @@ const save_location = "user://SaveFile.json"
 
 var content_to_save: Dictionary = {
 	"skin_unlock": [1],
-	"niv_unlock": [1]
+	"niv_unlock": [1],
+	"number_of_death": 0,
+	"speedrun_time_world1": 0,
+	"upside": []
 }
 
 func _ready() -> void:
@@ -28,3 +31,6 @@ func _load():
 		#penser a les reinitialisé dans le bouton delete dans le menu2
 		content_to_save.skin_unlock = save_data.skin_unlock
 		content_to_save.niv_unlock = save_data.niv_unlock
+		content_to_save.number_of_death = save_data.number_of_death
+		content_to_save.speedrun_time_world1 = save_data.speedrun_time_world1
+		content_to_save.upside = save_data.upside

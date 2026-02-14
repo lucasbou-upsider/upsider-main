@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://c7g7vx5ud5yir"]
+[gd_scene format=3 uid="uid://c7g7vx5ud5yir"]
 
 [ext_resource type="Script" uid="uid://cyk6m0jmtqec3" path="res://script/piege/projectile_lumiere.gd" id="1_pw7ys"]
 [ext_resource type="Texture2D" uid="uid://ptcgy7r5ips1" path="res://sprite/Paper-Pixels-8x8/missile_lance_lumiere.png" id="2_kupyk"]
@@ -61,23 +61,23 @@ radius = 2.0
 _data = [Vector2(0.0208333, 0.802198), 0.0, 0.0, 0, 0, Vector2(0.770833, 0.175824), 0.0, 0.0, 0, 0]
 point_count = 2
 
-[node name="projectile_lumiere" type="Node2D"]
+[node name="projectile_lumiere" type="Node2D" unique_id=1695733060]
 scale = Vector2(1.5, 1.5)
 script = ExtResource("1_pw7ys")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1813475818]
 position = Vector2(0.333333, 1.66667)
 sprite_frames = SubResource("SpriteFrames_bky6c")
 frame_progress = 0.523137
 
-[node name="Area2D" type="Area2D" parent="." groups=["projectile"]]
+[node name="Area2D" type="Area2D" parent="." unique_id=1414708320 groups=["projectile"]]
 position = Vector2(0.333333, 2)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=16803624]
 position = Vector2(-0.333333, -2)
 shape = SubResource("CircleShape2D_cqelw")
 
-[node name="CPUParticles2D" type="CPUParticles2D" parent="."]
+[node name="CPUParticles2D" type="CPUParticles2D" parent="." unique_id=1118198773]
 emitting = false
 amount = 15
 lifetime = 0.5
@@ -89,7 +89,7 @@ scale_amount_max = 5.0
 scale_amount_curve = SubResource("Curve_y1kuw")
 color = Color(1, 0.972549, 0.905882, 1)
 
-[node name="CPUParticles2D2" type="CPUParticles2D" parent="."]
+[node name="CPUParticles2D2" type="CPUParticles2D" parent="." unique_id=1931750829]
 emitting = false
 amount = 15
 lifetime = 0.2
@@ -104,7 +104,7 @@ scale_amount_max = 5.0
 scale_amount_curve = SubResource("Curve_y1kuw")
 color = Color(1, 0.972549, 0.905882, 1)
 
-[node name="PointLight2D" type="PointLight2D" parent="."]
+[node name="PointLight2D" type="PointLight2D" parent="." unique_id=243287366]
 energy = 0.1
 texture = ExtResource("3_7ask4")
 texture_scale = 0.1
