@@ -30,12 +30,12 @@ var was_airbound := false #si le perso retombe
 func _ready() -> void:
 	GameManager.gain_coin_signal.connect(gain_coin)
 	GameManager.drop_coin_signal.connect(drop_coin)
+	GameManager.pos_platforme_signal.connect(lose_platforme)
 	
 func _physics_process(delta: float) -> void:
 
 	animate()
 	debloquage()
-	ui()
 	succes()
 	capacite()
 	#max_piece()
@@ -184,15 +184,22 @@ func debloquage():
 		nouv_player.play("debloquage_marteau")
 
 #ui platforme
-func ui():
+func gain_platforme(number):
 	#ui platforme
-	animationplatforme.play(str(GameManager.platforme))
+	for i in range(number):
+		var platforme_ui = preload("res://scene/player/ui_platforme.tscn").instantiate()
+		$ui/platforme/platforme_container.add_child(platforme_ui)
+	GameManager.platforme += number
+func lose_platforme():
+	var platforme_ui = $ui/platforme/platforme_container.get_child(0)
+	if platforme_ui != null:
+		platforme_ui.delete()
 
 
-
-	#signale recus du gamemanager donc apparition piece
+#signale recus du gamemanager donc apparition piece
 func gain_coin():
 	print("pice ui")
+	gain_platforme(GameManager.max_platforme - GameManager.platforme)
 	var piece_ui = preload("res://scene/player/ui_piece_sprite.tscn").instantiate()
 	$ui/piece/coin_Container.add_child(piece_ui)
 func drop_coin():
@@ -218,8 +225,8 @@ func mort():
 	GameManager.paused = true
 	particule_mort.emitting = true
 	position = GameManager.derniere_piece
-	GameManager.platforme = GameManager.max_platforme
 	GameManager.mort += 1 
+	gain_platforme(GameManager.max_platforme - GameManager.platforme)
 	GameManager.player_mort = false
 	if GameManager.mort == 20:
 		GameManager.skin_debloquer.append(2)

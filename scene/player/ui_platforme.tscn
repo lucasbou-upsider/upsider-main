@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://cp7dcgqoxwwug"]
+
+[ext_resource type="Texture2D" uid="uid://bcuukfqr2ofha" path="res://sprite/Paper-Pixels-8x8/symbol platforme.png" id="1_56gvg"]
+[ext_resource type="Script" uid="uid://lnd077m2a3km" path="res://script/player/ui_platforme.gd" id="2_tkrgw"]
+
+[node name="ui_platforme" type="TextureRect" unique_id=1697905288]
+offset_right = 4.0
+offset_bottom = 4.0
+scale = Vector2(1e-05, 1e-05)
+texture = ExtResource("1_56gvg")
+script = ExtResource("2_tkrgw")

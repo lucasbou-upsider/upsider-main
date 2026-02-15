@@ -12,7 +12,6 @@
 [ext_resource type="Texture2D" uid="uid://cm1s1gxq7wdeg" path="res://sprite/Paper-Pixels-8x8/UI.png" id="11_7xulr"]
 [ext_resource type="Texture2D" uid="uid://bxqwxsryem6me" path="res://2d_lights_and_shadows_neutral_point_light.webp" id="12_m3xyl"]
 [ext_resource type="PackedScene" uid="uid://qdnj4dtpxum2" path="res://scene/upside/upside.tscn" id="13_16l46"]
-[ext_resource type="PackedScene" uid="uid://chgqeva33t1cy" path="res://scene/pieges/lance_lumière.tscn" id="13_shsn3"]
 [ext_resource type="PackedScene" uid="uid://d4nbnajmtoanu" path="res://scene/player/player_camera.tscn" id="15_3lw4e"]
 [ext_resource type="PackedScene" uid="uid://cotkr8145jsds" path="res://scene/player/platforme_lumiere_ui.tscn" id="15_bsf8u"]
 
@@ -1602,7 +1601,7 @@ shape = SubResource("RectangleShape2D_hfhxx")
 [node name="CanvasLayer" type="CanvasLayer" parent="tuto" unique_id=690935383]
 
 [node name="Label" type="Label" parent="tuto/CanvasLayer" unique_id=115572754]
-visible = false
+modulate = Color(1, 1, 1, 0)
 offset_left = 420.0
 offset_top = 530.0
 offset_right = 824.0
@@ -1613,7 +1612,7 @@ text = "Left-click to place a platform
 						(you only have 3 platforms!)"
 
 [node name="Label2" type="Label" parent="tuto/CanvasLayer" unique_id=1491382836]
-visible = false
+modulate = Color(1, 1, 1, 0)
 offset_left = 194.0
 offset_top = 546.0
 offset_right = 1022.0
@@ -1623,23 +1622,20 @@ theme_override_font_sizes/font_size = 22
 text = "the number of remaining platforms is displayed at the bottom right"
 
 [node name="Label3" type="Label" parent="tuto/CanvasLayer" unique_id=1200740199]
-visible = false
-offset_left = 390.0
-offset_top = 543.0
-offset_right = 844.0
-offset_bottom = 592.0
+modulate = Color(1, 1, 1, 0)
+offset_left = 236.0
+offset_top = 548.0
+offset_right = 953.0
+offset_bottom = 607.0
 theme_override_fonts/font = ExtResource("3_jvuj0")
 theme_override_font_sizes/font_size = 22
 text = "the coins give you back your 3 platforms and reset your spawn point!
-Put all the pieces in the box!"
+                   Put all the pieces in the box!"
 
 [node name="piege" type="Node2D" parent="." unique_id=643471590]
 
 [node name="pique2" parent="piege" unique_id=770946724 instance=ExtResource("4_rfnrm")]
 position = Vector2(2092, 293)
-
-[node name="lance_lumière" parent="piege" unique_id=897041131 instance=ExtResource("13_shsn3")]
-position = Vector2(1813.0001, 210.00002)
 
 [node name="sol" type="TileMapLayer" parent="." unique_id=1409708949]
 position = Vector2(-1771, -246)

@@ -15,5 +15,5 @@ func _ready() -> void:
 func delete():
 	var tween = create_tween()
 	tween.tween_property(self , "modulate:a", 0, 0.3)
-	tween.parallel().tween_property(self, "scale:y", 1, 0.5).from(4)
-	queue_free()
+	tween.parallel().tween_property(self, "scale:y", 1, 0.5).from(0)
+	tween.tween_callback(queue_free)

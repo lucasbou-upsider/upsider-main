@@ -49,7 +49,7 @@ func _process(_delta: float) -> void:
 		if GameManager.platforme >= 1:
 			if Input.is_action_just_pressed("lumiere") and GameManager.paused == false:
 				inst_platforme(get_global_mouse_position())
-				GameManager.platforme -= 1
+				GameManager.pos_platforme()
 	#se tp au point de tp
 	var gros_zoom = false
 	if GameManager.mode_capacite == true:

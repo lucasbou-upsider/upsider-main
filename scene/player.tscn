@@ -7,14 +7,13 @@
 [ext_resource type="FontFile" uid="uid://c6drrdopvgm8h" path="res://BabaMediumPixels.ttf" id="4_2bqdh"]
 [ext_resource type="Texture2D" uid="uid://pk3lrjxi0eug" path="res://sprite/player/sylvan/Player_sylvan.png" id="4_6yuhu"]
 [ext_resource type="Texture2D" uid="uid://cook8lejs67ic" path="res://sprite/player/Player_meven.png" id="4_bup7g"]
-[ext_resource type="Texture2D" uid="uid://bcuukfqr2ofha" path="res://sprite/Paper-Pixels-8x8/symbol platforme.png" id="5_5f03j"]
 [ext_resource type="Texture2D" uid="uid://bwjriimu4oh26" path="res://random_selection.png" id="5_dtlq7"]
 [ext_resource type="Texture2D" uid="uid://coh2uwrl6uqfk" path="res://sprite/player/sylvan/Player_sylvan_sans_bambou.png" id="5_ksury"]
 [ext_resource type="AudioStream" uid="uid://cbi60t6gha1j4" path="res://son/mort.wav" id="7_j0yp8"]
 [ext_resource type="Texture2D" uid="uid://bvrdi5wod6qs4" path="res://sprite/player/sylvan/Player_sylvan_animation_rattrapage.png" id="7_lpsgk"]
 [ext_resource type="AudioStream" uid="uid://bsbk85lcag27m" path="res://son/piece depo.wav" id="8_iso8g"]
 [ext_resource type="AudioStream" uid="uid://dokws4kt3m11n" path="res://son/perso_deblock_out.wav" id="9_2mmv3"]
-[ext_resource type="Texture2D" uid="uid://cm1s1gxq7wdeg" path="res://sprite/Paper-Pixels-8x8/UI.png" id="13_bup7g"]
+[ext_resource type="PackedScene" uid="uid://cp7dcgqoxwwug" path="res://scene/player/ui_platforme.tscn" id="11_bup7g"]
 [ext_resource type="PackedScene" uid="uid://6gigug1p64xe" path="res://scene/menu/speedrun.tscn" id="14_vw1f8"]
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_ithxx"]
@@ -1610,201 +1609,21 @@ _data = {
 [sub_resource type="Animation" id="Animation_y24xm"]
 resource_name = "0"
 length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("ui_platforme:visible")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("ui_platforme2:visible")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("ui_platforme3:visible")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
-}
 
 [sub_resource type="Animation" id="Animation_qbyad"]
 resource_name = "1"
 length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("ui_platforme:visible")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("ui_platforme2:visible")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("ui_platforme3:visible")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
-}
 
 [sub_resource type="Animation" id="Animation_6c3x7"]
 resource_name = "2"
 length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("ui_platforme:visible")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("ui_platforme2:visible")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("ui_platforme3:visible")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
-}
 
 [sub_resource type="Animation" id="Animation_kav5v"]
 resource_name = "3"
 length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("ui_platforme:visible")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("ui_platforme2:visible")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("ui_platforme3:visible")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
 
 [sub_resource type="Animation" id="Animation_8o6b2"]
 length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("ui_platforme:visible")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("ui_platforme2:visible")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("ui_platforme3:visible")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
-}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_rka7c"]
 _data = {
@@ -1948,53 +1767,31 @@ libraries/ = SubResource("AnimationLibrary_x47vg")
 
 [node name="platforme" type="CanvasLayer" parent="ui" unique_id=70180428]
 
-[node name="BoxContainer" type="BoxContainer" parent="ui/platforme" unique_id=638236785]
-offset_right = 40.0
-offset_bottom = 40.0
-
-[node name="ui_platforme" type="Sprite2D" parent="ui/platforme/BoxContainer" unique_id=1853390141]
-visible = false
-position = Vector2(1128.0001, 629)
+[node name="platforme_container" type="HBoxContainer" parent="ui/platforme" unique_id=1923142161]
+layout_direction = 3
+offset_left = 214.30763
+offset_top = 613.0
+offset_right = 251.99994
+offset_bottom = 617.0
 scale = Vector2(6.5, 6.5)
-texture = ExtResource("5_5f03j")
+theme_override_constants/separation = 1
 
-[node name="ui_platforme2" type="Sprite2D" parent="ui/platforme/BoxContainer" unique_id=948578685]
-visible = false
-position = Vector2(1096, 629)
-scale = Vector2(6.5, 6.5)
-texture = ExtResource("5_5f03j")
+[node name="ui_platforme" parent="ui/platforme/platforme_container" unique_id=1697905288 instance=ExtResource("11_bup7g")]
+layout_mode = 2
 
-[node name="ui_platforme3" type="Sprite2D" parent="ui/platforme/BoxContainer" unique_id=1076606994]
-visible = false
-position = Vector2(1064, 629)
-scale = Vector2(6.5, 6.5)
-texture = ExtResource("5_5f03j")
+[node name="ui_platforme2" parent="ui/platforme/platforme_container" unique_id=222056160 instance=ExtResource("11_bup7g")]
+layout_mode = 2
+
+[node name="ui_platforme3" parent="ui/platforme/platforme_container" unique_id=857798045 instance=ExtResource("11_bup7g")]
+layout_mode = 2
 
 [node name="Animationplatforme" type="AnimationPlayer" parent="ui/platforme" unique_id=272155922]
-root_node = NodePath("../BoxContainer")
+root_node = NodePath("../platforme_container")
 libraries/ = SubResource("AnimationLibrary_rka7c")
 
 [node name="speedrun" parent="ui" unique_id=962209460 instance=ExtResource("14_vw1f8")]
 
 [node name="piece" type="CanvasLayer" parent="ui" unique_id=754292461]
-
-[node name="LabelUiPiece" type="Label" parent="ui/piece" unique_id=180798075]
-visible = false
-offset_left = 1094.0
-offset_top = 565.0
-offset_right = 1143.0
-offset_bottom = 600.0
-theme_override_fonts/font = ExtResource("4_2bqdh")
-theme_override_font_sizes/font_size = 28
-text = "= 3"
-
-[node name="UiPiece" type="Sprite2D" parent="ui/piece" unique_id=577547473]
-visible = false
-position = Vector2(1126, 580)
-scale = Vector2(5, 5)
-texture = ExtResource("13_bup7g")
-region_enabled = true
-region_rect = Rect2(11.5771, 44.4546, 15.0427, 15.0427)
 
 [node name="coin_Container" type="HBoxContainer" parent="ui/piece" unique_id=1186529308]
 layout_direction = 3

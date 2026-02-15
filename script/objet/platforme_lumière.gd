@@ -17,7 +17,7 @@ func _ready() -> void:
 
 func animation_juice():
 	var tween = create_tween()
-	tween.tween_property(animated_sprite_2d, "scale", Vector2(1.1,0.8), 0.05)
+	tween.tween_property(animated_sprite_2d, "scale", Vector2(1.2,0.7), 0.05)
 	tween.tween_property(animated_sprite_2d, "scale", Vector2(1,1), 0.05)
 
 func _process(_delta: float) -> void:

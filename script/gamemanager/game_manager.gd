@@ -61,6 +61,8 @@ var niv_bonus_1_debloque = false
 var tuto_fini = false
 
 
+
+#coin signal 
 signal gain_coin_signal
 func gain_coin():
 	piece += 1
@@ -69,9 +71,12 @@ signal drop_coin_signal
 func drop_coin():
 	piece -= 1
 	drop_coin_signal.emit()
-	
 
-
+#signal poser des platformes
+signal pos_platforme_signal
+func pos_platforme():
+	platforme -= 1
+	pos_platforme_signal.emit()
 
 
 

@@ -35,7 +35,6 @@ func _on_area_2d_area_entered(_area: Area2D) -> void:
 	if _area.get_parent() is script_player:
 		piece_recupere.emit()
 		cpu_particles_2d.emitting = true
-		GameManager.platforme = GameManager.max_platforme
 		GameManager.gain_coin()
 		piece_collecte = true
 		GameManager.derniere_piece = position
