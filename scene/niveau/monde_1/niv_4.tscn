@@ -16,7 +16,7 @@
 [ext_resource type="Texture2D" uid="uid://bxqwxsryem6me" path="res://2d_lights_and_shadows_neutral_point_light.webp" id="14_fccx5"]
 [ext_resource type="PackedScene" uid="uid://cnwd7i72yf2cn" path="res://scene/objets/regen.tscn" id="14_i30r3"]
 [ext_resource type="Script" uid="uid://3fgwvhc2mhde" path="res://script/menu/tuto_2.gd" id="16_pd0u7"]
-[ext_resource type="PackedScene" uid="uid://cotkr8145jsds" path="res://scene/objets/platforme_lumiere_ui.tscn" id="17_kowi2"]
+[ext_resource type="PackedScene" uid="uid://cotkr8145jsds" path="res://scene/player/platforme_lumiere_ui.tscn" id="17_kowi2"]
 [ext_resource type="PackedScene" uid="uid://d4nbnajmtoanu" path="res://scene/player/player_camera.tscn" id="18_38413"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_bvok8"]

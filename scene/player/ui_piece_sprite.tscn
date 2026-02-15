@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://cva6ss3ucu8lx"]
+
+[ext_resource type="Texture2D" uid="uid://67y0sgxgbnwr" path="res://sprite/pieces_upsider.png" id="1_opbhj"]
+[ext_resource type="Script" uid="uid://eqjmxplb0xq6" path="res://script/player/ui_piece_sprite.gd" id="2_4dn3y"]
+
+[node name="ui_piece_sprite" type="TextureRect" unique_id=1191036098]
+texture = ExtResource("1_opbhj")
+stretch_mode = 5
+script = ExtResource("2_4dn3y")

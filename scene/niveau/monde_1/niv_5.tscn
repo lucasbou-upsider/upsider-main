@@ -16,7 +16,7 @@
 [ext_resource type="Script" uid="uid://dtk1g418v6hon" path="res://script/score_bonus.gd" id="10_vevfn"]
 [ext_resource type="Texture2D" uid="uid://ck6ey18j7qi6i" path="res://sprite/caisse_bonus.png" id="11_ko08h"]
 [ext_resource type="Texture2D" uid="uid://bxqwxsryem6me" path="res://2d_lights_and_shadows_neutral_point_light.webp" id="15_6xrw7"]
-[ext_resource type="PackedScene" uid="uid://cotkr8145jsds" path="res://scene/objets/platforme_lumiere_ui.tscn" id="17_ec5f2"]
+[ext_resource type="PackedScene" uid="uid://cotkr8145jsds" path="res://scene/player/platforme_lumiere_ui.tscn" id="17_ec5f2"]
 [ext_resource type="PackedScene" uid="uid://d4nbnajmtoanu" path="res://scene/player/player_camera.tscn" id="18_i2q4u"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_bvok8"]

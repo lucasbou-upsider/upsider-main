@@ -60,6 +60,21 @@ var niv_bonus_1_debloque = false
 #tuto
 var tuto_fini = false
 
+
+signal gain_coin_signal
+func gain_coin():
+	piece += 1
+	gain_coin_signal.emit()
+signal drop_coin_signal
+func drop_coin():
+	piece -= 1
+	drop_coin_signal.emit()
+	
+
+
+
+
+
 func _ready() -> void:
 	SaveLoad._load()
 	skin_debloquer = SaveLoad.content_to_save.skin_unlock

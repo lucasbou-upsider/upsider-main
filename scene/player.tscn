@@ -1613,7 +1613,7 @@ length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D3:visible")
+tracks/0/path = NodePath("ui_platforme:visible")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -1625,7 +1625,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Sprite2D2:visible")
+tracks/1/path = NodePath("ui_platforme2:visible")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -1637,7 +1637,7 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("Sprite2D:visible")
+tracks/2/path = NodePath("ui_platforme3:visible")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -1653,7 +1653,7 @@ length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:visible")
+tracks/0/path = NodePath("ui_platforme:visible")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -1665,7 +1665,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Sprite2D2:visible")
+tracks/1/path = NodePath("ui_platforme2:visible")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -1677,7 +1677,7 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("Sprite2D3:visible")
+tracks/2/path = NodePath("ui_platforme3:visible")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -1693,7 +1693,7 @@ length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:visible")
+tracks/0/path = NodePath("ui_platforme:visible")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -1705,7 +1705,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Sprite2D2:visible")
+tracks/1/path = NodePath("ui_platforme2:visible")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -1717,7 +1717,7 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("Sprite2D3:visible")
+tracks/2/path = NodePath("ui_platforme3:visible")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -1733,7 +1733,7 @@ length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D3:visible")
+tracks/0/path = NodePath("ui_platforme:visible")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -1745,7 +1745,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Sprite2D2:visible")
+tracks/1/path = NodePath("ui_platforme2:visible")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -1757,7 +1757,7 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("Sprite2D:visible")
+tracks/2/path = NodePath("ui_platforme3:visible")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -1772,7 +1772,7 @@ length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:visible")
+tracks/0/path = NodePath("ui_platforme:visible")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -1784,7 +1784,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Sprite2D2:visible")
+tracks/1/path = NodePath("ui_platforme2:visible")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -1796,7 +1796,7 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("Sprite2D3:visible")
+tracks/2/path = NodePath("ui_platforme3:visible")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -1816,7 +1816,7 @@ _data = {
 }
 
 [node name="CharacterBody2D" type="CharacterBody2D" unique_id=1794513250]
-position = Vector2(2.3841858e-07, 5.9604645e-08)
+position = Vector2(50, 12)
 scale = Vector2(5, 5)
 collision_layer = 3
 collision_mask = 3
@@ -1952,22 +1952,22 @@ libraries/ = SubResource("AnimationLibrary_x47vg")
 offset_right = 40.0
 offset_bottom = 40.0
 
-[node name="Sprite2D3" type="Sprite2D" parent="ui/platforme/BoxContainer" unique_id=609285454]
+[node name="ui_platforme" type="Sprite2D" parent="ui/platforme/BoxContainer" unique_id=1853390141]
 visible = false
-position = Vector2(1065, 625)
-scale = Vector2(6.75001, 6.75)
+position = Vector2(1128.0001, 629)
+scale = Vector2(6.5, 6.5)
 texture = ExtResource("5_5f03j")
 
-[node name="Sprite2D2" type="Sprite2D" parent="ui/platforme/BoxContainer" unique_id=1921065239]
+[node name="ui_platforme2" type="Sprite2D" parent="ui/platforme/BoxContainer" unique_id=948578685]
 visible = false
-position = Vector2(1096, 625)
-scale = Vector2(6.75001, 6.75)
+position = Vector2(1096, 629)
+scale = Vector2(6.5, 6.5)
 texture = ExtResource("5_5f03j")
 
-[node name="Sprite2D" type="Sprite2D" parent="ui/platforme/BoxContainer" unique_id=544041358]
+[node name="ui_platforme3" type="Sprite2D" parent="ui/platforme/BoxContainer" unique_id=1076606994]
 visible = false
-position = Vector2(1127, 625)
-scale = Vector2(6.75001, 6.75)
+position = Vector2(1064, 629)
+scale = Vector2(6.5, 6.5)
 texture = ExtResource("5_5f03j")
 
 [node name="Animationplatforme" type="AnimationPlayer" parent="ui/platforme" unique_id=272155922]
@@ -1978,14 +1978,8 @@ libraries/ = SubResource("AnimationLibrary_rka7c")
 
 [node name="piece" type="CanvasLayer" parent="ui" unique_id=754292461]
 
-[node name="UiPiece" type="Sprite2D" parent="ui/piece" unique_id=577547473]
-position = Vector2(1070.0001, 581.00006)
-scale = Vector2(5, 5)
-texture = ExtResource("13_bup7g")
-region_enabled = true
-region_rect = Rect2(11.5771, 44.4546, 15.0427, 15.0427)
-
 [node name="LabelUiPiece" type="Label" parent="ui/piece" unique_id=180798075]
+visible = false
 offset_left = 1094.0
 offset_top = 565.0
 offset_right = 1143.0
@@ -1993,6 +1987,24 @@ offset_bottom = 600.0
 theme_override_fonts/font = ExtResource("4_2bqdh")
 theme_override_font_sizes/font_size = 28
 text = "= 3"
+
+[node name="UiPiece" type="Sprite2D" parent="ui/piece" unique_id=577547473]
+visible = false
+position = Vector2(1126, 580)
+scale = Vector2(5, 5)
+texture = ExtResource("13_bup7g")
+region_enabled = true
+region_rect = Rect2(11.5771, 44.4546, 15.0427, 15.0427)
+
+[node name="coin_Container" type="HBoxContainer" parent="ui/piece" unique_id=1186529308]
+layout_direction = 3
+offset_left = 217.0
+offset_top = 576.0
+offset_right = 275.0
+offset_bottom = 583.0
+scale = Vector2(4.5, 4.5)
+size_flags_horizontal = 3
+theme_override_constants/separation = 2
 
 [node name="son" type="Node2D" parent="." unique_id=277751553]
 

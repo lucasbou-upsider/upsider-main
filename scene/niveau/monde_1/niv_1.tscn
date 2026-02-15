@@ -14,7 +14,7 @@
 [ext_resource type="PackedScene" uid="uid://qdnj4dtpxum2" path="res://scene/upside/upside.tscn" id="13_16l46"]
 [ext_resource type="PackedScene" uid="uid://chgqeva33t1cy" path="res://scene/pieges/lance_lumière.tscn" id="13_shsn3"]
 [ext_resource type="PackedScene" uid="uid://d4nbnajmtoanu" path="res://scene/player/player_camera.tscn" id="15_3lw4e"]
-[ext_resource type="PackedScene" uid="uid://cotkr8145jsds" path="res://scene/objets/platforme_lumiere_ui.tscn" id="15_bsf8u"]
+[ext_resource type="PackedScene" uid="uid://cotkr8145jsds" path="res://scene/player/platforme_lumiere_ui.tscn" id="15_bsf8u"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_16l46"]
 
@@ -1780,5 +1780,6 @@ position = Vector2(-0.2, 1.42109e-15)
 [connection signal="area_entered" from="tuto/Area2Dlabel3" to="tuto" method="_on_area_2_dlabel_3_area_entered"]
 [connection signal="area_exited" from="tuto/Area2Dlabel3" to="tuto" method="_on_area_2_dlabel_3_area_exited"]
 [connection signal="area_entered" from="limite monde/Area2D" to="." method="_on_area_2d_area_entered"]
+[connection signal="piece_recupere" from="piece/piece2" to="player" method="_on_piece_2_piece_recupere"]
 [connection signal="area_entered" from="score/depose_piece" to="." method="_on_depose_piece_area_entered"]
 [connection signal="area_exited" from="score/depose_piece" to="." method="_on_depose_piece_area_exited"]

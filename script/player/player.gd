@@ -25,6 +25,12 @@ var crane = preload("res://scene/objets/crane.tscn")
 var gravity = 800
 var fall_gravity = 900
 
+var was_airbound := false #si le perso retombe
+
+func _ready() -> void:
+	GameManager.gain_coin_signal.connect(gain_coin)
+	GameManager.drop_coin_signal.connect(drop_coin)
+	
 func _physics_process(delta: float) -> void:
 
 	animate()
@@ -38,8 +44,13 @@ func _physics_process(delta: float) -> void:
 	if GameManager.player_mort == true:
 		mort()
 	
-	if not is_on_floor():
+	if is_on_floor():
+		if was_airbound:
+			was_airbound = false
+			animated_sprite_2d.scale = Vector2(1.3, 0.7)
+	else :
 		velocity.y += get_good_gravity() * delta
+		was_airbound = (true)
 		
 	if GameManager.paused == false:
 		
@@ -60,8 +71,16 @@ func _physics_process(delta: float) -> void:
 		if Input.is_action_just_released("saut") and velocity.y < 0:
 			velocity.y = JUMP_VELOCITY / 4
 		if Input.is_action_just_pressed("saut") and can_jump == true:
+			animated_sprite_2d.scale = Vector2(0.7, 1.3) 
 			can_jump = false
 			velocity.y = JUMP_VELOCITY
+
+		#squash and stretch animation
+		animated_sprite_2d.scale.x = move_toward(animated_sprite_2d.scale.x, 1, 3 * delta)
+		animated_sprite_2d.scale.y = move_toward(animated_sprite_2d.scale.y, 1, 3 * delta)
+
+
+
 
 		var direction := Input.get_axis("gauche", "droite")
 		if direction:
@@ -168,8 +187,18 @@ func debloquage():
 func ui():
 	#ui platforme
 	animationplatforme.play(str(GameManager.platforme))
-	#ui pieces
-	$ui/piece/LabelUiPiece.text = str("= " + str(GameManager.platforme))
+
+
+
+	#signale recus du gamemanager donc apparition piece
+func gain_coin():
+	print("pice ui")
+	var piece_ui = preload("res://scene/player/ui_piece_sprite.tscn").instantiate()
+	$ui/piece/coin_Container.add_child(piece_ui)
+func drop_coin():
+	var piece_ui = $ui/piece/coin_Container.get_child(GameManager.piece)
+	piece_ui.delete()
+
 
 func camera():
 	nombre_zoom_camera = player_camera.zoom

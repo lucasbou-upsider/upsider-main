@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://bk6d4eojfj81a"]
+[gd_scene format=3 uid="uid://bk6d4eojfj81a"]
 
 [ext_resource type="Script" uid="uid://b3roju6hw3plv" path="res://script/objet/piece.gd" id="1_pevh8"]
 [ext_resource type="Texture2D" uid="uid://8lr3d1ygiwto" path="res://sprite/piece.png" id="2_3rpew"]
@@ -120,28 +120,26 @@ _limits = [-360.0, 360.0, 0.0, 1.0]
 _data = [Vector2(0, 360), 0.0, 0.0, 0, 0, Vector2(0.994792, -185.934), 0.0, 0.0, 0, 0]
 point_count = 2
 
-[node name="piece" type="Node2D"]
+[node name="piece" type="Node2D" unique_id=1112636264]
 scale = Vector2(2, 2)
 script = ExtResource("1_pevh8")
 
-[node name="Sprite2D" type="AnimatedSprite2D" parent="."]
+[node name="Sprite2D" type="AnimatedSprite2D" parent="." unique_id=730229437]
 position = Vector2(-1.5, -1)
 scale = Vector2(3, 3)
 sprite_frames = SubResource("SpriteFrames_4vs35")
 frame_progress = 0.615655
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-libraries = {
-&"": SubResource("AnimationLibrary_d40ns")
-}
-autoplay = "default"
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=615661696]
+libraries/ = SubResource("AnimationLibrary_d40ns")
+autoplay = &"default"
 
-[node name="Area2D" type="Area2D" parent="."]
+[node name="Area2D" type="Area2D" parent="." unique_id=530563998]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=72397006]
 shape = SubResource("CircleShape2D_8rwaw")
 
-[node name="PointLight2D" type="PointLight2D" parent="."]
+[node name="PointLight2D" type="PointLight2D" parent="." unique_id=515913223]
 position = Vector2(-4.54747e-13, 0)
 scale = Vector2(0.154785, 0.144043)
 color = Color(1, 1, 0.694118, 1)
@@ -149,7 +147,7 @@ energy = 0.1
 shadow_enabled = true
 texture = ExtResource("3_5l77b")
 
-[node name="CPUParticles2D" type="CPUParticles2D" parent="."]
+[node name="CPUParticles2D" type="CPUParticles2D" parent="." unique_id=890245170]
 emitting = false
 amount = 10
 lifetime = 0.5
@@ -168,7 +166,7 @@ scale_amount_min = 5.0
 scale_amount_max = 6.0
 color = Color(0.968627, 0.607843, 0.454902, 1)
 
-[node name="son" type="AudioStreamPlayer2D" parent="."]
+[node name="son" type="AudioStreamPlayer2D" parent="." unique_id=1123644643]
 stream = ExtResource("4_antl0")
 
 [connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]

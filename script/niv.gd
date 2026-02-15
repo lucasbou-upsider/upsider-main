@@ -2,7 +2,7 @@ extends Node2D
 class_name script_niv
 
 #platforme lumiere 
-var isntance_platforme_lumiere = preload("res://scene/objets/platforme_lumière.tscn")
+var isntance_platforme_lumiere = preload("res://scene/player/platforme_lumière.tscn")
 var instance_point_tp = preload("res://scene/objets/capacite_tp.tscn")
 
 @onready var particule_caisse: CPUParticles2D = $player/particule_caisse
@@ -83,9 +83,9 @@ func _process(_delta: float) -> void:
 		if Input.is_action_just_pressed("poser_piece"):
 			if GameManager.piece >= 1:
 				particule_caisse.emitting = true
-				GameManager.piece -= 1
+				GameManager.drop_coin()
 				GameManager.piece_depose +=1
-				player.son_pose_piece()
+				player.was_airbound = true
 
 	#affichage score
 	score.text = str(GameManager.piece_depose) + "/" + str(piece_requis)

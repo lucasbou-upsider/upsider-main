@@ -12,7 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://c0kyqoo0sowjg" path="res://scene/menu/victoire.tscn" id="7_ykj4f"]
 [ext_resource type="Texture2D" uid="uid://cm1s1gxq7wdeg" path="res://sprite/Paper-Pixels-8x8/UI.png" id="8_22wg1"]
 [ext_resource type="FontFile" uid="uid://c6drrdopvgm8h" path="res://BabaMediumPixels.ttf" id="9_x6x7g"]
-[ext_resource type="PackedScene" uid="uid://cotkr8145jsds" path="res://scene/objets/platforme_lumiere_ui.tscn" id="13_08f1y"]
+[ext_resource type="PackedScene" uid="uid://cotkr8145jsds" path="res://scene/player/platforme_lumiere_ui.tscn" id="13_08f1y"]
 [ext_resource type="PackedScene" uid="uid://d4nbnajmtoanu" path="res://scene/player/player_camera.tscn" id="14_38sof"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_bvok8"]

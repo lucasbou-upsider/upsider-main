@@ -8,7 +8,7 @@ var piece_collecte = false
 @onready var point_light_2d: PointLight2D = $PointLight2D
 @onready var cpu_particles_2d: CPUParticles2D = $CPUParticles2D
 @onready var son: AudioStreamPlayer2D = $son
-
+signal piece_recupere
 
 func _ready() -> void:
 	pass
@@ -33,9 +33,10 @@ func piece_desactiver():
 
 func _on_area_2d_area_entered(_area: Area2D) -> void:
 	if _area.get_parent() is script_player:
+		piece_recupere.emit()
 		cpu_particles_2d.emitting = true
 		GameManager.platforme = GameManager.max_platforme
-		GameManager.piece += 1
+		GameManager.gain_coin()
 		piece_collecte = true
 		GameManager.derniere_piece = position
 		son.play()
