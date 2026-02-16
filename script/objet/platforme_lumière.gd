@@ -1,6 +1,6 @@
 extends StaticBody2D
-
-@onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
+class_name platforme_lumiere
+@onready var animated_sprite_2d: AnimatedSprite2D = $Platforme_animatedsprite
 
 
 func _ready() -> void:
@@ -22,3 +22,11 @@ func animation_juice():
 
 func _process(_delta: float) -> void:
 	pass
+
+#savoir si le joueur est sur la platforme
+func _on_platforme_area_2d_area_entered(area: Area2D) -> void:
+	if area.get_parent() is script_player:
+		GameManager.on_temporary_platforme = true
+func _on_platforme_area_2d_area_exited(area: Area2D) -> void:
+	if area.get_parent() is script_player:
+		GameManager.on_temporary_platforme = false

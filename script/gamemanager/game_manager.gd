@@ -22,7 +22,7 @@ var derniere_piece = 0
 #victoire
 var menue_victoire = false
 #capacité
-var mode_capacite = false
+var can_capa = false
 
 
 #1 = player de base 2 = player nerd 3 = sylvan tp 4 = meven
@@ -60,16 +60,15 @@ var niv_bonus_1_debloque = false
 #tuto
 var tuto_fini = false
 
-
+#savoir si le perso est sur une platforme lumiere ou cassable
+var on_temporary_platforme = false
 
 #coin signal 
 signal gain_coin_signal
 func gain_coin():
 	gain_coin_signal.emit()
-	piece += 1
 signal drop_coin_signal
 func drop_coin():
-	piece -= 1
 	drop_coin_signal.emit()
 
 #signal poser des platformes

@@ -129,7 +129,7 @@ func animate():
 	if GameManager.skin_player == 3:
 		GameManager.max_platforme = 3
 		GameManager.max_piece = 3
-		if GameManager.paused == false and GameManager.menue_victoire == false:
+		if GameManager.paused == false and GameManager.menue_victoire == false and in_capa == false:
 			if GameManager.tp_pose == 1:
 				if !velocity:
 					animated_sprite_2d.play("idle_sylvan")
@@ -199,6 +199,7 @@ func lose_platforme():
 #signale recus du gamemanager donc apparition piece
 func gain_coin():
 	print("pice ui")
+	GameManager.piece += 1
 	var camera_player = get_parent().get_node("Player_camera")
 	var tween = create_tween().set_trans(Tween.TRANS_EXPO).set_ease(Tween.EASE_OUT)
 	tween.tween_property(camera_player, "zoom", Vector2(1.05,1.05), 0.1)
@@ -207,6 +208,7 @@ func gain_coin():
 	var piece_ui = preload("res://scene/player/ui_piece_sprite.tscn").instantiate()
 	$ui/piece/coin_Container.add_child(piece_ui)
 func drop_coin():
+	GameManager.piece -= 1
 	var piece_ui = $ui/piece/coin_Container.get_child(0)
 	piece_ui.delete()
 
@@ -246,8 +248,12 @@ func mort():
 
 var capa_effectué = false
 var in_capa = false
-var can_capa = false
 
+var instance_point_tp = preload("res://scene/objets/capacite_tp.tscn")
+func inst_tp(pos):
+	var instance_tp = instance_point_tp.instantiate()
+	instance_tp.position = pos
+	get_parent().add_child(instance_tp)
 #capa de sylvan
 func capacite():
 	var camera_player = get_parent().get_node("Player_camera")
@@ -255,26 +261,27 @@ func capacite():
 	
 	if GameManager.skin_player == 3:
 		if Input.is_action_just_pressed("capacité") and in_capa == false:
-			if can_capa == false:
+			if GameManager.can_capa == false:
+				GameManager.can_capa = true
 				var tween = create_tween()
 				tween.tween_property(camera_player, "zoom", Vector2(1.3,1.3), 0.1)
 				tween.tween_property(camera_player, "zoom", Vector2(1.2,1.2), 0.1)
-				can_capa = true
-			elif can_capa == true:
+				print(GameManager.can_capa)
+			elif GameManager.can_capa == true:
+				GameManager.can_capa = false
 				var tween = create_tween().set_trans(Tween.TRANS_EXPO).set_ease(Tween.EASE_OUT)
 				tween.tween_property(camera_player, "zoom", Vector2(1.3,1.3), 0.1)
 				tween.tween_property(camera_player, "zoom", Vector2(1,1), 0.2)
-				can_capa = false
-		if Input.is_action_just_pressed("lumiere") and can_capa == true and capa_effectué == false:
+				print(GameManager.can_capa)
+		if Input.is_action_just_pressed("lumiere") and GameManager.can_capa == true and capa_effectué == false and GameManager.on_temporary_platforme == false:
 			var tween = create_tween().set_trans(Tween.TRANS_EXPO).set_ease(Tween.EASE_OUT)
 			tween.tween_property(camera_player, "zoom", Vector2(1.7,1.7), 0.1)
 			tween.tween_property(camera_player, "zoom", Vector2(1.5,1.4), 0.1)
 			in_capa = true
 			animated_sprite_2d.play("capacite_sylvan")
-			animation_player.play("capacite_sylvan")
 			capa_effectué = true
-			can_capa = false
 			await get_tree().create_timer(2).timeout
+			GameManager.can_capa = false
 			var tween1 = create_tween().set_trans(Tween.TRANS_EXPO).set_ease(Tween.EASE_OUT)
 			tween1.tween_property(camera_player, "zoom", Vector2(1.3,1.3), 0.1)
 			tween1.tween_property(camera_player, "zoom", Vector2(1,1), 0.1)

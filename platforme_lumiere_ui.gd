@@ -10,7 +10,7 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	position = get_global_mouse_position()
 	
-	if GameManager.platforme == 0 or GameManager.mode_capacite == true:
+	if GameManager.platforme == 0 or GameManager.can_capa == true:
 		visible = false
 	else:
 		visible = true
