@@ -3128,7 +3128,7 @@ theme_override_fonts/font = ExtResource("4_k84a1")
 theme_override_font_sizes/font_size = 14
 text = "Delete file"
 
-[node name="Label" type="Label" parent="menu_1" unique_id=1218868059]
+[node name="Label" type="RichTextLabel" parent="menu_1" unique_id=418931874]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -3141,11 +3141,16 @@ offset_right = 839.0
 offset_bottom = 347.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_fonts/font = ExtResource("4_k84a1")
-theme_override_font_sizes/font_size = 100
-text = "UPSIDER"
+theme_override_fonts/normal_font = ExtResource("4_k84a1")
+theme_override_fonts/bold_font = ExtResource("4_k84a1")
+theme_override_fonts/bold_italics_font = ExtResource("4_k84a1")
+theme_override_fonts/italics_font = ExtResource("4_k84a1")
+theme_override_fonts/mono_font = ExtResource("4_k84a1")
+theme_override_font_sizes/normal_font_size = 98
+bbcode_enabled = true
+text = "[wave amp=50 freq =20 ]UPSIDER"
 
-[node name="Label2" type="Label" parent="menu_1" unique_id=1474609328]
+[node name="Label2" type="RichTextLabel" parent="menu_1" unique_id=462739666]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -3158,11 +3163,12 @@ offset_right = 629.0
 offset_bottom = 383.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_fonts/font = ExtResource("4_k84a1")
-theme_override_font_sizes/font_size = 50
-text = "démo"
+theme_override_fonts/normal_font = ExtResource("4_k84a1")
+theme_override_font_sizes/normal_font_size = 46
+bbcode_enabled = true
+text = "[wave]démo[/wave]"
 
-[node name="Label3" type="Label" parent="menu_1" unique_id=781510960]
+[node name="Label3" type="RichTextLabel" parent="menu_1" unique_id=2092182356]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -3174,9 +3180,10 @@ offset_right = 1152.0
 offset_bottom = 25.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_fonts/font = ExtResource("4_k84a1")
-theme_override_font_sizes/font_size = 20
-text = "vers 0.0.2"
+theme_override_fonts/normal_font = ExtResource("4_k84a1")
+theme_override_font_sizes/normal_font_size = 18
+bbcode_enabled = true
+text = "[wave]vers 0.0.2[/wave]"
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1227852508]
 stream = ExtResource("6_4ywp1")

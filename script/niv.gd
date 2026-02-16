@@ -82,8 +82,12 @@ func _process(_delta: float) -> void:
 	if possible_piece_depose == true:
 		if Input.is_action_just_pressed("poser_piece"):
 			if GameManager.piece >= 1:
-				particule_caisse.emitting = true
 				GameManager.drop_coin()
+				var camera_player = get_node("Player_camera")
+				var tween = create_tween().set_trans(Tween.TRANS_EXPO).set_ease(Tween.EASE_OUT)
+				tween.tween_property(camera_player, "zoom", Vector2(1.1,1.1), 0.2)
+				tween.tween_property(camera_player, "zoom", Vector2(1,1), 0.2)
+				particule_caisse.emitting = true
 				GameManager.piece_depose +=1
 				player.was_airbound = true
 

@@ -3526,7 +3526,6 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_spie2")
-mode_admin = true
 
 [node name="décor" type="Control" parent="." unique_id=137320686]
 anchors_preset = 0
@@ -3605,7 +3604,7 @@ layout_mode = 2
 size_flags_horizontal = 6
 theme_override_fonts/font = ExtResource("4_xwok8")
 theme_override_font_sizes/font_size = 16
-text = "Quitter"
+text = "Exit"
 
 [node name="BoxContainer3" type="BoxContainer" parent="menu_1/option" unique_id=1299120682]
 layout_mode = 0
@@ -3633,15 +3632,16 @@ scale = Vector2(2, 2)
 tile_map_data = PackedByteArray("AAARAAMAAQAEAAYAAAAQAAMAAQAEAAYAAAAPAAMAAQAEAAYAAAAPAAIAAQADAAQAAAARAAIAAQAFAAUAAAAOAAMAAQAEAAYAAAASAAMAAQADAAcAAAANAAIAAQAHAAYAAAANAAMAAQACAAcAAAAOAAIAAQAEAAMAAAANAAQAAQACAAgAAAA=")
 tile_set = SubResource("TileSet_8sbek")
 
-[node name="titre" type="Label" parent="menu_1/monde 1" unique_id=2047822761]
+[node name="titre" type="RichTextLabel" parent="menu_1/monde 1" unique_id=1823739739]
 layout_mode = 0
 offset_left = 60.0
 offset_top = 11.0
-offset_right = 127.0
+offset_right = 128.0
 offset_bottom = 32.0
-theme_override_colors/font_color = Color(1, 1, 1, 1)
-theme_override_fonts/font = ExtResource("4_xwok8")
-text = "-monde 1"
+theme_override_fonts/normal_font = ExtResource("4_xwok8")
+theme_override_font_sizes/normal_font_size = 15
+bbcode_enabled = true
+text = "-[wave]world 1"
 
 [node name="BoxContainer" type="BoxContainer" parent="menu_1/monde 1" unique_id=1815747576]
 layout_mode = 0
@@ -3656,7 +3656,7 @@ script = ExtResource("6_c27m6")
 [node name="niv1" type="Button" parent="menu_1/monde 1/BoxContainer" unique_id=579572989]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("4_xwok8")
-text = "niv 1"
+text = "lvl 1"
 
 [node name="étoile_1" type="AnimatedSprite2D" parent="menu_1/monde 1/BoxContainer/niv1" unique_id=1507341472]
 visible = false
@@ -3667,7 +3667,7 @@ sprite_frames = SubResource("SpriteFrames_86fwu")
 [node name="niv 2" type="Button" parent="menu_1/monde 1/BoxContainer" unique_id=980755523]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("4_xwok8")
-text = "niv 2"
+text = "lvl 2"
 
 [node name="étoile_2" type="AnimatedSprite2D" parent="menu_1/monde 1/BoxContainer/niv 2" unique_id=1357719777]
 visible = false
@@ -3678,7 +3678,7 @@ sprite_frames = SubResource("SpriteFrames_86fwu")
 [node name="niv 3" type="Button" parent="menu_1/monde 1/BoxContainer" unique_id=1160705253]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("4_xwok8")
-text = "niv 3"
+text = "lvl 3"
 
 [node name="étoile_3" type="AnimatedSprite2D" parent="menu_1/monde 1/BoxContainer/niv 3" unique_id=1779329272]
 visible = false
@@ -3689,7 +3689,7 @@ sprite_frames = SubResource("SpriteFrames_86fwu")
 [node name="niv 4" type="Button" parent="menu_1/monde 1/BoxContainer" unique_id=1702201583]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("4_xwok8")
-text = "niv 4"
+text = "lvl 4"
 
 [node name="étoile_4" type="AnimatedSprite2D" parent="menu_1/monde 1/BoxContainer/niv 4" unique_id=2133370707]
 visible = false
@@ -3700,7 +3700,7 @@ sprite_frames = SubResource("SpriteFrames_86fwu")
 [node name="niv 5" type="Button" parent="menu_1/monde 1/BoxContainer" unique_id=1177852912]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("4_xwok8")
-text = "niv 5"
+text = "lvl 5"
 
 [node name="étoile_5" type="AnimatedSprite2D" parent="menu_1/monde 1/BoxContainer/niv 5" unique_id=1963190764]
 visible = false
@@ -3711,7 +3711,7 @@ sprite_frames = SubResource("SpriteFrames_86fwu")
 [node name="niv6" type="Button" parent="menu_1/monde 1/BoxContainer" unique_id=1024813442]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("4_xwok8")
-text = "niv 6"
+text = "lvl 6"
 
 [node name="étoile_6" type="AnimatedSprite2D" parent="menu_1/monde 1/BoxContainer/niv6" unique_id=975289109]
 visible = false
@@ -3722,7 +3722,7 @@ sprite_frames = SubResource("SpriteFrames_86fwu")
 [node name="niv7" type="Button" parent="menu_1/monde 1/BoxContainer" unique_id=548459822]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("4_xwok8")
-text = "niv 7"
+text = "lvl 7"
 
 [node name="étoile_7" type="AnimatedSprite2D" parent="menu_1/monde 1/BoxContainer/niv7" unique_id=453417085]
 visible = false
@@ -3773,15 +3773,16 @@ scale = Vector2(2, 2)
 tile_map_data = PackedByteArray("AAARAAMAAQAFABkAAAAQAAMAAQAFABkAAAAPAAMAAQAFABkAAAAPAAIAAQAEABgAAAARAAIAAQAGABgAAAAOAAMAAQAEABkAAAASAAMAAQADABoAAAANAAIAAQADABsAAAANAAMAAQACABoAAAANAAQAAQACABsAAAA=")
 tile_set = SubResource("TileSet_8sbek")
 
-[node name="Label2" type="Label" parent="menu_1/monde 2" unique_id=432219957]
+[node name="Label2" type="RichTextLabel" parent="menu_1/monde 2" unique_id=1940303295]
 layout_mode = 0
 offset_left = 230.0
 offset_top = 33.0
-offset_right = 298.0
+offset_right = 302.0
 offset_bottom = 54.0
-theme_override_colors/font_color = Color(1, 1, 1, 1)
-theme_override_fonts/font = ExtResource("4_xwok8")
-text = "-monde 2"
+theme_override_fonts/normal_font = ExtResource("4_xwok8")
+theme_override_font_sizes/normal_font_size = 14
+bbcode_enabled = true
+text = "-[wave]world 2"
 
 [node name="BoxContainer" type="BoxContainer" parent="menu_1/monde 2" unique_id=1655398084]
 layout_mode = 0
@@ -3796,7 +3797,7 @@ script = ExtResource("6_c27m6")
 [node name="niv8" type="Button" parent="menu_1/monde 2/BoxContainer" unique_id=262522042]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("4_xwok8")
-text = "niv 8"
+text = "lvl 8"
 
 [node name="étoile_8" type="AnimatedSprite2D" parent="menu_1/monde 2/BoxContainer/niv8" unique_id=1633148669]
 visible = false
@@ -3807,7 +3808,7 @@ sprite_frames = SubResource("SpriteFrames_86fwu")
 [node name="niv9" type="Button" parent="menu_1/monde 2/BoxContainer" unique_id=651881259]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("4_xwok8")
-text = "niv 9"
+text = "lvl 9"
 
 [node name="étoile_9" type="AnimatedSprite2D" parent="menu_1/monde 2/BoxContainer/niv9" unique_id=1339540696]
 visible = false
@@ -3822,17 +3823,16 @@ offset_top = 25.0
 offset_right = 565.0
 offset_bottom = 25.0
 
-[node name="mort" type="Label" parent="compteur_de_mort" unique_id=1172639203]
+[node name="mort" type="RichTextLabel" parent="compteur_de_mort" unique_id=1792794242]
 layout_mode = 0
 offset_left = -98.0
 offset_top = 5.0
-offset_right = 119.0
-offset_bottom = 31.0
-grow_horizontal = 2
-theme_override_colors/font_color = Color(1, 1, 1, 1)
-theme_override_fonts/font = ExtResource("4_xwok8")
-theme_override_font_sizes/font_size = 25
-text = "nombre de mort : 0"
+offset_right = 210.0
+offset_bottom = 37.0
+theme_override_fonts/normal_font = ExtResource("4_xwok8")
+theme_override_font_sizes/normal_font_size = 24
+bbcode_enabled = true
+text = "[wave ]number of deaht : 8"
 
 [node name="levier_actif" type="Label" parent="compteur_de_mort" unique_id=402537152]
 visible = false
@@ -3908,17 +3908,18 @@ text = ">"
 [node name="Roadmap" type="Control" parent="." unique_id=1355863182]
 anchors_preset = 0
 
-[node name="Roadmap_liste" type="Label" parent="Roadmap" unique_id=252004473]
+[node name="Roadmap_liste" type="RichTextLabel" parent="Roadmap" unique_id=1849290924]
 layout_mode = 0
 offset_left = 928.0
 offset_top = 44.0
 offset_right = 1148.0
-offset_bottom = 156.0
-theme_override_fonts/font = ExtResource("4_xwok8")
-text = "- Sylvan (bug + debloquage)
+offset_bottom = 263.0
+theme_override_fonts/normal_font = ExtResource("4_xwok8")
+bbcode_enabled = true
+text = "[wave]- Sylvan (bug + debloquage)
 -chargement screen
 - lance flamme
-- + 2, 3 perso (jojo,emna)
+- + 2, 3 perso (killian, jojo, emna)
 -monde 2 et 3"
 
 [node name="Roadmap_button" type="Button" parent="Roadmap" unique_id=1458894871]
@@ -3944,14 +3945,16 @@ offset_top = 574.0
 offset_right = 46.0
 offset_bottom = 600.0
 
-[node name="Label_speedrun" type="Label" parent="mode_speedrun" unique_id=315940469]
+[node name="Label_speedrun" type="RichTextLabel" parent="mode_speedrun" unique_id=359961253]
 layout_mode = 0
 offset_left = 46.0
 offset_top = 574.0
-offset_right = 168.0
+offset_right = 186.0
 offset_bottom = 600.0
-theme_override_fonts/font = ExtResource("4_xwok8")
-text = "timer speedrun"
+theme_override_fonts/normal_font = ExtResource("4_xwok8")
+theme_override_font_sizes/normal_font_size = 18
+bbcode_enabled = true
+text = "[wave]timer speedrun"
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=224612709]
 stream = ExtResource("11_3s2x0")

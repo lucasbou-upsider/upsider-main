@@ -7,7 +7,7 @@ var JUMP_VELOCITY = -400.0
 var nouv = false
 var can_jump = false
 var coyote_time = 0.3
-var zoom = false
+
 var nombre_zoom_camera := Vector2(0,0)
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 @onready var nouv_player: AnimationPlayer = $ui/UI_debloquage/AnimationPlayer
@@ -199,11 +199,15 @@ func lose_platforme():
 #signale recus du gamemanager donc apparition piece
 func gain_coin():
 	print("pice ui")
+	var camera_player = get_parent().get_node("Player_camera")
+	var tween = create_tween().set_trans(Tween.TRANS_EXPO).set_ease(Tween.EASE_OUT)
+	tween.tween_property(camera_player, "zoom", Vector2(1.05,1.05), 0.1)
+	tween.tween_property(camera_player, "zoom", Vector2(1,1), 0.1)
 	gain_platforme(GameManager.max_platforme - GameManager.platforme)
 	var piece_ui = preload("res://scene/player/ui_piece_sprite.tscn").instantiate()
 	$ui/piece/coin_Container.add_child(piece_ui)
 func drop_coin():
-	var piece_ui = $ui/piece/coin_Container.get_child(GameManager.piece)
+	var piece_ui = $ui/piece/coin_Container.get_child(0)
 	piece_ui.delete()
 
 
@@ -240,30 +244,47 @@ func mort():
 	await get_tree().create_timer(0.7).timeout
 	son_mort.stop()
 
-var zoom_effectué = false
-var gros_zoom = false
+var capa_effectué = false
+var in_capa = false
+var can_capa = false
 
 #capa de sylvan
 func capacite():
+	var camera_player = get_parent().get_node("Player_camera")
+	
+	
 	if GameManager.skin_player == 3:
-		if Input.is_action_just_pressed("capacité") and gros_zoom == false:
-			if zoom == false:
-				animation_player.play("zoom_camera")
-				zoom = true
-			elif zoom == true:
-				animation_player.play("dezoom_camera")
-				zoom = false
-		if Input.is_action_just_pressed("lumiere") and zoom == true and zoom_effectué == false:
-			gros_zoom = true
+		if Input.is_action_just_pressed("capacité") and in_capa == false:
+			if can_capa == false:
+				var tween = create_tween()
+				tween.tween_property(camera_player, "zoom", Vector2(1.3,1.3), 0.1)
+				tween.tween_property(camera_player, "zoom", Vector2(1.2,1.2), 0.1)
+				can_capa = true
+			elif can_capa == true:
+				var tween = create_tween().set_trans(Tween.TRANS_EXPO).set_ease(Tween.EASE_OUT)
+				tween.tween_property(camera_player, "zoom", Vector2(1.3,1.3), 0.1)
+				tween.tween_property(camera_player, "zoom", Vector2(1,1), 0.2)
+				can_capa = false
+		if Input.is_action_just_pressed("lumiere") and can_capa == true and capa_effectué == false:
+			var tween = create_tween().set_trans(Tween.TRANS_EXPO).set_ease(Tween.EASE_OUT)
+			tween.tween_property(camera_player, "zoom", Vector2(1.7,1.7), 0.1)
+			tween.tween_property(camera_player, "zoom", Vector2(1.5,1.4), 0.1)
+			in_capa = true
 			animated_sprite_2d.play("capacite_sylvan")
 			animation_player.play("capacite_sylvan")
-			zoom_effectué = true
-			zoom = false
+			capa_effectué = true
+			can_capa = false
 			await get_tree().create_timer(2).timeout
-			gros_zoom = false
+			var tween1 = create_tween().set_trans(Tween.TRANS_EXPO).set_ease(Tween.EASE_OUT)
+			tween1.tween_property(camera_player, "zoom", Vector2(1.3,1.3), 0.1)
+			tween1.tween_property(camera_player, "zoom", Vector2(1,1), 0.1)
+			in_capa = false
 		if Input.is_action_just_pressed("poser_piece") and GameManager.dans_area_reprendre_tp:
-			gros_zoom = true
-			zoom_effectué = false
+			var tween = create_tween().set_trans(Tween.TRANS_EXPO).set_ease(Tween.EASE_OUT)
+			tween.tween_property(camera_player, "zoom", Vector2(1,1), 0.1)
+			tween.tween_property(camera_player, "zoom", Vector2(1.3,1.3), 0.2)
+			in_capa = true
+			capa_effectué = false
 			GameManager.paused = true
 			animated_sprite_2d.offset.y = -1
 			animated_sprite_2d.play("rattrapage_capacite_sylvan")
@@ -271,9 +292,13 @@ func capacite():
 			GameManager.tp_position = 0
 			GameManager.tp_pose = 0
 			await get_tree().create_timer(2).timeout
+			var tween1 = create_tween().set_trans(Tween.TRANS_EXPO).set_ease(Tween.EASE_OUT)
+			tween1.tween_property(camera_player, "zoom", Vector2(1.3,1.3), 0.1)
+			tween1.tween_property(camera_player, "zoom", Vector2(1,1), 0.2)
 			GameManager.paused = false
 			animated_sprite_2d.offset.y = 0
-			gros_zoom = false
+			capa_effectué = false
+			in_capa = false
 
 #animation succes
 func succes():

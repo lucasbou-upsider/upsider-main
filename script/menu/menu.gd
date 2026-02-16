@@ -3,17 +3,17 @@ extends Control
 
 @onready var audio_stream_player: AudioStreamPlayer = $AudioStreamPlayer
 
-@onready var mort: Label = $compteur_de_mort/mort
+@onready var mort = $compteur_de_mort/mort
 @export var mode_admin = false
 @onready var menu_1: Control = $menu_1
 @onready var monde_2: Control = $"menu_1/monde 2"
-@onready var levier_actif: Label = $compteur_de_mort/levier_actif
+@onready var levier_actif:  = $compteur_de_mort/levier_actif
 @onready var speedrun_button: CheckButton = $mode_speedrun/speedrun_button
-@onready var temps_speedrun_monde_1: Label = $"menu_1/monde 1/temps_speedrun_monde_1"
+@onready var temps_speedrun_monde_1:  = $"menu_1/monde 1/temps_speedrun_monde_1"
 @onready var quit: Button = $menu_1/option/BoxContainer2/quit
-@onready var titre_monde_1: Label = $"menu_1/monde 1/titre"
-@onready var titre_monde_2: Label = $"menu_1/monde 2/Label2"
-@onready var label_speedrun: Label = $mode_speedrun/Label_speedrun
+@onready var titre_monde_1:  = $"menu_1/monde 1/titre"
+@onready var titre_monde_2:  = $"menu_1/monde 2/Label2"
+@onready var label_speedrun:  = $mode_speedrun/Label_speedrun
 
 #niv
 @onready var niv_1: Button = $"menu_1/monde 1/BoxContainer/niv1"
@@ -134,8 +134,8 @@ func _ready() -> void:
 
 	#traduction text comteur de levier et de mort 
 	if GameManager.language == "EN":
-		text_nombre_de_levier = "number of active levers : "
-		text_nombre_de_mort = "number of deaths : "
+		text_nombre_de_levier = "[wave]number of active levers : "
+		text_nombre_de_mort = "[wave]number of deaths : "
 
 	#texte compteur de mort
 	mort.text = text_nombre_de_mort + str(GameManager.mort)
@@ -176,9 +176,9 @@ func traduction():
 		quit.text = "Exit"
 		niv_bonus_1.text = "bonus level"
 		niv_bonus_1.set_deferred("theme_override_font_sizes/font_size", 15)
-		titre_monde_1.text = "-world 1"
-		titre_monde_2.text = "-world 2"
-		label_speedrun.text = "speedrun mode"
+		titre_monde_1.text = "[wave]-world 1"
+		titre_monde_2.text = "[wave]-world 2"
+		label_speedrun.text = "[wave]speedrun mode"
 
 #bouton niv
 func _on_niv_1_pressed() -> void:
@@ -232,7 +232,7 @@ func _on_check_button_toggled(_toggled_on: bool) -> void:
 		GameManager.timer_visible = false
 	print(GameManager.timer_visible)
 
-@onready var roadmap_liste: Label = $Roadmap/Roadmap_liste
+@onready var roadmap_liste:  = $Roadmap/Roadmap_liste
 func _on_roadmap_button_pressed() -> void:
 	if roadmap_liste.visible == false:
 		roadmap_liste.visible = true

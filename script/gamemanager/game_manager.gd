@@ -65,8 +65,8 @@ var tuto_fini = false
 #coin signal 
 signal gain_coin_signal
 func gain_coin():
-	piece += 1
 	gain_coin_signal.emit()
+	piece += 1
 signal drop_coin_signal
 func drop_coin():
 	piece -= 1
