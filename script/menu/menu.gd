@@ -102,12 +102,14 @@ func _ready() -> void:
 	if GameManager.niv_fini.has(7.0) == true:
 		etoile_7.visible = true
 		etoile_7.play("recus")
+		GameManager.unlock("succes")
+		Succes.debloquage_succes(1)
 		GameManager.temps_monde_1 = GameManager.timer_speedrun
 		temps_speedrun_monde_1.text = str(GameManager.temps_monde_1)
 		if int(GameManager.temps_monde_1) <= 300: #300 secondes = 10min
+			temps_speedrun_monde_1.visible = true
 			GameManager.skin_debloquer.append(4)
-		else:
-			temps_speedrun_monde_1.visible = false
+			GameManager.unlock("skin")
 	else :
 		monde_2.visible = false
 		temps_speedrun_monde_1.visible = false

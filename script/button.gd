@@ -12,8 +12,8 @@ func _process(_delta: float) -> void:
 		else:
 			button.scale = button.scale.lerp(Vector2.ONE, duration)
 
-func start_tween(object: Object, property: NodePath, final_val: Variant, duration: float) -> void:
+func start_tween(object: Object, property: NodePath, final_val: Variant, duration1: float) -> void:
 	var tween = create_tween()
-	tween.tween_property(object, property, final_val, duration)
+	tween.tween_property(object, property, final_val, duration1)
 	await tween.finished
 	tween.kill()

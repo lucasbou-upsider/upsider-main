@@ -46,3 +46,6 @@ func _on_area_2d_area_entered(_area: Area2D) -> void:
 #signal mort
 func _on_niv_1_mort() -> void:
 	pass
+
+func mort():
+	pass

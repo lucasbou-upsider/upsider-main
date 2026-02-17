@@ -10,7 +10,7 @@ var coyote_time = 0.3
 
 var nombre_zoom_camera := Vector2(0,0)
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
-@onready var nouv_player: AnimationPlayer = $ui/UI_debloquage/AnimationPlayer
+@onready var ui_debloquage_animationPlayer: AnimationPlayer = $ui/UI_debloquage/ui_debloquage_AnimationPlayer
 @onready var animationplatforme: AnimationPlayer = $ui/platforme/Animationplatforme
 @onready var son_mort: AudioStreamPlayer = $son/Mort
 @onready var pose_piece: AudioStreamPlayer = $son/pose_piece
@@ -28,15 +28,17 @@ var fall_gravity = 900
 var was_airbound := false #si le perso retombe
 
 func _ready() -> void:
+	#signal pour gagner ou perdre des pieces
 	GameManager.gain_coin_signal.connect(gain_coin)
 	GameManager.drop_coin_signal.connect(drop_coin)
+	#signal quand tu utilise une platforme
 	GameManager.pos_platforme_signal.connect(lose_platforme)
+	#signal quand tu debloque quelque chose
+	GameManager.unlock_signal.connect(unlock)
 	
 func _physics_process(delta: float) -> void:
 
 	animate()
-	debloquage()
-	succes()
 	#max_piece()
 	
 	
@@ -172,21 +174,32 @@ func max_piece():
 			SPEED = 350
 
 
-var arret: Array = []
+
+
+func unlock(things_unlock):
+	print(things_unlock)
+	if things_unlock == "succes":
+		ui_debloquage_animationPlayer.play("debloquage_succes")
+	elif things_unlock == "skin":
+		ui_debloquage_animationPlayer.play("debloquage_skin")
+	elif things_unlock == "marteau":
+		ui_debloquage_animationPlayer.play("debloquage_marteau")
+
+#var arret: Array = []
 
 #arret animation nouv skin
-func arret_animation():
-	arret.append("marteau")
-	GlobaleUpside.debloquage_marteau_animation = false
+#func arret_animation():
+	#arret.append("marteau")
+	#GlobaleUpside.debloquage_marteau_animation = false
 
 # debloquage skin ou marteau
-func debloquage():
-	if !arret.has("skin"):
-		if GameManager.mort == 20:
-			nouv_player.play("debloquage_skin")
-			arret.append("skin")
-	if GlobaleUpside.debloquage_marteau_animation == true:
-		nouv_player.play("debloquage_marteau")
+#func debloquage():
+	#if !arret.has("skin"):
+		#if GameManager.mort == 20:
+			#nouv_player.play("debloquage_skin")
+			#arret.append("skin")
+	#if GlobaleUpside.debloquage_marteau_animation == true:
+		#nouv_player.play("debloquage_marteau")
 
 #ui platforme
 func gain_platforme(number):
@@ -244,7 +257,7 @@ func mort():
 		print("20 mort")
 		#Succes.debloquage_succes(4)
 		#succes()
-		debloquage()
+		unlock("skin")
 	son_mort.play()
 	await get_tree().create_timer(0.3).timeout
 	GameManager.paused = false
@@ -330,10 +343,10 @@ func recup_tp():
 
 
 #animation succes
-func succes():
-	if Succes.nouv_succes == true:
-		nouv_player.play("debloquage_succes")
-		Succes.nouv_succes = false
+#func succes():
+	#if Succes.nouv_succes == true:
+		#nouv_player.play("debloquage_succes")
+		#Succes.nouv_succes = false
 
 #truc celest
 func _on_jump_timer_timeout() -> void:

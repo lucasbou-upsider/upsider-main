@@ -1,8 +1,10 @@
-[gd_scene load_steps=30 format=3 uid="uid://chx4g7b47dma1"]
+[gd_scene format=3 uid="uid://chx4g7b47dma1"]
 
 [ext_resource type="Script" uid="uid://bjvh7fabsg1jb" path="res://script/player/faux_sylvan.gd" id="1_mojr8"]
 [ext_resource type="Texture2D" uid="uid://coh2uwrl6uqfk" path="res://sprite/player/sylvan/Player_sylvan_sans_bambou.png" id="2_7vo3k"]
 [ext_resource type="Texture2D" uid="uid://c15286hr3w1ic" path="res://sprite/player/sylvan/Player_sylvan_animation_fuite.png" id="3_rsu3s"]
+[ext_resource type="FontFile" uid="uid://c6drrdopvgm8h" path="res://BabaMediumPixels.ttf" id="4_7vo3k"]
+[ext_resource type="Texture2D" uid="uid://s703fxo6qvca" path="res://sprite/player/sylvan/papier_sylvan.png" id="4_rsu3s"]
 
 [sub_resource type="AudioStreamMicrophone" id="AudioStreamMicrophone_mojr8"]
 
@@ -94,6 +96,34 @@ region = Rect2(20, 50, 20, 10)
 atlas = ExtResource("3_rsu3s")
 region = Rect2(40, 50, 20, 10)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_h1sbd"]
+atlas = ExtResource("4_rsu3s")
+region = Rect2(0, 0, 15, 7)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qmhpq"]
+atlas = ExtResource("4_rsu3s")
+region = Rect2(15, 0, 15, 7)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pa6wb"]
+atlas = ExtResource("4_rsu3s")
+region = Rect2(30, 0, 15, 7)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ofcd7"]
+atlas = ExtResource("4_rsu3s")
+region = Rect2(45, 0, 15, 7)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l7oix"]
+atlas = ExtResource("4_rsu3s")
+region = Rect2(60, 0, 15, 7)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c277v"]
+atlas = ExtResource("4_rsu3s")
+region = Rect2(75, 0, 15, 7)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mrrtl"]
+atlas = ExtResource("4_rsu3s")
+region = Rect2(90, 0, 15, 7)
+
 [sub_resource type="SpriteFrames" id="SpriteFrames_h1sbd"]
 animations = [{
 "frames": [{
@@ -171,6 +201,32 @@ animations = [{
 "loop": false,
 "name": &"fuite",
 "speed": 15.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h1sbd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qmhpq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pa6wb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ofcd7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l7oix")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c277v")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mrrtl")
+}],
+"loop": false,
+"name": &"papier",
+"speed": 5.0
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_qmhpq"]
@@ -179,29 +235,42 @@ radius = 122.671
 [sub_resource type="CircleShape2D" id="CircleShape2D_mojr8"]
 radius = 12.7061
 
-[node name="faux_sylvan" type="Node2D"]
+[node name="faux_sylvan" type="Node2D" unique_id=351931542]
 scale = Vector2(3, 3)
 script = ExtResource("1_mojr8")
 
-[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=1115672829]
 stream = SubResource("AudioStreamMicrophone_mojr8")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(0, 0.333333)
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=665588331]
+position = Vector2(0, 2.9802322e-08)
 scale = Vector2(1.79583, 1.71667)
 sprite_frames = SubResource("SpriteFrames_h1sbd")
+animation = &"fuite"
 autoplay = "default"
 flip_h = true
 
-[node name="detection" type="Area2D" parent="."]
+[node name="detection" type="Area2D" parent="." unique_id=1664992177]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="detection"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="detection" unique_id=996111820]
 shape = SubResource("CircleShape2D_qmhpq")
 
-[node name="attrapage" type="Area2D" parent="."]
+[node name="attrapage" type="Area2D" parent="." unique_id=13300978]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="attrapage"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="attrapage" unique_id=1496609141]
 shape = SubResource("CircleShape2D_mojr8")
 
+[node name="Label_indiceNiv" type="RichTextLabel" parent="." unique_id=1543717072]
+offset_left = -17.666668
+offset_top = -22.0
+offset_right = 51.666668
+offset_bottom = 13.333336
+scale = Vector2(0.5, 0.5)
+theme_override_fonts/normal_font = ExtResource("4_7vo3k")
+theme_override_font_sizes/normal_font_size = 24
+bbcode_enabled = true
+
+[connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
 [connection signal="area_entered" from="detection" to="." method="_on_area_2d_area_entered"]
 [connection signal="area_entered" from="attrapage" to="." method="_on_attrapage_area_entered"]
+[connection signal="area_exited" from="attrapage" to="." method="_on_attrapage_area_exited"]

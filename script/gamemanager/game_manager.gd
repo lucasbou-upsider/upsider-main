@@ -63,6 +63,11 @@ var tuto_fini = false
 #savoir si le perso est sur une platforme lumiere ou cassable
 var on_temporary_platforme = false
 
+#signal quand on debloque un perso ou un objet
+signal unlock_signal
+func unlock(things_unlock):
+	unlock_signal.emit(things_unlock)
+
 #coin signal 
 signal gain_coin_signal
 func gain_coin():
@@ -86,8 +91,6 @@ func _ready() -> void:
 	mort = SaveLoad.content_to_save.number_of_death
 	temps_monde_1 = SaveLoad.content_to_save.speedrun_time_world1
 	GlobaleUpside.upside_debloque = SaveLoad.content_to_save.upside
-func _process(_delta: float) -> void:
-	pass
 
 func debloque(debloque_niv):
 	if debloque_niv == 1.1:

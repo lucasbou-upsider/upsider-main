@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://nrr04rk1t045"]
+[gd_scene format=3 uid="uid://nrr04rk1t045"]
 
 [ext_resource type="Texture2D" uid="uid://knlv8kj4oiyw" path="res://sprite/marteau.png" id="1_p3exx"]
 [ext_resource type="Script" uid="uid://sincrrhejqom" path="res://script/objet/marteau.gd" id="1_tqi6a"]
@@ -15,28 +15,28 @@ point_count = 2
 offsets = PackedFloat32Array(0, 0.445122)
 colors = PackedColorArray(0.623529, 0.623529, 0.623529, 1, 1, 1, 1, 1)
 
-[node name="Marteau" type="Node2D"]
+[node name="Marteau" type="Node2D" unique_id=1538968455]
 scale = Vector2(0.7, 0.7)
 script = ExtResource("1_tqi6a")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=338824744]
 scale = Vector2(3, 3)
 texture = ExtResource("1_p3exx")
 
-[node name="PointLight2D" type="PointLight2D" parent="."]
+[node name="PointLight2D" type="PointLight2D" parent="." unique_id=1909177633]
 energy = 0.3
 texture = ExtResource("2_6ubil")
 texture_scale = 0.5
 
-[node name="Area2D" type="Area2D" parent="."]
+[node name="Area2D" type="Area2D" parent="." unique_id=811735661]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=356623816]
 position = Vector2(-2, 2)
 shape = SubResource("CircleShape2D_jlgnq")
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=618414949]
 
-[node name="CPUParticles2D" type="CPUParticles2D" parent="."]
+[node name="CPUParticles2D" type="CPUParticles2D" parent="." unique_id=1834958449]
 emitting = false
 amount = 20
 lifetime = 0.5

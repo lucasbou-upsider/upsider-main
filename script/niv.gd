@@ -125,3 +125,6 @@ func _on_depose_piece_area_entered(_area: Area2D) -> void:
 	possible_piece_depose = true
 func _on_depose_piece_area_exited(_area: Area2D) -> void:
 	possible_piece_depose = false
+
+func mort():
+	pass

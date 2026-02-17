@@ -1412,6 +1412,18 @@ tracks/3/keys = {
 "update": 1,
 "values": [false]
 }
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("../../son/debloque:playing")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
 
 [sub_resource type="Animation" id="Animation_4rm0g"]
 resource_name = "debloquage_marteau"
@@ -1588,11 +1600,11 @@ tracks/2/keys = {
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("../son/debloque:playing")
+tracks/3/path = NodePath("../../son/debloque:playing")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"times": PackedFloat32Array(0.433333),
+"times": PackedFloat32Array(0.98),
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [true]
@@ -1762,7 +1774,7 @@ theme_override_colors/font_color = Color(1, 0.943532, 0.866336, 1)
 theme_override_fonts/font = ExtResource("4_2bqdh")
 text = "nouveau personnage debloqué"
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="ui/UI_debloquage" unique_id=354795254]
+[node name="ui_debloquage_AnimationPlayer" type="AnimationPlayer" parent="ui/UI_debloquage" unique_id=354795254]
 libraries/ = SubResource("AnimationLibrary_x47vg")
 
 [node name="platforme" type="CanvasLayer" parent="ui" unique_id=70180428]

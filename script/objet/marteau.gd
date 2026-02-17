@@ -10,6 +10,5 @@ func _on_area_2d_area_entered(_area: Area2D) -> void:
 	sprite_2d.visible = false
 	point_light_2d.enabled = false
 	cpu_particles_2d.emitting = true
-	GameManager.skin_debloquer.append(3)
 	await get_tree().create_timer(1).timeout
 	queue_free()
