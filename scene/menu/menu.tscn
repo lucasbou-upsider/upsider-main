@@ -3643,7 +3643,7 @@ theme_override_font_sizes/normal_font_size = 15
 bbcode_enabled = true
 text = "-[wave]world 1"
 
-[node name="BoxContainer" type="BoxContainer" parent="menu_1/monde 1" unique_id=1815747576]
+[node name="BoxContainerworld1" type="BoxContainer" parent="menu_1/monde 1" unique_id=1815747576]
 layout_mode = 0
 offset_left = 74.0
 offset_top = 46.0
@@ -3653,78 +3653,85 @@ theme_override_constants/separation = 10
 vertical = true
 script = ExtResource("6_c27m6")
 
-[node name="niv1" type="Button" parent="menu_1/monde 1/BoxContainer" unique_id=579572989]
+[node name="niv1" type="Button" parent="menu_1/monde 1/BoxContainerworld1" unique_id=579572989]
+visible = false
 layout_mode = 2
 theme_override_fonts/font = ExtResource("4_xwok8")
 text = "lvl 1"
 
-[node name="étoile_1" type="AnimatedSprite2D" parent="menu_1/monde 1/BoxContainer/niv1" unique_id=1507341472]
+[node name="étoile_1" type="AnimatedSprite2D" parent="menu_1/monde 1/BoxContainerworld1/niv1" unique_id=1507341472]
 visible = false
 position = Vector2(71, 9)
 scale = Vector2(3.75, 3.4375)
 sprite_frames = SubResource("SpriteFrames_86fwu")
 
-[node name="niv 2" type="Button" parent="menu_1/monde 1/BoxContainer" unique_id=980755523]
+[node name="niv 2" type="Button" parent="menu_1/monde 1/BoxContainerworld1" unique_id=980755523]
+visible = false
 layout_mode = 2
 theme_override_fonts/font = ExtResource("4_xwok8")
 text = "lvl 2"
 
-[node name="étoile_2" type="AnimatedSprite2D" parent="menu_1/monde 1/BoxContainer/niv 2" unique_id=1357719777]
+[node name="étoile_2" type="AnimatedSprite2D" parent="menu_1/monde 1/BoxContainerworld1/niv 2" unique_id=1357719777]
 visible = false
 position = Vector2(72, 8)
 scale = Vector2(3.75, 3.4375)
 sprite_frames = SubResource("SpriteFrames_86fwu")
 
-[node name="niv 3" type="Button" parent="menu_1/monde 1/BoxContainer" unique_id=1160705253]
+[node name="niv 3" type="Button" parent="menu_1/monde 1/BoxContainerworld1" unique_id=1160705253]
+visible = false
 layout_mode = 2
 theme_override_fonts/font = ExtResource("4_xwok8")
 text = "lvl 3"
 
-[node name="étoile_3" type="AnimatedSprite2D" parent="menu_1/monde 1/BoxContainer/niv 3" unique_id=1779329272]
+[node name="étoile_3" type="AnimatedSprite2D" parent="menu_1/monde 1/BoxContainerworld1/niv 3" unique_id=1779329272]
 visible = false
 position = Vector2(71, 7)
 scale = Vector2(3.75, 3.4375)
 sprite_frames = SubResource("SpriteFrames_86fwu")
 
-[node name="niv 4" type="Button" parent="menu_1/monde 1/BoxContainer" unique_id=1702201583]
+[node name="niv 4" type="Button" parent="menu_1/monde 1/BoxContainerworld1" unique_id=1702201583]
+visible = false
 layout_mode = 2
 theme_override_fonts/font = ExtResource("4_xwok8")
 text = "lvl 4"
 
-[node name="étoile_4" type="AnimatedSprite2D" parent="menu_1/monde 1/BoxContainer/niv 4" unique_id=2133370707]
+[node name="étoile_4" type="AnimatedSprite2D" parent="menu_1/monde 1/BoxContainerworld1/niv 4" unique_id=2133370707]
 visible = false
 position = Vector2(71, 7)
 scale = Vector2(3.75, 3.4375)
 sprite_frames = SubResource("SpriteFrames_86fwu")
 
-[node name="niv 5" type="Button" parent="menu_1/monde 1/BoxContainer" unique_id=1177852912]
+[node name="niv 5" type="Button" parent="menu_1/monde 1/BoxContainerworld1" unique_id=1177852912]
+visible = false
 layout_mode = 2
 theme_override_fonts/font = ExtResource("4_xwok8")
 text = "lvl 5"
 
-[node name="étoile_5" type="AnimatedSprite2D" parent="menu_1/monde 1/BoxContainer/niv 5" unique_id=1963190764]
+[node name="étoile_5" type="AnimatedSprite2D" parent="menu_1/monde 1/BoxContainerworld1/niv 5" unique_id=1963190764]
 visible = false
 position = Vector2(71, 7)
 scale = Vector2(3.75, 3.4375)
 sprite_frames = SubResource("SpriteFrames_86fwu")
 
-[node name="niv6" type="Button" parent="menu_1/monde 1/BoxContainer" unique_id=1024813442]
+[node name="niv6" type="Button" parent="menu_1/monde 1/BoxContainerworld1" unique_id=1024813442]
+visible = false
 layout_mode = 2
 theme_override_fonts/font = ExtResource("4_xwok8")
 text = "lvl 6"
 
-[node name="étoile_6" type="AnimatedSprite2D" parent="menu_1/monde 1/BoxContainer/niv6" unique_id=975289109]
+[node name="étoile_6" type="AnimatedSprite2D" parent="menu_1/monde 1/BoxContainerworld1/niv6" unique_id=975289109]
 visible = false
 position = Vector2(71, 9)
 scale = Vector2(3.75, 3.4375)
 sprite_frames = SubResource("SpriteFrames_86fwu")
 
-[node name="niv7" type="Button" parent="menu_1/monde 1/BoxContainer" unique_id=548459822]
+[node name="niv7" type="Button" parent="menu_1/monde 1/BoxContainerworld1" unique_id=548459822]
+visible = false
 layout_mode = 2
 theme_override_fonts/font = ExtResource("4_xwok8")
 text = "lvl 7"
 
-[node name="étoile_7" type="AnimatedSprite2D" parent="menu_1/monde 1/BoxContainer/niv7" unique_id=453417085]
+[node name="étoile_7" type="AnimatedSprite2D" parent="menu_1/monde 1/BoxContainerworld1/niv7" unique_id=453417085]
 visible = false
 position = Vector2(71, 9)
 scale = Vector2(3.75, 3.4375)
@@ -3748,6 +3755,7 @@ theme_override_font_sizes/font_size = 0
 text = "niv bonus"
 
 [node name="étoile_bonus_1" type="AnimatedSprite2D" parent="menu_1/monde 1/BoxContainer2/niv_bonus_1" unique_id=1372926161]
+visible = false
 position = Vector2(100, 12)
 scale = Vector2(3.75, 3.4375)
 sprite_frames = SubResource("SpriteFrames_86fwu")
@@ -3795,6 +3803,7 @@ vertical = true
 script = ExtResource("6_c27m6")
 
 [node name="niv8" type="Button" parent="menu_1/monde 2/BoxContainer" unique_id=262522042]
+visible = false
 layout_mode = 2
 theme_override_fonts/font = ExtResource("4_xwok8")
 text = "lvl 8"
@@ -3806,6 +3815,7 @@ scale = Vector2(3.75, 3.4375)
 sprite_frames = SubResource("SpriteFrames_86fwu")
 
 [node name="niv9" type="Button" parent="menu_1/monde 2/BoxContainer" unique_id=651881259]
+visible = false
 layout_mode = 2
 theme_override_fonts/font = ExtResource("4_xwok8")
 text = "lvl 9"
@@ -3919,8 +3929,7 @@ bbcode_enabled = true
 text = "[wave]-chargement screen
 - lance flamme
 - + 2, 3 perso (killian, jojo, emna)
--monde 2 et 3
--bug caisse jaune"
+-monde 2 et 3"
 
 [node name="Roadmap_button" type="Button" parent="Roadmap" unique_id=1458894871]
 layout_mode = 0
@@ -3962,13 +3971,13 @@ stream = ExtResource("11_3s2x0")
 [connection signal="pressed" from="menu_1/option/BoxContainer/quit2" to="." method="_on_quit_2_pressed"]
 [connection signal="button_down" from="menu_1/option/BoxContainer2/quit" to="." method="_on_quit_button_down"]
 [connection signal="pressed" from="menu_1/option/BoxContainer3/Button_succes" to="." method="_on_button_succes_pressed"]
-[connection signal="pressed" from="menu_1/monde 1/BoxContainer/niv1" to="." method="_on_niv_1_pressed"]
-[connection signal="pressed" from="menu_1/monde 1/BoxContainer/niv 2" to="." method="_on_niv_2_pressed"]
-[connection signal="pressed" from="menu_1/monde 1/BoxContainer/niv 3" to="." method="_on_niv_3_pressed"]
-[connection signal="pressed" from="menu_1/monde 1/BoxContainer/niv 4" to="." method="_on_niv_4_pressed"]
-[connection signal="pressed" from="menu_1/monde 1/BoxContainer/niv 5" to="." method="_on_niv_5_pressed"]
-[connection signal="pressed" from="menu_1/monde 1/BoxContainer/niv6" to="." method="_on_niv_6_pressed"]
-[connection signal="pressed" from="menu_1/monde 1/BoxContainer/niv7" to="." method="_on_niv_7_pressed"]
+[connection signal="pressed" from="menu_1/monde 1/BoxContainerworld1/niv1" to="." method="_on_niv_1_pressed"]
+[connection signal="pressed" from="menu_1/monde 1/BoxContainerworld1/niv 2" to="." method="_on_niv_2_pressed"]
+[connection signal="pressed" from="menu_1/monde 1/BoxContainerworld1/niv 3" to="." method="_on_niv_3_pressed"]
+[connection signal="pressed" from="menu_1/monde 1/BoxContainerworld1/niv 4" to="." method="_on_niv_4_pressed"]
+[connection signal="pressed" from="menu_1/monde 1/BoxContainerworld1/niv 5" to="." method="_on_niv_5_pressed"]
+[connection signal="pressed" from="menu_1/monde 1/BoxContainerworld1/niv6" to="." method="_on_niv_6_pressed"]
+[connection signal="pressed" from="menu_1/monde 1/BoxContainerworld1/niv7" to="." method="_on_niv_7_pressed"]
 [connection signal="pressed" from="menu_1/monde 1/BoxContainer2/niv_bonus_1" to="." method="_on_niv_bonus_1_pressed"]
 [connection signal="pressed" from="menu_1/monde 2/BoxContainer/niv8" to="." method="_on_niv_8_pressed"]
 [connection signal="pressed" from="menu_1/monde 2/BoxContainer/niv9" to="." method="_on_niv_9_pressed"]

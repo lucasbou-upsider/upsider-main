@@ -1,10 +1,11 @@
 extends Node
 
-const save_location = "user://SaveFile.json"
+const save_location = "user://SaveFile1.json"
 
 var content_to_save: Dictionary = {
 	"skin_unlock": [1],
-	"niv_unlock": [1],
+	"niv_unlock": [1.0],
+	"niv_finis": [],
 	"number_of_death": 0,
 	"speedrun_time_world1": 0,
 	"upside": []
@@ -34,3 +35,4 @@ func _load():
 		content_to_save.number_of_death = save_data.number_of_death
 		content_to_save.speedrun_time_world1 = save_data.speedrun_time_world1
 		content_to_save.upside = save_data.upside
+		content_to_save.niv_finis = save_data.niv_finis

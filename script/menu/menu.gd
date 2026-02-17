@@ -16,30 +16,30 @@ extends Control
 @onready var label_speedrun:  = $mode_speedrun/Label_speedrun
 
 #niv
-@onready var niv_1: Button = $"menu_1/monde 1/BoxContainer/niv1"
-@onready var niv_2: Button = $"menu_1/monde 1/BoxContainer/niv 2"
-@onready var niv_3: Button = $"menu_1/monde 1/BoxContainer/niv 3"
-@onready var niv_4: Button = $"menu_1/monde 1/BoxContainer/niv 4"
-@onready var niv_5: Button = $"menu_1/monde 1/BoxContainer/niv 5"
+@onready var niv_1: Button = $"menu_1/monde 1/BoxContainerworld1/niv1"
+@onready var niv_2: Button = $"menu_1/monde 1/BoxContainerworld1/niv 2"
+@onready var niv_3: Button = $"menu_1/monde 1/BoxContainerworld1/niv 3"
+@onready var niv_4: Button = $"menu_1/monde 1/BoxContainerworld1/niv 4"
+@onready var niv_5: Button = $"menu_1/monde 1/BoxContainerworld1/niv 5"
 @onready var niv_bonus_1: Button = $"menu_1/monde 1/BoxContainer2/niv_bonus_1"
-@onready var niv_6: Button = $"menu_1/monde 1/BoxContainer/niv6"
-@onready var niv_7: Button = $"menu_1/monde 1/BoxContainer/niv7"
+@onready var niv_6: Button = $"menu_1/monde 1/BoxContainerworld1/niv6"
+@onready var niv_7: Button = $"menu_1/monde 1/BoxContainerworld1/niv7"
 @onready var niv_8: Button = $"menu_1/monde 2/BoxContainer/niv8"
 @onready var niv_9: Button = $"menu_1/monde 2/BoxContainer/niv9"
 
 
 #etoile
-@onready var etoile_1: AnimatedSprite2D = $"menu_1/monde 1/BoxContainer/niv1/étoile_1"
-@onready var etoile_2: AnimatedSprite2D = $"menu_1/monde 1/BoxContainer/niv 2/étoile_2"
-@onready var etoile_3: AnimatedSprite2D = $"menu_1/monde 1/BoxContainer/niv 3/étoile_3"
-@onready var etoile_4: AnimatedSprite2D = $"menu_1/monde 1/BoxContainer/niv 4/étoile_4"
-@onready var etoile_5: AnimatedSprite2D = $"menu_1/monde 1/BoxContainer/niv 5/étoile_5"
+@onready var etoile_1: AnimatedSprite2D = $"menu_1/monde 1/BoxContainerworld1/niv1/étoile_1"
+@onready var etoile_2: AnimatedSprite2D = $"menu_1/monde 1/BoxContainerworld1/niv 2/étoile_2"
+@onready var etoile_3: AnimatedSprite2D = $"menu_1/monde 1/BoxContainerworld1/niv 3/étoile_3"
+@onready var etoile_4: AnimatedSprite2D = $"menu_1/monde 1/BoxContainerworld1/niv 4/étoile_4"
+@onready var etoile_5: AnimatedSprite2D = $"menu_1/monde 1/BoxContainerworld1/niv 5/étoile_5"
 @onready var etoile_bonus_1: AnimatedSprite2D = $"menu_1/monde 1/BoxContainer2/niv_bonus_1/étoile_bonus_1"
-@onready var etoile_6: AnimatedSprite2D = $"menu_1/monde 1/BoxContainer/niv6/étoile_6"
-@onready var etoile_7: AnimatedSprite2D = $"menu_1/monde 1/BoxContainer/niv7/étoile_7"
+@onready var etoile_6: AnimatedSprite2D = $"menu_1/monde 1/BoxContainerworld1/niv6/étoile_6"
+@onready var etoile_7: AnimatedSprite2D = $"menu_1/monde 1/BoxContainerworld1/niv7/étoile_7"
 @onready var etoile_8: AnimatedSprite2D = $"menu_1/monde 2/BoxContainer/niv8/étoile_8"
 @onready var etoile_9: AnimatedSprite2D = $"menu_1/monde 2/BoxContainer/niv9/étoile_9"
-
+@onready var box_containerWorld_1: BoxContainer = $"menu_1/monde 1/BoxContainerworld1"
 @onready var tuto: Control = $tuto
 
 var text_nombre_de_mort = "nombre de mort : "
@@ -59,75 +59,90 @@ func _ready() -> void:
 		#var mode_admine_niv_debloque: Array = [1.0, 2.0, 3.0, 4.0, 5.0, 6.0, 7.0, 8.0, 9.0, 1.1]
 		#GameManager.niv_fini.append_array(mode_admine_niv_debloque)
 
+
 	#etoile de fin de niv
-	if GameManager.niv_fini.has(1.0) == true:
-		etoile_1.visible = true
-		etoile_1.play("recus")
-		$mode_speedrun.visible = false
-	else:
-		niv_2.visible = false
-		tuto.visible = true
+	if GameManager.niv_unlock.has(1.0) == true:
+		niv_1.visible = true
+		if GameManager.niv_fini.has(1.0) == true:
+			etoile_1.play("recus")
+			etoile_1.visible = true
+			$mode_speedrun.visible = false
+		else:
+			tuto.visible = true
 		
 
-	if GameManager.niv_fini.has(2.0) == true:
-		etoile_2.visible = true
-		etoile_2.play("recus")
-	else:
-		niv_3.visible = false
+	if GameManager.niv_unlock.has(2.0) == true:
+		niv_2.visible = true
+		if GameManager.niv_fini.has(2.0) == true:
+			etoile_2.play("recus")
+			etoile_2.visible = true
 
-	if GameManager.niv_fini.has(3.0) == true:
-		etoile_3.visible = true
-		etoile_3.play("recus")
-	else:
-		niv_4.visible = false
+	if GameManager.niv_unlock.has(3.0) == true:
+		niv_3.visible = true
+		if GameManager.niv_fini.has(3.0) == true:
+			etoile_3.play("recus")
+			etoile_3.visible = true
 			
-	if GameManager.niv_fini.has(4.0) == true:
-		etoile_4.visible = true
-		etoile_4.play("recus")
-	else:
-		niv_5.visible = false
+	if GameManager.niv_unlock.has(4.0) == true:
+		niv_4.visible = true
+		if GameManager.niv_fini.has(4.0) == true:
+			etoile_4.play("recus")
+			etoile_4.visible = true
 			
-	if GameManager.niv_fini.has(5.0) == true:
-		etoile_5.visible = true
-		etoile_5.play("recus")
-	else:
-		niv_6.visible = false
+	if GameManager.niv_unlock.has(5.0) == true:
+		niv_5.visible = true
+		if GameManager.niv_fini.has(5.0) == true:
+			etoile_5.play("recus")
+			etoile_5.visible = true
 
-	if GameManager.niv_fini.has(6.0) == true:
-		etoile_6.visible = true
-		etoile_6.play("recus")
-	else :
-		niv_7.visible = false
+	if GameManager.niv_unlock.has(6.0) == true:
+		niv_6.visible = true
+		if GameManager.niv_fini.has(6.0) == true:
+			etoile_6.play("recus")
+			etoile_6.visible = true
 	
-	if GameManager.niv_fini.has(7.0) == true:
-		etoile_7.visible = true
-		etoile_7.play("recus")
-		GameManager.unlock("succes")
-		Succes.debloquage_succes(1)
-		GameManager.temps_monde_1 = GameManager.timer_speedrun
-		temps_speedrun_monde_1.text = str(GameManager.temps_monde_1)
-		if int(GameManager.temps_monde_1) <= 300: #300 secondes = 10min
-			temps_speedrun_monde_1.visible = true
-			GameManager.skin_debloquer.append(4)
-			GameManager.unlock("skin")
-	else :
-		monde_2.visible = false
-		temps_speedrun_monde_1.visible = false
+	if GameManager.niv_unlock.has(7.0) == true:
+		niv_7.visible = true
+		if GameManager.niv_fini.has(7.0) == true:
+			etoile_7.play("recus")
+			etoile_7.visible = true
+	
+	
+	
+	
+	#if GameManager.niv_fini.has(7.0) == true:
+		#etoile_7.visible = true
+		#etoile_7.play("recus")
+		#GameManager.unlock("succes")
+		#Succes.debloquage_succes(1)
+		#GameManager.temps_monde_1 = GameManager.timer_speedrun
+		#temps_speedrun_monde_1.text = str(GameManager.temps_monde_1)
+		#if int(GameManager.temps_monde_1) <= 300: #300 secondes = 10min
+			#temps_speedrun_monde_1.visible = true
+			#GameManager.skin_debloquer.append(4)
+			#GameManager.unlock("skin")
+	#else :
+		#monde_2.visible = false
+		#temps_speedrun_monde_1.visible = false
 			
-	if GameManager.niv_fini.has(8.0) == true:
-		etoile_8.visible = true
-		etoile_8.play("recus")
-	else :
-		niv_9.visible = false
+	if GameManager.niv_unlock.has(8.0) == true:
+		niv_8.visible = true
+		if GameManager.niv_fini.has(8.0) == true:
+			etoile_8.play("recus")
+			etoile_8.visible = true
 		
-	if GameManager.niv_fini.has(9.0) == true:
-		etoile_9.visible = true
-		etoile_9.play("recus")
+	if GameManager.niv_unlock.has(9.0) == true:
+		niv_9.visible = true
+		if GameManager.niv_fini.has(9.0) == true:
+			etoile_9.play("recus")
+			etoile_9.visible = true
 	
 
-	if GameManager.niv_fini.has(1.1) == true:
-		etoile_bonus_1.visible = true
-		etoile_bonus_1.play("recus")
+	if GameManager.niv_unlock.has(1.1) == true:
+		niv_bonus_1.visible = true
+		if GameManager.niv_fini.has(1.1) == true:
+			etoile_bonus_1.play("recus")
+			etoile_bonus_1.visible = true
 	
 
 

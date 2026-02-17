@@ -31,6 +31,7 @@ func _ready() -> void:
 	GameManager.derniere_piece = spawn.position
 	GameManager.tp_pose = 0
 	GameManager.can_capa = false
+	GameManager.piece_bonus_depose = 0
 
 
 func _process(_delta: float) -> void:
@@ -99,6 +100,7 @@ func _victoire():
 		pass
 	else:
 		GameManager.niv_fini.append(niv)
+		GameManager.niv_unlock.append(niv + 1)
 	victoire = true
 	#timer fin monde 1
 	if niv == 7:

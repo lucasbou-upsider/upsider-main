@@ -30,3 +30,6 @@ func _on_platforme_area_2d_area_entered(area: Area2D) -> void:
 func _on_platforme_area_2d_area_exited(area: Area2D) -> void:
 	if area.get_parent() is script_player:
 		GameManager.on_temporary_platforme = false
+
+func mort():
+	pass

@@ -14,9 +14,13 @@ func _process(_delta: float) -> void:
 	if depose_piece_bonus_possible == true:
 		if Input.is_action_just_pressed("poser_piece"):
 			if GameManager.piece >= 1:
+				var camera_player = get_parent().get_node("Player_camera")
+				var tween = create_tween().set_trans(Tween.TRANS_EXPO).set_ease(Tween.EASE_OUT)
+				tween.tween_property(camera_player, "zoom", Vector2(1.4,1.4), 0.5)
+				tween.tween_property(camera_player, "zoom", Vector2(1,1), 0.2)
+				GameManager.drop_coin()
 				player.son_pose_piece()
 				GameManager.piece_bonus_depose += 1 
-				GameManager.piece -= 1 
 
 	#affichage score
 	score_bonus.text = str(GameManager.piece_bonus_depose) + "/" + str(pieces_requis_bonus)

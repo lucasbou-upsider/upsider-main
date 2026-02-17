@@ -44,6 +44,7 @@ var temps_monde_1 = 0
 
 #niv fini
 var niv_fini: Array
+var niv_unlock: Array = [1.0]
 
 var player_mort = false
 
@@ -87,10 +88,11 @@ func pos_platforme():
 func _ready() -> void:
 	SaveLoad._load()
 	skin_debloquer = SaveLoad.content_to_save.skin_unlock
-	niv_fini = SaveLoad.content_to_save.niv_unlock
+	niv_unlock = SaveLoad.content_to_save.niv_unlock
 	mort = SaveLoad.content_to_save.number_of_death
 	temps_monde_1 = SaveLoad.content_to_save.speedrun_time_world1
 	GlobaleUpside.upside_debloque = SaveLoad.content_to_save.upside
+	niv_fini = SaveLoad.content_to_save.niv_finis
 
 func debloque(debloque_niv):
 	if debloque_niv == 1.1:
@@ -98,9 +100,10 @@ func debloque(debloque_niv):
 		
 func save_game():
 	SaveLoad.content_to_save.skin_unlock = skin_debloquer
-	SaveLoad.content_to_save.niv_unlock = niv_fini
+	SaveLoad.content_to_save.niv_unlock = niv_unlock
 	SaveLoad.content_to_save.number_of_death = mort
 	SaveLoad.content_to_save.speedrun_time_world1 = temps_monde_1
 	SaveLoad.content_to_save.upside = GlobaleUpside.upside_debloque
+	SaveLoad.content_to_save.niv_finis = niv_fini
 	SaveLoad._save()
 	print("game saved")
