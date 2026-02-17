@@ -20,21 +20,21 @@ script = ExtResource("1_nxt6j")
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=91906272]
 layout_mode = 0
-offset_left = -524.0
-offset_top = -268.0
-offset_right = 629.0
-offset_bottom = 380.0
+offset_left = -512.0
+offset_top = -262.0
+offset_right = 641.0
+offset_bottom = 386.0
 color = Color(0.364706, 0.364706, 0.364706, 0.317647)
 
 [node name="Label" type="Label" parent="." unique_id=1520257590]
 layout_mode = 0
-offset_left = -68.0
-offset_top = -60.0
-offset_right = 151.0
-offset_bottom = -12.0
+offset_left = -102.0
+offset_top = -62.0
+offset_right = 196.0
+offset_bottom = 21.0
 theme_override_fonts/font = ExtResource("1_bat76")
-theme_override_font_sizes/font_size = 48
-text = "victoire !!!"
+theme_override_font_sizes/font_size = 66
+text = "You win !"
 
 [node name="BoxContainer" type="BoxContainer" parent="." unique_id=1426503623]
 layout_mode = 0
@@ -48,6 +48,6 @@ script = ExtResource("3_w3ue2")
 layout_mode = 2
 theme_override_fonts/font = ExtResource("1_bat76")
 theme_override_font_sizes/font_size = 16
-text = "retour au menue"
+text = "Back to the menu"
 
 [connection signal="pressed" from="BoxContainer/Button" to="." method="_on_button_pressed"]

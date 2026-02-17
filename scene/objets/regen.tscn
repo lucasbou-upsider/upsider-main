@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://cnwd7i72yf2cn"]
+[gd_scene format=3 uid="uid://cnwd7i72yf2cn"]
 
 [ext_resource type="Texture2D" uid="uid://b64u51vlxrpdv" path="res://sprite/regen.png" id="1_6j8wl"]
 [ext_resource type="Script" uid="uid://lbt5d520n45q" path="res://script/objet/regen.gd" id="1_atrwh"]
@@ -17,15 +17,15 @@ colors = PackedColorArray(0.941176, 0.921569, 0.870588, 1, 0.764706, 0.717647, 0
 radius = 8.0
 height = 60.0
 
-[node name="regen" type="StaticBody2D"]
+[node name="regen" type="StaticBody2D" unique_id=1727696981]
 script = ExtResource("1_atrwh")
 
-[node name="AnimatedSprite2D" type="Sprite2D" parent="."]
+[node name="AnimatedSprite2D" type="Sprite2D" parent="." unique_id=966617268]
 position = Vector2(0, -39)
 scale = Vector2(3, 3)
 texture = ExtResource("1_6j8wl")
 
-[node name="CPUParticles2D" type="CPUParticles2D" parent="."]
+[node name="CPUParticles2D" type="CPUParticles2D" parent="." unique_id=1663991006]
 position = Vector2(0, -1)
 emission_shape = 3
 emission_rect_extents = Vector2(20, 1)
@@ -35,27 +35,27 @@ scale_amount_max = 10.91
 scale_amount_curve = SubResource("Curve_4gosb")
 color_ramp = SubResource("Gradient_sk1l7")
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="." unique_id=1649257312]
 polygon = PackedVector2Array(-30, 0, -48, 9, 46, 9, 27, 0)
 
-[node name="Area2D" type="Area2D" parent="."]
+[node name="Area2D" type="Area2D" parent="." unique_id=1657478804]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1799812348]
 position = Vector2(0, -6)
 rotation = 1.5708
 shape = SubResource("CapsuleShape2D_wk1e4")
 
-[node name="PointLight2D" type="PointLight2D" parent="."]
+[node name="PointLight2D" type="PointLight2D" parent="." unique_id=1144744805]
 position = Vector2(0, -30)
 color = Color(0.905882, 0.866667, 0.760784, 1)
 energy = 0.1
 texture = ExtResource("3_jn2cu")
 texture_scale = 0.5
 
-[node name="Regen" type="AudioStreamPlayer" parent="."]
+[node name="Regen" type="AudioStreamPlayer" parent="." unique_id=765247410]
 stream = ExtResource("4_mlluu")
 
-[node name="Regen_inversé" type="AudioStreamPlayer" parent="."]
+[node name="Regen_inversé" type="AudioStreamPlayer" parent="." unique_id=1364400898]
 stream = ExtResource("4_mlluu")
 pitch_scale = 1.1
 

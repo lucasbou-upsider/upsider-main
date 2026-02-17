@@ -6,7 +6,7 @@ func _ready() -> void:
 
 
 func _process(_delta: float) -> void:
-	if Input.is_action_just_pressed("lumiere") and GameManager.tp_pose == 1 and GameManager.mode_capacite == true:
+	if Input.is_action_just_pressed("lumiere") and GameManager.tp_pose == 1 and GameManager.can_capa == true:
 		GameManager.tp_position = 0
 		queue_free()
 	if GameManager.tp_pose == 0:

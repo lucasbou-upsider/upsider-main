@@ -46,42 +46,15 @@ func _process(_delta: float) -> void:
 	
 	#poser platforme
 	if GameManager.platforme >= 1:
-		if Input.is_action_just_pressed("lumiere") and GameManager.paused == false and GameManager.can_capa != true:
+		if Input.is_action_just_pressed("lumiere") and GameManager.paused == false and GameManager.can_capa == false:
 			print(GameManager.can_capa)
 			inst_platforme(get_global_mouse_position())
 			GameManager.pos_platforme()
-	#se tp au point de tp
-	#var gros_zoom = false
-	#if GameManager.mode_capacite == true:
-		#if Input.is_action_just_pressed("lumiere") and GameManager.paused == false and GameManager.tp_pose == 0 and GameManager.on_temporary_platforme == false and player.is_on_floor() == true:
-			#gros_zoom = true
-			#GameManager.paused = true
-			#await get_tree().create_timer(2).timeout
-			#GameManager.tp_pose = 1
-			#inst_tp(player.position)
-			#GameManager.paused = false
-			#gros_zoom = false
-			#GameManager.mode_capacite = false
-		#if Input.is_action_just_pressed("lumiere") and GameManager.paused == false and GameManager.tp_pose == 1:
-			#if tp_utilise == false:
-				#tp_utilise = true
-				#player.position = GameManager.tp_position
-			#if tp_utilise == true:
-				#pass
-	
-	#capacité
-	#if GameManager.skin_player == 3:
-		#if Input.is_action_just_pressed("capacité") and gros_zoom == false:
-			#if GameManager.mode_capacite == true:
-				#GameManager.mode_capacite = false
-			#elif GameManager.mode_capacite == false:
-				#GameManager.mode_capacite = true
-			#print(GameManager.mode_capacite)
 	
 	#déposé les piece dans la boite
 	if possible_piece_depose == true:
 		if Input.is_action_just_pressed("poser_piece"):
-			if GameManager.piece >= 1:
+			if GameManager.piece >= 1 and GameManager.can_capa == false:
 				GameManager.drop_coin()
 				var camera_player = get_node("Player_camera")
 				var tween = create_tween().set_trans(Tween.TRANS_EXPO).set_ease(Tween.EASE_OUT)

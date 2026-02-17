@@ -21,7 +21,7 @@ func _on_area_2d_area_entered(area: Area2D) -> void:
 			regen.play()
 		else :
 			regen_inverse.play()
-		GameManager.platforme = GameManager.max_platforme
+		area.get_parent().gain_platforme(GameManager.max_platforme - GameManager.platforme)
 
 
 
