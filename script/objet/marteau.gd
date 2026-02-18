@@ -7,6 +7,7 @@ extends Node2D
 func _on_area_2d_area_entered(_area: Area2D) -> void:
 	GlobaleUpside.marteau = true
 	GlobaleUpside.debloquage_marteau_animation = true
+	GameManager.unlock("marteau")
 	sprite_2d.visible = false
 	point_light_2d.enabled = false
 	cpu_particles_2d.emitting = true

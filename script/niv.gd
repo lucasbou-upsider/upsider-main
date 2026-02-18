@@ -105,6 +105,9 @@ func _victoire():
 	#timer fin monde 1
 	if niv == 7:
 		GameManager.temps_monde_1 = GameManager.timer_speedrun
+		if int(GameManager.temps_monde_1) <= 300: #300 secondes = 10min
+			GameManager.skin_debloquer.append(4)
+			GameManager.unlock("skin")
 	GameManager.save_game()
 
 #menue de pause

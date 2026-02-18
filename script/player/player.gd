@@ -45,6 +45,7 @@ func _physics_process(delta: float) -> void:
 	if GameManager.player_mort == true:
 		mort()
 	
+	#scetch
 	if is_on_floor():
 		if was_airbound:
 			was_airbound = false
@@ -59,6 +60,7 @@ func _physics_process(delta: float) -> void:
 		if is_on_floor() and can_jump == false :
 			can_jump = true
 		elif can_jump == true and jump_timer.is_stopped():
+			print("jump buffering")
 			jump_timer.start(coyote_time)
 		
 
@@ -66,14 +68,16 @@ func _physics_process(delta: float) -> void:
 		if Input.is_action_just_pressed("saut") and can_jump == false :
 			jump_buffering_timer.start()
 		if is_on_floor() and jump_buffering_timer.time_left != 0:
+			can_jump = false
 			velocity.y = JUMP_VELOCITY 
 
 		#saut dosable
 		if Input.is_action_just_released("saut") and velocity.y < 0:
+			can_jump = false
 			velocity.y = JUMP_VELOCITY / 4
 		if Input.is_action_just_pressed("saut") and can_jump == true:
-			animated_sprite_2d.scale = Vector2(0.7, 1.3) 
 			can_jump = false
+			animated_sprite_2d.scale = Vector2(0.7, 1.3) 
 			velocity.y = JUMP_VELOCITY
 
 		#squash and stretch animation
@@ -219,9 +223,10 @@ func gain_coin():
 	print("pice ui")
 	GameManager.piece += 1
 	var camera_player = get_parent().get_node("Player_camera")
+	var zoom_camera_player = camera_player.zoom
 	var tween = create_tween().set_trans(Tween.TRANS_EXPO).set_ease(Tween.EASE_OUT)
-	tween.tween_property(camera_player, "zoom", Vector2(1.05,1.05), 0.1)
-	tween.tween_property(camera_player, "zoom", Vector2(1,1), 0.1)
+	tween.tween_property(camera_player, "zoom", zoom_camera_player + Vector2(0.05,0.05), 0.1)
+	tween.tween_property(camera_player, "zoom", zoom_camera_player, 0.1)
 	gain_platforme(GameManager.max_platforme - GameManager.platforme)
 	var piece_ui = preload("res://scene/player/ui_piece_sprite.tscn").instantiate()
 	$ui/piece/coin_Container.add_child(piece_ui)
@@ -293,7 +298,7 @@ func capacite():
 func pose_tp():
 	var camera_player = get_parent().get_node("Player_camera")
 	if GameManager.skin_player == 3:
-		if GameManager.tp_pose == 0:
+		if GameManager.tp_pose == 0 and is_on_floor():
 			GameManager.paused = true
 			var tween = create_tween().set_trans(Tween.TRANS_EXPO).set_ease(Tween.EASE_OUT)
 			tween.tween_property(camera_player, "zoom", Vector2(1.7,1.7), 0.1)

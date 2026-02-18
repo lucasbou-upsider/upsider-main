@@ -8,7 +8,6 @@
 [ext_resource type="PackedScene" uid="uid://bay6phij1cgc0" path="res://scene/pieges/vero.tscn" id="4_x4g0t"]
 [ext_resource type="PackedScene" uid="uid://c0kyqoo0sowjg" path="res://scene/menu/victoire.tscn" id="5_7qrdt"]
 [ext_resource type="PackedScene" uid="uid://b71qnp5723u2p" path="res://scene/pieges/lance_flamme.tscn" id="5_tg1iv"]
-[ext_resource type="PackedScene" uid="uid://cgxdrq4qg2os" path="res://scene/pieges/vero_de_feu.tscn" id="6_g8iw5"]
 [ext_resource type="Script" uid="uid://civlsn46wouuq" path="res://script/piege/limite_monde.gd" id="6_wjmad"]
 [ext_resource type="Texture2D" uid="uid://cm1s1gxq7wdeg" path="res://sprite/Paper-Pixels-8x8/UI.png" id="7_s5fbc"]
 [ext_resource type="FontFile" uid="uid://c6drrdopvgm8h" path="res://BabaMediumPixels.ttf" id="8_03qik"]
@@ -17,6 +16,7 @@
 [ext_resource type="PackedScene" uid="uid://c7tp2j240ikr8" path="res://scene/upside/levier_upside.tscn" id="14_pg6gx"]
 [ext_resource type="PackedScene" uid="uid://nrr04rk1t045" path="res://scene/objets/marteau.tscn" id="15_38hx4"]
 [ext_resource type="PackedScene" uid="uid://d4nbnajmtoanu" path="res://scene/player/player_camera.tscn" id="17_0wee4"]
+[ext_resource type="PackedScene" uid="uid://cotkr8145jsds" path="res://scene/player/platforme_lumiere_ui.tscn" id="17_x0p60"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_7ky06"]
 
@@ -3161,9 +3161,6 @@ position = Vector2(-5031, -1346)
 [node name="lance_flamme5" parent="piege" unique_id=72937873 instance=ExtResource("5_tg1iv")]
 position = Vector2(-4445, -547)
 
-[node name="vero_de_feu" parent="piege" unique_id=836752120 instance=ExtResource("6_g8iw5")]
-position = Vector2(-1792, 372)
-
 [node name="ennemie" type="Node2D" parent="." unique_id=718246538]
 
 [node name="player" parent="." unique_id=444650278 groups=["player_collision"] instance=ExtResource("3_nuspp")]
@@ -3260,6 +3257,8 @@ position = Vector2(6102, 506)
 
 [node name="Player_camera" parent="." unique_id=1032844500 instance=ExtResource("17_0wee4")]
 position = Vector2(-0.2, 1.42109e-15)
+
+[node name="platforme_lumiere_UI" parent="." unique_id=1748821717 instance=ExtResource("17_x0p60")]
 
 [connection signal="area_entered" from="limite monde/Area2D" to="." method="_on_area_2d_area_entered"]
 [connection signal="area_entered" from="score/depose_piece" to="." method="_on_depose_piece_area_entered"]

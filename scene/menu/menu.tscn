@@ -3561,9 +3561,13 @@ anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
+[node name="CanvasModulate" type="CanvasModulate" parent="tuto" unique_id=1857415896]
+position = Vector2(138, 85)
+color = Color(0.28118682, 0.28118688, 0.28118682, 1)
+
 [node name="PointLight2D" type="PointLight2D" parent="tuto" unique_id=1694885220]
 position = Vector2(138, 85)
-energy = 0.3
+energy = 1.05
 texture = ExtResource("4_aou5u")
 
 [node name="menu_1" type="Control" parent="." unique_id=1618606212]
@@ -3761,6 +3765,7 @@ scale = Vector2(3.75, 3.4375)
 sprite_frames = SubResource("SpriteFrames_86fwu")
 
 [node name="temps_speedrun_monde_1" type="Label" parent="menu_1/monde 1" unique_id=2136450548]
+visible = false
 layout_mode = 0
 offset_left = 70.0
 offset_top = 313.0
@@ -3772,6 +3777,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="monde 2" type="Control" parent="menu_1" unique_id=2095843856]
+visible = false
 anchors_preset = 0
 offset_bottom = 3.0
 
@@ -3927,9 +3933,9 @@ offset_bottom = 263.0
 theme_override_fonts/normal_font = ExtResource("4_xwok8")
 bbcode_enabled = true
 text = "[wave]-chargement screen
-- lance flamme
 - + 2, 3 perso (killian, jojo, emna)
--monde 2 et 3"
+-monde 2 et 3
+-platforme cassable"
 
 [node name="Roadmap_button" type="Button" parent="Roadmap" unique_id=1458894871]
 layout_mode = 0

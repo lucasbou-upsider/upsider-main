@@ -95,7 +95,9 @@ texture_region_size = Vector2i(8, 8)
 3:7/0 = 0
 3:7/0/physics_layer_0/polygon_0/points = PackedVector2Array(-3.875, -3.875, 4, -4, 4.125, -1.9375, -3.875, -1.9375)
 4:7/0 = 0
+4:7/0/physics_layer_0/polygon_0/points = PackedVector2Array(-4, -4, -1, -4, -1, -2, -4, -2)
 5:7/0 = 0
+5:7/0/physics_layer_0/polygon_0/points = PackedVector2Array(1, -4, 4, -4, 4, -2, 1, -2)
 6:7/0 = 0
 6:7/0/physics_layer_0/polygon_0/points = PackedVector2Array(-3.875, -3.875, 4, -4, 4.125, -1.9375, -3.875, -1.9375)
 7:7/0 = 0
@@ -1584,8 +1586,9 @@ position = Vector2(-1437, 214)
 
 [node name="lance_flamme2" parent="piege" unique_id=65174399 instance=ExtResource("5_xsi3t")]
 position = Vector2(-573, 458)
-rotation = 3.14056
+rotation = 3.1415927
 temps_activation = 3
+retourne = true
 
 [node name="ennemie" type="Node2D" parent="." unique_id=328536781]
 

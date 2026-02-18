@@ -55,9 +55,6 @@ var nouv_skin_animation = false
 #tremblement d'écran
 var camera_shake = false
 
-#niv bonus débloqué
-var niv_bonus_1_debloque = false
-
 #tuto
 var tuto_fini = false
 
@@ -93,10 +90,9 @@ func _ready() -> void:
 	temps_monde_1 = SaveLoad.content_to_save.speedrun_time_world1
 	GlobaleUpside.upside_debloque = SaveLoad.content_to_save.upside
 	niv_fini = SaveLoad.content_to_save.niv_finis
+	GameManager.skin_player = SaveLoad.content_to_save.skin
+	GameManager.quete_sylvan = SaveLoad.content_to_save.avance_skin_unlock
 
-func debloque(debloque_niv):
-	if debloque_niv == 1.1:
-		niv_bonus_1_debloque = true
 		
 func save_game():
 	SaveLoad.content_to_save.skin_unlock = skin_debloquer
@@ -105,5 +101,7 @@ func save_game():
 	SaveLoad.content_to_save.speedrun_time_world1 = temps_monde_1
 	SaveLoad.content_to_save.upside = GlobaleUpside.upside_debloque
 	SaveLoad.content_to_save.niv_finis = niv_fini
+	SaveLoad.content_to_save.skin = GameManager.skin_player
+	SaveLoad.content_to_save.avance_skin_unlock = GameManager.quete_sylvan 
 	SaveLoad._save()
 	print("game saved")

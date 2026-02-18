@@ -104,26 +104,19 @@ func _ready() -> void:
 	if GameManager.niv_unlock.has(7.0) == true:
 		niv_7.visible = true
 		if GameManager.niv_fini.has(7.0) == true:
+			monde_2.visible = true
 			etoile_7.play("recus")
 			etoile_7.visible = true
+			temps_speedrun_monde_1.visible = true
+			GameManager.unlock("succes")
+			Succes.debloquage_succes(1)
 	
 	
 	
-	
-	#if GameManager.niv_fini.has(7.0) == true:
-		#etoile_7.visible = true
-		#etoile_7.play("recus")
-		#GameManager.unlock("succes")
-		#Succes.debloquage_succes(1)
-		#GameManager.temps_monde_1 = GameManager.timer_speedrun
-		#temps_speedrun_monde_1.text = str(GameManager.temps_monde_1)
+
 		#if int(GameManager.temps_monde_1) <= 300: #300 secondes = 10min
-			#temps_speedrun_monde_1.visible = true
 			#GameManager.skin_debloquer.append(4)
 			#GameManager.unlock("skin")
-	#else :
-		#monde_2.visible = false
-		#temps_speedrun_monde_1.visible = false
 			
 	if GameManager.niv_unlock.has(8.0) == true:
 		niv_8.visible = true
@@ -143,11 +136,7 @@ func _ready() -> void:
 		if GameManager.niv_fini.has(1.1) == true:
 			etoile_bonus_1.play("recus")
 			etoile_bonus_1.visible = true
-	
 
-
-	if GameManager.niv_bonus_1_debloque == true :
-		niv_bonus_1.visible = true
 
 	#traduction text comteur de levier et de mort 
 	if GameManager.language == "EN":

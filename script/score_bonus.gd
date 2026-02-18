@@ -31,9 +31,15 @@ func _process(_delta: float) -> void:
 
 func victoire_bonus():
 	MusicController.stop_music()
-	GameManager.debloque(1.1)
-	get_tree().change_scene_to_file("res://scene/menu/menu.tscn")
+	if GameManager.niv_unlock.has(1.1):
+		pass
+	else:
+		GameManager.niv_unlock.append(1.1)
 	GameManager.piece_bonus_depose = 0
+	GameManager.platforme = 0
+	GameManager.save_game()
+	get_tree().change_scene_to_file("res://scene/menu/menu.tscn")
+
 
 func _on_depose_piece_bonus_area_entered(_area: Area2D) -> void:
 	depose_piece_bonus_possible = true

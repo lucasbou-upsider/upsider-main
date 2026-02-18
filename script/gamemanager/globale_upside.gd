@@ -37,3 +37,4 @@ func _process(_delta: float) -> void:
 func succes():
 	if upside_debloque.size() == 1:
 		Succes.succes_fini.append(4)
+		GameManager.unlock("succes")
