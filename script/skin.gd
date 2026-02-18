@@ -13,6 +13,7 @@ var limite_player_debloquer
 func _ready() -> void:
 	if GameManager.nouv_skin == true:
 		etoile_skin.visible = true
+	numplayer = GameManager.skin_player - 1
 		
 func _process(_delta: float) -> void:
 	actualisation()

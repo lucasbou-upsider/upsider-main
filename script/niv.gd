@@ -22,10 +22,11 @@ var tp_utilise = false
 #reset
 func _ready() -> void:
 	music()
+	GameManager.platforme = 0
 	if GameManager.skin_player != 4:
-		GameManager.platforme = GameManager.max_platforme
+		player.gain_platforme(3)
 	else:
-		GameManager.platforme = 2
+		player.gain_platforme(2)
 	GameManager.piece = 0
 	GameManager.piece_depose = 0
 	GameManager.derniere_piece = spawn.position

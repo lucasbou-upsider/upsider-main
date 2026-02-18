@@ -108,6 +108,7 @@ func _ready() -> void:
 			etoile_7.play("recus")
 			etoile_7.visible = true
 			temps_speedrun_monde_1.visible = true
+			temps_speedrun_monde_1.text = str(GameManager.temps_monde_1)
 			GameManager.unlock("succes")
 			Succes.debloquage_succes(1)
 	

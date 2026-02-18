@@ -60,7 +60,6 @@ func _physics_process(delta: float) -> void:
 		if is_on_floor() and can_jump == false :
 			can_jump = true
 		elif can_jump == true and jump_timer.is_stopped():
-			print("jump buffering")
 			jump_timer.start(coyote_time)
 		
 
@@ -255,7 +254,10 @@ func mort():
 	particule_mort.emitting = true
 	position = GameManager.derniere_piece
 	GameManager.mort += 1 
-	gain_platforme(GameManager.max_platforme - GameManager.platforme)
+	if GameManager.skin_player == 4:
+		gain_platforme(GameManager.max_platforme - GameManager.platforme - 1)
+	else:
+		gain_platforme(GameManager.max_platforme - GameManager.platforme )
 	GameManager.player_mort = false
 	if GameManager.mort == 20:
 		GameManager.skin_debloquer.append(2)

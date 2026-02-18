@@ -13,7 +13,6 @@
 [ext_resource type="Texture2D" uid="uid://bvrdi5wod6qs4" path="res://sprite/player/sylvan/Player_sylvan_animation_rattrapage.png" id="7_lpsgk"]
 [ext_resource type="AudioStream" uid="uid://bsbk85lcag27m" path="res://son/piece depo.wav" id="8_iso8g"]
 [ext_resource type="AudioStream" uid="uid://dokws4kt3m11n" path="res://son/perso_deblock_out.wav" id="9_2mmv3"]
-[ext_resource type="PackedScene" uid="uid://cp7dcgqoxwwug" path="res://scene/player/ui_platforme.tscn" id="11_bup7g"]
 [ext_resource type="PackedScene" uid="uid://6gigug1p64xe" path="res://scene/menu/speedrun.tscn" id="14_vw1f8"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_loxnq"]
@@ -1781,15 +1780,6 @@ offset_right = 251.99994
 offset_bottom = 617.0
 scale = Vector2(6.5, 6.5)
 theme_override_constants/separation = 1
-
-[node name="ui_platforme" parent="ui/platforme/platforme_container" unique_id=1697905288 instance=ExtResource("11_bup7g")]
-layout_mode = 2
-
-[node name="ui_platforme2" parent="ui/platforme/platforme_container" unique_id=222056160 instance=ExtResource("11_bup7g")]
-layout_mode = 2
-
-[node name="ui_platforme3" parent="ui/platforme/platforme_container" unique_id=857798045 instance=ExtResource("11_bup7g")]
-layout_mode = 2
 
 [node name="Animationplatforme" type="AnimationPlayer" parent="ui/platforme" unique_id=272155922]
 root_node = NodePath("../platforme_container")
