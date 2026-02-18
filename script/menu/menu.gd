@@ -190,35 +190,35 @@ func traduction():
 #bouton niv
 func _on_niv_1_pressed() -> void:
 	bouton()
-	get_tree().change_scene_to_file("res://scene/niveau/monde_1/niv_1.tscn")
+	get_tree().change_scene_to_file("res://scene/niveau/monde_1/niv_1.scn")
 func _on_niv_2_pressed() -> void:
 	bouton()
-	get_tree().change_scene_to_file("res://scene/niveau/monde_1/niv_2.tscn")
+	get_tree().change_scene_to_file("res://scene/niveau/monde_1/niv_2.scn")
 func _on_niv_3_pressed() -> void:
 	bouton()
-	get_tree().change_scene_to_file("res://scene/niveau/monde_1/niv_3.tscn")
+	get_tree().change_scene_to_file("res://scene/niveau/monde_1/niv_3.scn")
 func _on_niv_4_pressed() -> void:
 	bouton()
-	get_tree().change_scene_to_file("res://scene/niveau/monde_1/niv_4.tscn")
+	get_tree().change_scene_to_file("res://scene/niveau/monde_1/niv_4.scn")
 func _on_niv_5_pressed() -> void:
 	bouton()
-	get_tree().change_scene_to_file("res://scene/niveau/monde_1/niv_5.tscn")
+	get_tree().change_scene_to_file("res://scene/niveau/monde_1/niv_5.scn")
 func _on_niv_6_pressed() -> void:
 	bouton()
-	get_tree().change_scene_to_file("res://scene/niveau/monde_1/niv_6.tscn")
+	get_tree().change_scene_to_file("res://scene/niveau/monde_1/niv_6.scn")
 func _on_niv_7_pressed() -> void:
 	bouton()
-	get_tree().change_scene_to_file("res://scene/niveau/monde_1/niv_7.tscn")
+	get_tree().change_scene_to_file("res://scene/niveau/monde_1/niv_7.scn")
 func _on_niv_8_pressed() -> void:
 	bouton()
-	get_tree().change_scene_to_file("res://scene/niveau/monde_2/niv_8.tscn")
+	get_tree().change_scene_to_file("res://scene/niveau/monde_2/niv_8.scn")
 func _on_niv_9_pressed() -> void:
 	bouton()
-	get_tree().change_scene_to_file("res://scene/niveau/monde_2/niv_9.tscn")
+	get_tree().change_scene_to_file("res://scene/niveau/monde_2/niv_9.scn")
 
 func _on_niv_bonus_1_pressed() -> void:
 	bouton()
-	get_tree().change_scene_to_file("res://scene/niveau/monde_1/niv_bonus_1.tscn")
+	get_tree().change_scene_to_file("res://scene/niveau/monde_1/niv_bonus_1.scn")
 func _on_quit_button_down() -> void:
 	GameManager.save_game()
 	get_tree().quit()
