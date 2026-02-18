@@ -1,0 +1,39 @@
+[gd_scene format=3 uid="uid://dm5gnagekgvcy"]
+
+[ext_resource type="Texture2D" uid="uid://caw430pts8h8p" path="res://sprite/Paper-Pixels-8x8/Tiles.png" id="1_cf68c"]
+[ext_resource type="Script" uid="uid://fcodjga1cpmv" path="res://script/piege/platforme_fragile.gd" id="1_q4va1"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_q4va1"]
+size = Vector2(13.4, 1.2000008)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cf68c"]
+size = Vector2(14.200002, 6)
+
+[node name="platforme_fragile" type="StaticBody2D" unique_id=1615398076]
+scale = Vector2(5, 5)
+script = ExtResource("1_q4va1")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=618082491]
+texture = ExtResource("1_cf68c")
+region_enabled = true
+region_rect = Rect2(32.759598, 88.70892, 14.613678, 6.5904846)
+
+[node name="Area2D" type="Area2D" parent="." unique_id=678338952]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1893715563]
+position = Vector2(-0.09999941, -2.999999)
+scale = Vector2(0.99999976, 0.99999976)
+shape = SubResource("RectangleShape2D_q4va1")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1822089603]
+position = Vector2(-0.10000045, 3.8146962e-07)
+scale = Vector2(0.99999976, 0.99999976)
+shape = SubResource("RectangleShape2D_cf68c")
+
+[node name="Timer" type="Timer" parent="." unique_id=170387167]
+wait_time = 2.0
+one_shot = true
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
+[connection signal="area_exited" from="Area2D" to="." method="_on_area_2d_area_exited"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
