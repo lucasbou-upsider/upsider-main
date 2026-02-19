@@ -25,8 +25,10 @@ func _ready() -> void:
 	GameManager.platforme = 0
 	if GameManager.skin_player != 4:
 		player.gain_platforme(3)
+		GameManager.max_platforme = 3
 	else:
 		player.gain_platforme(2)
+		GameManager.max_platforme = 2
 	GameManager.piece = 0
 	GameManager.piece_depose = 0
 	GameManager.derniere_piece = spawn.position

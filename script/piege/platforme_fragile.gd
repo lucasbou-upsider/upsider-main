@@ -2,7 +2,7 @@ extends StaticBody2D
 
 @onready var sprite_2d: Sprite2D = $Sprite2D
 var shake_intensity = 0.3
-var shake_duration = 3
+var shake_duration = 2
 var shake_time = 0
 var original_pos = Vector2.ZERO
 @onready var timer: Timer = $Timer
@@ -18,7 +18,7 @@ func _ready() -> void:
 
 func _process(delta: float) -> void:
 	#platforme qui shake de + en +
-	if shake_time < 2:
+	if shake_time < 1:
 		shake_intensity = 0.6
 	else :
 		shake_intensity = 0.3

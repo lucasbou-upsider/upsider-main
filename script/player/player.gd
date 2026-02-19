@@ -119,7 +119,6 @@ func animate():
 			animated_sprite_2d.offset.x = 0
 	
 	if GameManager.skin_player == 1:
-		GameManager.max_platforme = 3
 		GameManager.max_piece = 3
 		if GameManager.paused == false and GameManager.menue_victoire == false:
 			if !velocity:
@@ -128,7 +127,6 @@ func animate():
 				animated_sprite_2d.play("run")
 
 	if GameManager.skin_player == 2:
-		GameManager.max_platforme = 3
 		GameManager.max_piece = 3
 		if GameManager.paused == false and GameManager.menue_victoire == false:
 			if !velocity:
@@ -137,7 +135,6 @@ func animate():
 				animated_sprite_2d.play("run_nerd")
 
 	if GameManager.skin_player == 3:
-		GameManager.max_platforme = 3
 		GameManager.max_piece = 3
 		if GameManager.paused == false and GameManager.menue_victoire == false and in_capa == false:
 			if GameManager.tp_pose == 1:
@@ -153,7 +150,6 @@ func animate():
 					
 	if GameManager.skin_player == 4:
 		animation_player.play("skin_meven")
-		GameManager.max_platforme = 2
 		GameManager.max_piece = 2
 		if GameManager.piece_desactiver == false:
 			JUMP_VELOCITY = -450.0
@@ -226,6 +222,7 @@ func gain_coin():
 	var tween = create_tween().set_trans(Tween.TRANS_EXPO).set_ease(Tween.EASE_OUT)
 	tween.tween_property(camera_player, "zoom", zoom_camera_player + Vector2(0.05,0.05), 0.1)
 	tween.tween_property(camera_player, "zoom", zoom_camera_player, 0.1)
+	print(GameManager.max_platforme)
 	gain_platforme(GameManager.max_platforme - GameManager.platforme)
 	var piece_ui = preload("res://scene/player/ui_piece_sprite.tscn").instantiate()
 	$ui/piece/coin_Container.add_child(piece_ui)
@@ -255,7 +252,7 @@ func mort():
 	position = GameManager.derniere_piece
 	GameManager.mort += 1 
 	if GameManager.skin_player == 4:
-		gain_platforme(GameManager.max_platforme - GameManager.platforme - 1)
+		gain_platforme(GameManager.max_platforme - GameManager.platforme )
 	else:
 		gain_platforme(GameManager.max_platforme - GameManager.platforme )
 	GameManager.player_mort = false
