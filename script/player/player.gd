@@ -28,6 +28,14 @@ var fall_gravity = 900
 var was_airbound := false #si le perso retombe
 
 func _ready() -> void:
+	if GameManager.skin_player == 4:
+		JUMP_VELOCITY = -450.0
+		SPEED = 400.0
+	
+	
+	
+	
+	
 	#signal pour gagner ou perdre des pieces
 	GameManager.gain_coin_signal.connect(gain_coin)
 	GameManager.drop_coin_signal.connect(drop_coin)
@@ -37,7 +45,7 @@ func _ready() -> void:
 	GameManager.unlock_signal.connect(unlock)
 	
 func _physics_process(delta: float) -> void:
-
+	
 	animate()
 	#max_piece()
 	
@@ -151,9 +159,6 @@ func animate():
 	if GameManager.skin_player == 4:
 		animation_player.play("skin_meven")
 		GameManager.max_piece = 2
-		if GameManager.piece_desactiver == false:
-			JUMP_VELOCITY = -450.0
-			SPEED = 400.0
 		if GameManager.paused == false and GameManager.menue_victoire == false:
 			if !velocity:
 				animated_sprite_2d.play("idle_meven")
@@ -208,13 +213,16 @@ func gain_platforme(number):
 		$ui/platforme/platforme_container.add_child(platforme_ui)
 	GameManager.platforme += number
 func lose_platforme():
+	
 	var platforme_ui = $ui/platforme/platforme_container.get_child(GameManager.platforme)
 	if platforme_ui != null:
 		platforme_ui.delete()
 
 
+var piece_ui = preload("res://scene/player/ui_piece_sprite.tscn").instantiate()
+var piece_ui_red = preload("res://scene/player/ui_piece_forme_1_sprite.tscn").instantiate()
 #signale recus du gamemanager donc apparition piece
-func gain_coin():
+func gain_coin(forme): #forme: 0 = normal, 1 = ralentisseur
 	print("pice ui")
 	GameManager.piece += 1
 	var camera_player = get_parent().get_node("Player_camera")
@@ -224,12 +232,17 @@ func gain_coin():
 	tween.tween_property(camera_player, "zoom", zoom_camera_player, 0.1)
 	print(GameManager.max_platforme)
 	gain_platforme(GameManager.max_platforme - GameManager.platforme)
-	var piece_ui = preload("res://scene/player/ui_piece_sprite.tscn").instantiate()
-	$ui/piece/coin_Container.add_child(piece_ui)
+	if forme == 0:
+		$ui/piece/coin_Container.add_child(piece_ui)
+	if forme == 1:
+		$ui/piece/coin_Container.add_child(piece_ui_red)
+		SPEED /= 1.5
 func drop_coin():
 	GameManager.piece -= 1
-	var piece_ui = $ui/piece/coin_Container.get_child(GameManager.piece)
-	piece_ui.delete()
+	var piece_ui_delete = $ui/piece/coin_Container.get_child(GameManager.piece)
+	if piece_ui_delete == piece_ui_red:
+		SPEED *= 1.5
+	piece_ui_delete.delete()
 
 
 func camera():

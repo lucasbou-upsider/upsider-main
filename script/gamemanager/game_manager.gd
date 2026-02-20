@@ -23,6 +23,8 @@ var derniere_piece = 0
 var menue_victoire = false
 #capacité
 var can_capa = false
+#chalennge bonus
+var active_bonus_challenge = false
 
 
 #1 = player de base 2 = player nerd 3 = sylvan tp 4 = meven
@@ -68,8 +70,8 @@ func unlock(things_unlock):
 
 #coin signal 
 signal gain_coin_signal
-func gain_coin():
-	gain_coin_signal.emit()
+func gain_coin(forme):
+	gain_coin_signal.emit(forme)
 signal drop_coin_signal
 func drop_coin():
 	drop_coin_signal.emit()

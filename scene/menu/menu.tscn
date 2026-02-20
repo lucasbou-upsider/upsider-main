@@ -3929,12 +3929,15 @@ layout_mode = 0
 offset_left = 928.0
 offset_top = 44.0
 offset_right = 1148.0
-offset_bottom = 176.0
+offset_bottom = 232.0
 theme_override_fonts/normal_font = ExtResource("4_xwok8")
 bbcode_enabled = true
-text = "[wave]-chargement screen
+text = "[wave]- chargement screen
 - + 2, 3 perso (killian, jojo, emna)
--monde 2 et 3"
+- monde 2 et 3
+- leederboard
+- tuto sylvan 
+- succes"
 
 [node name="Roadmap_button" type="Button" parent="Roadmap" unique_id=1458894871]
 layout_mode = 0

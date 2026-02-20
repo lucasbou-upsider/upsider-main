@@ -2,7 +2,7 @@ extends StaticBody2D
 
 @onready var sprite_2d: Sprite2D = $Sprite2D
 var shake_intensity = 0.3
-var shake_duration = 2
+@export var shake_duration:= 2.0
 var shake_time = 0
 var original_pos = Vector2.ZERO
 @onready var timer: Timer = $Timer
@@ -12,13 +12,14 @@ var nbr_mort_player
 func _ready() -> void:
 	original_pos = sprite_2d.position 
 	nbr_mort_player = GameManager.mort
+	timer.wait_time = shake_duration
 	$CollisionShape2D.set_deferred("disabled", false)
 	$Area2D/CollisionShape2D.set_deferred("disabled", false)
 	$Sprite2D.visible = true
 
 func _process(delta: float) -> void:
 	#platforme qui shake de + en +
-	if shake_time < 1:
+	if shake_time < shake_duration / 2:
 		shake_intensity = 0.6
 	else :
 		shake_intensity = 0.3

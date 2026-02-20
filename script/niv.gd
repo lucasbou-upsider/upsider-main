@@ -35,6 +35,7 @@ func _ready() -> void:
 	GameManager.tp_pose = 0
 	GameManager.can_capa = false
 	GameManager.piece_bonus_depose = 0
+	GameManager.active_bonus_challenge = false
 
 
 func _process(_delta: float) -> void:
@@ -99,14 +100,20 @@ func _victoire():
 	GameManager.platforme = 0
 	menue_victoire.show()
 	Engine.time_scale = 0
-	if GameManager.niv_fini.has(niv):
-		pass
+	if GameManager.active_bonus_challenge == true:
+		GameManager.niv_fini.append(niv + 0.2)
+		if GameManager.niv_fini.count(niv +0.2) == 2:
+			GameManager.niv_fini.erase(niv + 0.2)
 	else:
 		GameManager.niv_fini.append(niv)
+		if GameManager.niv_fini.count(niv) == 2:
+			GameManager.niv_fini.erase(niv)
+	
+	if GameManager.niv_unlock.has(niv + 1) == false:
 		GameManager.niv_unlock.append(niv + 1)
 	victoire = true
 	#timer fin monde 1
-	if niv == 7:
+	if niv == 7 and GameManager.timer_speedrun == 0:
 		GameManager.temps_monde_1 = GameManager.timer_speedrun
 		if int(GameManager.temps_monde_1) <= 300: #300 secondes = 10min
 			GameManager.skin_debloquer.append(4)

@@ -1,79 +1,9 @@
 [gd_scene format=3 uid="uid://ch2bi7o3jtdfa"]
 
 [ext_resource type="Script" uid="uid://cqcc3tc5jn4qd" path="res://defi_bonus.gd" id="1_23ibn"]
-[ext_resource type="Texture2D" uid="uid://8lr3d1ygiwto" path="res://sprite/piece.png" id="2_p8nsn"]
-[ext_resource type="Texture2D" uid="uid://bg3g442qkxwag" path="res://sprite/piece_desactiver.png" id="3_gyjjq"]
+[ext_resource type="Texture2D" uid="uid://cm1s1gxq7wdeg" path="res://sprite/Paper-Pixels-8x8/UI.png" id="2_23ibn"]
 [ext_resource type="Texture2D" uid="uid://bxqwxsryem6me" path="res://2d_lights_and_shadows_neutral_point_light.webp" id="4_d1f6j"]
 [ext_resource type="FontFile" uid="uid://c6drrdopvgm8h" path="res://BabaMediumPixels.ttf" id="5_p8nsn"]
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_e2b6l"]
-atlas = ExtResource("2_p8nsn")
-region = Rect2(0, 0, 20, 20)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_ptm8m"]
-atlas = ExtResource("2_p8nsn")
-region = Rect2(20, 0, 20, 20)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_n4rc8"]
-atlas = ExtResource("2_p8nsn")
-region = Rect2(0, 20, 20, 20)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_xuukp"]
-atlas = ExtResource("2_p8nsn")
-region = Rect2(20, 20, 20, 20)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_1ql48"]
-atlas = ExtResource("3_gyjjq")
-region = Rect2(0, 0, 20, 20)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_bkta0"]
-atlas = ExtResource("3_gyjjq")
-region = Rect2(20, 0, 20, 20)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_qleym"]
-atlas = ExtResource("3_gyjjq")
-region = Rect2(0, 20, 20, 20)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_53unc"]
-atlas = ExtResource("3_gyjjq")
-region = Rect2(20, 20, 20, 20)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_rxxrr"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_e2b6l")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_ptm8m")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_n4rc8")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_xuukp")
-}],
-"loop": true,
-"name": &"default",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_1ql48")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_bkta0")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_qleym")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_53unc")
-}],
-"loop": true,
-"name": &"piece_desactiver",
-"speed": 5.0
-}]
 
 [sub_resource type="Animation" id="Animation_geah7"]
 length = 0.001
@@ -119,10 +49,12 @@ radius = 8.0
 scale = Vector2(2, 2)
 script = ExtResource("1_23ibn")
 
-[node name="Sprite2D" type="AnimatedSprite2D" parent="." unique_id=70702611]
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1317218137]
 position = Vector2(-1.5, -1)
 scale = Vector2(3, 3)
-sprite_frames = SubResource("SpriteFrames_rxxrr")
+texture = ExtResource("2_23ibn")
+region_enabled = true
+region_rect = Rect2(31.133492, 31.244854, 10.24485, 10.890926)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=261862064]
 libraries/ = SubResource("AnimationLibrary_wdqhr")
@@ -142,6 +74,7 @@ shadow_enabled = true
 texture = ExtResource("4_d1f6j")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1826339596]
+visible = false
 
 [node name="ColorRect" type="ColorRect" parent="CanvasLayer" unique_id=732359632]
 offset_left = -25.0

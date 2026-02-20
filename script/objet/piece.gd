@@ -3,15 +3,17 @@ extends Node2D
 var piece_déposé = 0
 @onready var collision_shape_2d: CollisionShape2D = $Area2D/CollisionShape2D
 var piece_collecte = false
-@export var id = 0
+@export var forme = 0 ## forme: 0 = normal, 1 = ralentissement 
 @onready var sprite_2d: AnimatedSprite2D = $Sprite2D
 @onready var point_light_2d: PointLight2D = $PointLight2D
 @onready var cpu_particles_2d: CPUParticles2D = $CPUParticles2D
 @onready var son: AudioStreamPlayer2D = $son
 signal piece_recupere
 
+
 func _ready() -> void:
-	pass
+	if forme == 1: 
+		sprite_2d.modulate = Color(0.718, 0.18, 0.0)
 
 
 func _process(_delta: float) -> void:
@@ -38,7 +40,7 @@ func _on_area_2d_area_entered(_area: Area2D) -> void:
 		cpu_particles_2d.emitting = true
 		piece_collecte = true
 		GameManager.derniere_piece = position
-		GameManager.gain_coin()
+		GameManager.gain_coin(forme)
 		#son.play()
 		#await get_tree().create_timer(1).timeout
 		#son.stop()

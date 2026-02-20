@@ -59,82 +59,40 @@ func _ready() -> void:
 		#var mode_admine_niv_debloque: Array = [1.0, 2.0, 3.0, 4.0, 5.0, 6.0, 7.0, 8.0, 9.0, 1.1]
 		#GameManager.niv_fini.append_array(mode_admine_niv_debloque)
 
+#montre les niveau du premier et deuxieme monde
+	for i in range(9):
+		if GameManager.niv_unlock.has(i +1.0):
+			var button
+			if i < 7:
+				button = $"menu_1/monde 1/BoxContainerworld1".get_child(i)
+			if i >= 7:
+				monde_2.visible = true
+				button = $"menu_1/monde 2/BoxContainer".get_child(i - 7)
+			var etoile = button.get_child(0)
+			button.visible = true
+			if GameManager.niv_fini.has(i + 1.0 + 0.2):
+				print("color")
+				etoile.play("recus")
+				etoile.modulate = Color(1.0, 1.0, 0.145)
+				etoile.visible = true
+			elif GameManager.niv_fini.has(i + 1.0):
+				etoile.play("recus")
+				etoile.visible = true
 
-	#etoile de fin de niv
-	if GameManager.niv_unlock.has(1.0) == true:
-		niv_1.visible = true
-		if GameManager.niv_fini.has(1.0) == true:
-			etoile_1.play("recus")
-			etoile_1.visible = true
-			$mode_speedrun.visible = false
-		else:
-			tuto.visible = true
-		
-
-	if GameManager.niv_unlock.has(2.0) == true:
-		niv_2.visible = true
-		if GameManager.niv_fini.has(2.0) == true:
-			etoile_2.play("recus")
-			etoile_2.visible = true
-
-	if GameManager.niv_unlock.has(3.0) == true:
-		niv_3.visible = true
-		if GameManager.niv_fini.has(3.0) == true:
-			etoile_3.play("recus")
-			etoile_3.visible = true
-			
-	if GameManager.niv_unlock.has(4.0) == true:
-		niv_4.visible = true
-		if GameManager.niv_fini.has(4.0) == true:
-			etoile_4.play("recus")
-			etoile_4.visible = true
-			
-	if GameManager.niv_unlock.has(5.0) == true:
-		niv_5.visible = true
-		if GameManager.niv_fini.has(5.0) == true:
-			etoile_5.play("recus")
-			etoile_5.visible = true
-
-	if GameManager.niv_unlock.has(6.0) == true:
-		niv_6.visible = true
-		if GameManager.niv_fini.has(6.0) == true:
-			etoile_6.play("recus")
-			etoile_6.visible = true
+	if GameManager.niv_fini.has(1.0) or GameManager.niv_fini.has(1.0 + 0.2):
+		$mode_speedrun.visible = false
 	
-	if GameManager.niv_unlock.has(7.0) == true:
-		niv_7.visible = true
-		if GameManager.niv_fini.has(7.0) == true:
-			monde_2.visible = true
-			etoile_7.play("recus")
-			etoile_7.visible = true
-			temps_speedrun_monde_1.visible = true
-			temps_speedrun_monde_1.text = str(GameManager.temps_monde_1)
-			GameManager.unlock("succes")
-			Succes.debloquage_succes(1)
-	
-	
-	
-
-		#if int(GameManager.temps_monde_1) <= 300: #300 secondes = 10min
-			#GameManager.skin_debloquer.append(4)
-			#GameManager.unlock("skin")
-			
-	if GameManager.niv_unlock.has(8.0) == true:
-		niv_8.visible = true
-		if GameManager.niv_fini.has(8.0) == true:
-			etoile_8.play("recus")
-			etoile_8.visible = true
-		
-	if GameManager.niv_unlock.has(9.0) == true:
-		niv_9.visible = true
-		if GameManager.niv_fini.has(9.0) == true:
-			etoile_9.play("recus")
-			etoile_9.visible = true
-	
+	if GameManager.niv_fini.has(7.0) or GameManager.niv_fini.has(7.0 + 0.2):
+		temps_speedrun_monde_1.visible = true
+		temps_speedrun_monde_1.text = str(GameManager.temps_monde_1)
 
 	if GameManager.niv_unlock.has(1.1) == true:
 		niv_bonus_1.visible = true
-		if GameManager.niv_fini.has(1.1) == true:
+		if GameManager.niv_fini.has(1.1 + 0.2) == true:
+			etoile_bonus_1.play("recus")
+			etoile_bonus_1.modulate = Color(1.0, 1.0, 0.145)
+			etoile_bonus_1.visible = true
+		elif GameManager.niv_fini.has(1.1) == true:
 			etoile_bonus_1.play("recus")
 			etoile_bonus_1.visible = true
 
@@ -162,22 +120,22 @@ func _process(_delta: float) -> void:
 	traduction()
 
 func traduction():
-	#niveau
-	var nom_niveau = "lvl"
-	if GameManager.language == "EN":
-		nom_niveau = "lvl "
-	else:
-		nom_niveau = "niv "
-	niv_1.text = nom_niveau + "1"
-	niv_2.text = nom_niveau + "2" 
-	niv_3.text = nom_niveau + "3" 
-	niv_4.text = nom_niveau + "4" 
-	niv_5.text = nom_niveau + "5" 
-	niv_6.text = nom_niveau + "6" 
-	niv_7.text = nom_niveau + "7" 
-	niv_8.text = nom_niveau + "8" 
-	niv_9.text = nom_niveau + "9"
-	#option
+	##niveau
+	#var nom_niveau = "lvl"
+	#if GameManager.language == "EN":
+		#nom_niveau = "lvl "
+	#else:
+		#nom_niveau = "niv "
+	#niv_1.text = nom_niveau + "1"
+	#niv_2.text = nom_niveau + "2" 
+	#niv_3.text = nom_niveau + "3" 
+	#niv_4.text = nom_niveau + "4" 
+	#niv_5.text = nom_niveau + "5" 
+	#niv_6.text = nom_niveau + "6" 
+	#niv_7.text = nom_niveau + "7" 
+	#niv_8.text = nom_niveau + "8" 
+	#niv_9.text = nom_niveau + "9"
+	##option
 	
 	if GameManager.language == "EN":
 		quit.text = "Exit"

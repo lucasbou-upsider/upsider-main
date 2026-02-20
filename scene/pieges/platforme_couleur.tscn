@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://b5nb00tgavf7i"]
+
+[ext_resource type="Texture2D" uid="uid://caw430pts8h8p" path="res://sprite/Paper-Pixels-8x8/Tiles.png" id="1_asg38"]
+[ext_resource type="Script" uid="uid://5kury368hlwb" path="res://scene/pieges/platforme_couleur.gd" id="1_iy2oj"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_iy2oj"]
+size = Vector2(14.400001, 6.2)
+
+[node name="platforme_couleur" type="StaticBody2D" unique_id=1463538844]
+scale = Vector2(5, 5)
+script = ExtResource("1_iy2oj")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=2119728677]
+modulate = Color(11.335371, 0, 0, 1)
+texture = ExtResource("1_asg38")
+region_enabled = true
+region_rect = Rect2(32.488712, 80.44856, 15.102974, 7.0480576)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=563320662]
+position = Vector2(3.8146968e-07, 0.10000037)
+scale = Vector2(0.9999998, 0.9999998)
+shape = SubResource("RectangleShape2D_iy2oj")
