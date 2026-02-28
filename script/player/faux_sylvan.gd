@@ -39,6 +39,7 @@ func mort():#fonction ajouter pour enlever les bugs avec les ennemies
 func _on_attrapage_area_entered(area: Area2D) -> void:
 	if area.get_parent() is script_player:
 		if est_partie == false:
+			GameManager.quete_sylvan = 4
 			GameManager.unlock("skin")
 			GameManager.skin_debloquer.append(3)
 			queue_free()

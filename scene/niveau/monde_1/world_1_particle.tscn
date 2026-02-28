@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://1s6bq6mfg2kx"]
+
+[node name="world1particle" type="CPUParticles2D" unique_id=155111562]
+rotation = 1.584282
+amount = 100
+lifetime = 20.0
+preprocess = 20.0
+speed_scale = 0.3
+emission_shape = 3
+emission_rect_extents = Vector2(1000, 1)
+direction = Vector2(50, 50)
+spread = 180.0
+gravity = Vector2(-30, 0)
+scale_amount_min = 5.0
+scale_amount_max = 5.0
+color = Color(0.922131, 0.89387053, 0.82297164, 1)

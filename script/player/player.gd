@@ -219,8 +219,8 @@ func lose_platforme():
 		platforme_ui.delete()
 
 
-var piece_ui = preload("res://scene/player/ui_piece_sprite.tscn").instantiate()
-var piece_ui_red = preload("res://scene/player/ui_piece_forme_1_sprite.tscn").instantiate()
+var piece_ui
+var piece_ui_red 
 #signale recus du gamemanager donc apparition piece
 func gain_coin(forme): #forme: 0 = normal, 1 = ralentisseur
 	print("pice ui")
@@ -233,8 +233,10 @@ func gain_coin(forme): #forme: 0 = normal, 1 = ralentisseur
 	print(GameManager.max_platforme)
 	gain_platforme(GameManager.max_platforme - GameManager.platforme)
 	if forme == 0:
+		piece_ui = preload("res://scene/player/ui_piece_sprite.tscn").instantiate()
 		$ui/piece/coin_Container.add_child(piece_ui)
 	if forme == 1:
+		piece_ui_red = preload("res://scene/player/ui_piece_forme_1_sprite.tscn").instantiate()
 		$ui/piece/coin_Container.add_child(piece_ui_red)
 		SPEED /= 1.5
 func drop_coin():

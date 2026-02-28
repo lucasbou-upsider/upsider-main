@@ -4,10 +4,10 @@ extends Camera2D
 
 ##tremblement de caméra##
 
-@export var shake_fade: float = 5.0
-@export var rando_steng = 30
+var shake_fade: float = 0.5
+var rando_steng = 1
 
-var _shake_strength: float = 0.0
+var _shake_strength: float = 1.0
 
 var look = 0
 

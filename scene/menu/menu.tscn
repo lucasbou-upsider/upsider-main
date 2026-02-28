@@ -3611,6 +3611,7 @@ theme_override_font_sizes/font_size = 16
 text = "Exit"
 
 [node name="BoxContainer3" type="BoxContainer" parent="menu_1/option" unique_id=1299120682]
+visible = false
 layout_mode = 0
 offset_left = 531.0
 offset_top = -63.0

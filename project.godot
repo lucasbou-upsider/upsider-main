@@ -34,9 +34,7 @@ SaveLoad="*uid://pq8hobju76y0"
 
 [display]
 
-window/size/resizable=false
-window/size/minimize_disabled=true
-window/size/maximize_disabled=true
+window/stretch/mode="canvas_items"
 
 [editor]
 

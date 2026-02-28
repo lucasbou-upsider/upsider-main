@@ -53,6 +53,10 @@ func _process(_delta: float) -> void:
 	if GameManager.platforme >= 1:
 		if Input.is_action_just_pressed("lumiere") and GameManager.paused == false and GameManager.can_capa == false:
 			print(GameManager.can_capa)
+			$Player_camera.shake_fade = 10
+			$Player_camera.rando_steng = 5
+			$Player_camera._shake_strength = 5
+			$Player_camera.shake()
 			inst_platforme(get_global_mouse_position())
 			GameManager.pos_platforme()
 	
