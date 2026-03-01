@@ -3029,6 +3029,84 @@ physics_layer_0/collision_layer = 1
 physics_layer_0/physics_material = SubResource("PhysicsMaterial_67wba")
 sources/1 = SubResource("TileSetAtlasSource_fhs2g")
 
+[sub_resource type="Animation" id="Animation_aou5u"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_30fik"]
+resource_name = "fade_in"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 0), Color(0, 0, 0, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ColorRect:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.03333333),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_kvbim"]
+resource_name = "fade_out"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 1), Color(0, 0, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ColorRect:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_hmxlg"]
+_data = {
+&"RESET": SubResource("Animation_aou5u"),
+&"fade_in": SubResource("Animation_30fik"),
+&"fade_out": SubResource("Animation_kvbim")
+}
+
 [node name="menu" type="Control" unique_id=2108569597]
 layout_mode = 3
 anchors_preset = 0
@@ -3188,8 +3266,25 @@ text = "[wave]vers 0.0.2[/wave]"
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1227852508]
 stream = ExtResource("6_4ywp1")
 
+[node name="loading" type="Control" parent="." unique_id=1828444833]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="ColorRect" type="ColorRect" parent="loading" unique_id=1639965908]
+layout_mode = 0
+offset_left = -23.0
+offset_top = -26.0
+offset_right = 1225.0
+offset_bottom = 704.0
+color = Color(0, 0, 0, 0)
+
+[node name="loading_animation" type="AnimationPlayer" parent="loading" unique_id=1203682599]
+libraries/ = SubResource("AnimationLibrary_hmxlg")
+
 [connection signal="pressed" from="menu_1/button/jouer" to="." method="_on_jouer_pressed"]
 [connection signal="pressed" from="menu_1/button/quit" to="." method="_on_quit_pressed"]
 [connection signal="pressed" from="menu_1/button/credits" to="." method="_on_credits_pressed"]
 [connection signal="pressed" from="menu_1/option/language" to="." method="_on_language_pressed"]
 [connection signal="pressed" from="menu_1/option/delete file" to="." method="_on_delete_file_pressed"]
+[connection signal="animation_finished" from="loading/loading_animation" to="." method="_on_loading_animation_animation_finished"]

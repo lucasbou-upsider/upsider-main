@@ -46,6 +46,7 @@ var text_nombre_de_mort = "nombre de mort : "
 var text_nombre_de_levier = "nombre de levier actif : "
 
 func _ready() -> void:
+	$loading/loading_animation.play("fade_out")
 	
 	#speedrun timer
 	if GameManager.timer_visible == true:
@@ -147,49 +148,53 @@ func traduction():
 
 #bouton niv
 func _on_niv_1_pressed() -> void:
+	GameManager.next_loading_sceen = "res://scene/niveau/monde_1/niv_1.scn"
 	bouton()
-	get_tree().change_scene_to_file("res://scene/niveau/monde_1/niv_1.scn")
 func _on_niv_2_pressed() -> void:
+	GameManager.next_loading_sceen = "res://scene/niveau/monde_1/niv_2.scn"
 	bouton()
-	get_tree().change_scene_to_file("res://scene/niveau/monde_1/niv_2.scn")
 func _on_niv_3_pressed() -> void:
+	GameManager.next_loading_sceen = "res://scene/niveau/monde_1/niv_3.scn"
 	bouton()
-	get_tree().change_scene_to_file("res://scene/niveau/monde_1/niv_3.scn")
 func _on_niv_4_pressed() -> void:
+	GameManager.next_loading_sceen = "res://scene/niveau/monde_1/niv_4.scn"
 	bouton()
-	get_tree().change_scene_to_file("res://scene/niveau/monde_1/niv_4.scn")
 func _on_niv_5_pressed() -> void:
+	GameManager.next_loading_sceen = "res://scene/niveau/monde_1/niv_5.scn"
 	bouton()
-	get_tree().change_scene_to_file("res://scene/niveau/monde_1/niv_5.scn")
 func _on_niv_6_pressed() -> void:
+	GameManager.next_loading_sceen = "res://scene/niveau/monde_1/niv_6.scn"
 	bouton()
-	get_tree().change_scene_to_file("res://scene/niveau/monde_1/niv_6.scn")
 func _on_niv_7_pressed() -> void:
+	GameManager.next_loading_sceen = "res://scene/niveau/monde_1/niv_7.scn"
 	bouton()
-	get_tree().change_scene_to_file("res://scene/niveau/monde_1/niv_7.scn")
 func _on_niv_8_pressed() -> void:
+	GameManager.next_loading_sceen = "res://scene/niveau/monde_2/niv_8.scn"
 	bouton()
-	get_tree().change_scene_to_file("res://scene/niveau/monde_2/niv_8.scn")
 func _on_niv_9_pressed() -> void:
+	GameManager.next_loading_sceen = "res://scene/niveau/monde_2/niv_9.scn"
 	bouton()
-	get_tree().change_scene_to_file("res://scene/niveau/monde_2/niv_9.scn")
 
 func _on_niv_bonus_1_pressed() -> void:
+	GameManager.next_loading_sceen = "res://scene/niveau/monde_1/niv_bonus_1.scn"
 	bouton()
-	get_tree().change_scene_to_file("res://scene/niveau/monde_1/niv_bonus_1.scn")
 func _on_quit_button_down() -> void:
 	GameManager.save_game()
 	get_tree().quit()
 func _on_quit_2_pressed() -> void:
 	get_tree().change_scene_to_file("res://scene/menu/menu_2.tscn")
 func _on_button_succes_pressed() -> void:
-	get_tree().change_scene_to_file("res://scene/menu/succes_menu.tscn")
+	GameManager.next_loading_sceen = "res://scene/menu/succes_menu.tscn"
+	bouton()
 
 func bouton():
+	$loading/loading_animation.play("fade_in")
 	audio_stream_player.play()
 	MusicController.stop_music()
 
-
+func _on_loading_animation_animation_finished(anim_name: StringName) -> void:
+	if anim_name == "fade_in":
+		get_tree().change_scene_to_file("res://scene/loading.tscn")
 func _on_check_button_toggled(_toggled_on: bool) -> void:
 	if GameManager.timer_visible == false:
 		GameManager.timer_visible = true

@@ -7,6 +7,8 @@ extends Control
 @onready var delete_file: Button = $"menu_1/option/delete file"
 
 func _ready() -> void:
+	$loading/loading_animation.play("fade_out")
+	
 	MusicController.play_music("menu")
 
 func _process(_delta: float) -> void:
@@ -25,18 +27,21 @@ func langue():
 		delete_file.text = "supprimer sauvegarde"
 
 func _on_jouer_pressed() -> void:
-	$AudioStreamPlayer.play()
-	get_tree().change_scene_to_file("res://scene/menu/menu.tscn")
-
-
+	GameManager.next_loading_sceen = "res://scene/menu/menu.tscn"
+	bouton()
 func _on_quit_pressed() -> void:
 	$AudioStreamPlayer.play()
 	GameManager.quit_game()
-
-
 func _on_credits_pressed() -> void:
-	$AudioStreamPlayer.play()
-	get_tree().change_scene_to_file("res://scene/menu/credits.tscn")
+	GameManager.next_loading_sceen = "res://scene/menu/credits.tscn"
+	bouton()
+func bouton():
+	$loading/loading_animation.play("fade_in")
+func _on_loading_animation_animation_finished(anim_name: StringName) -> void:
+	if anim_name == "fade_in":
+		$AudioStreamPlayer.play()
+		get_tree().change_scene_to_file("res://scene/loading.tscn")
+
 
 
 func _on_language_pressed() -> void:

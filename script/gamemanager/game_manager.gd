@@ -63,6 +63,9 @@ var tuto_fini = false
 #savoir si le perso est sur une platforme lumiere ou cassable
 var on_temporary_platforme = false
 
+var next_loading_sceen: String = "res://scene/menu/menu_2.tscn"
+
+
 #signal quand on debloque un perso ou un objet
 signal unlock_signal
 func unlock(things_unlock):

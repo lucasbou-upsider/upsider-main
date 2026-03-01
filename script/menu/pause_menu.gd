@@ -34,11 +34,16 @@ func traduction():
 		menu.text = "back to menu"
 
 func _on_menu_pressed() -> void:
+	Engine.time_scale = 1
+	$loadingscreen/AnimationLoadingScreen.play("fade_out")
+func _on_animation_loading_screen_animation_finished(anim_name: StringName) -> void:
+	GameManager.next_loading_sceen = "res://scene/menu/menu.tscn"
 	MusicController.stop_music()
-	get_tree().change_scene_to_file("res://scene/menu/menu.tscn")
+	get_tree().change_scene_to_file("res://scene/loading.tscn")
 	Engine.time_scale = 1
 	GameManager.paused = false
 	GameManager.menue_victoire = false
+
 
 func _on_quitter_pressed() -> void:
 	menu_confirmation = true

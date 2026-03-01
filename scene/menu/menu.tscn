@@ -3518,6 +3518,84 @@ radius = 2.61008
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pd8h1"]
 size = Vector2(29, 45)
 
+[sub_resource type="Animation" id="Animation_aou5u"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_30fik"]
+resource_name = "fade_in"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 0), Color(0, 0, 0, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ColorRect:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.03333333),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_kvbim"]
+resource_name = "fade_out"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 1), Color(0, 0, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ColorRect:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_vsdqx"]
+_data = {
+&"RESET": SubResource("Animation_aou5u"),
+&"fade_in": SubResource("Animation_30fik"),
+&"fade_out": SubResource("Animation_kvbim")
+}
+
 [node name="Menu_2" type="Control" unique_id=1543638362]
 layout_mode = 3
 anchors_preset = 15
@@ -3933,8 +4011,7 @@ offset_right = 1148.0
 offset_bottom = 232.0
 theme_override_fonts/normal_font = ExtResource("4_xwok8")
 bbcode_enabled = true
-text = "[wave]- chargement screen
-- + 2, 3 perso (killian, jojo, emna)
+text = "[wave]- + 2, 3 perso (killian, jojo, emna)
 - monde 2 et 3
 - leederboard
 - tuto sylvan 
@@ -3977,6 +4054,22 @@ text = "[wave]timer speedrun"
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=224612709]
 stream = ExtResource("11_3s2x0")
 
+[node name="loading" type="Control" parent="." unique_id=1145250125]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="ColorRect" type="ColorRect" parent="loading" unique_id=864710857]
+layout_mode = 0
+offset_left = -23.0
+offset_top = -26.0
+offset_right = 1225.0
+offset_bottom = 704.0
+color = Color(0, 0, 0, 1)
+
+[node name="loading_animation" type="AnimationPlayer" parent="loading" unique_id=1424911266]
+libraries/ = SubResource("AnimationLibrary_vsdqx")
+
 [connection signal="pressed" from="menu_1/option/BoxContainer/quit2" to="." method="_on_quit_2_pressed"]
 [connection signal="button_down" from="menu_1/option/BoxContainer2/quit" to="." method="_on_quit_button_down"]
 [connection signal="pressed" from="menu_1/option/BoxContainer3/Button_succes" to="." method="_on_button_succes_pressed"]
@@ -3995,3 +4088,4 @@ stream = ExtResource("11_3s2x0")
 [connection signal="pressed" from="skin_player/BoxContainer/Button2" to="skin_player/skin" method="_on_button_2_pressed"]
 [connection signal="pressed" from="Roadmap/Roadmap_button" to="." method="_on_roadmap_button_pressed"]
 [connection signal="toggled" from="mode_speedrun/speedrun_button" to="." method="_on_check_button_toggled"]
+[connection signal="animation_finished" from="loading/loading_animation" to="." method="_on_loading_animation_animation_finished"]

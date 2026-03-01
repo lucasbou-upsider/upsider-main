@@ -28,6 +28,10 @@ var fall_gravity = 900
 var was_airbound := false #si le perso retombe
 
 func _ready() -> void:
+	$ui/loadingscreen/AnimationLoadingScreen.play("fade_in")
+	
+	
+	
 	if GameManager.skin_player == 4:
 		JUMP_VELOCITY = -450.0
 		SPEED = 400.0
