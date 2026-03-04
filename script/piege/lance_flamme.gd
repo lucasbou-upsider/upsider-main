@@ -1,43 +1,43 @@
-extends AnimatedSprite2D
+extends StaticBody2D
 
 @export var temps_activation = 2
-@export var retourne = false
-@onready var animation_player: AnimationPlayer = $AnimationPlayer
-@onready var cpu_particles_2d: CPUParticles2D = $particle1/CPUParticles2D
-@onready var cpu_particles_2d_4: CPUParticles2D = $particle1/CPUParticles2D4
-@onready var cpu_particles_2d_3: CPUParticles2D = $particle2/CPUParticles2D3
-@onready var cpu_particles_2d_2: CPUParticles2D = $particle2/CPUParticles2D2
-@onready var cpu_particles_2d_5: CPUParticles2D = $particle2/CPUParticles2D4
-@onready var cpu_particles_2d_6: CPUParticles2D = $particle2/CPUParticles2D5
+@onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
+@onready var collision_polygon_2: CollisionPolygon2D = $CollisionPolygon2
+@onready var collision_polygon_1: CollisionPolygon2D = $CollisionPolygon1
+@onready var collision_shape_area_death: CollisionShape2D = $Area2D/CollisionShapeAreaDeath
 
 func _ready() -> void:
-	print(rotation)
-	if retourne == true:
-		print("rotat")
-		cpu_particles_2d.gravity = Vector2(0.0,200.0)
-		cpu_particles_2d_4.gravity = Vector2(0.0,200.0)
-		cpu_particles_2d_3.gravity = Vector2(0.0,200.0)
-		cpu_particles_2d_2.gravity = Vector2(0.0,200.0)
-		cpu_particles_2d_5.gravity = Vector2(0.0,200.0)
-		cpu_particles_2d_6.gravity = Vector2(0.0,200.0)
-	lance_flamme()
+	collision_polygon_1.set_deferred("disabled",false)
+	collision_polygon_2.set_deferred("disabled",true)
 
 
 
-func _process(_delta: float) -> void:
-	pass
 
 
-func lance_flamme():
-	animation_player.play("activation")
-	await get_tree().create_timer(10).timeout
-	animation_player.play("desactivation")
-	await get_tree().create_timer(10).timeout
-	lance_flamme()
 
-#flamme
-func _on_area_2d_area_entered(_area: Area2D) -> void:
-	_area.get_parent().mort()
 
 func mort():
 	pass
+
+
+func _on_activation_timeout() -> void:
+	animated_sprite_2d.play("activation")
+	collision_polygon_1.set_deferred("disabled",true)
+	collision_polygon_2.set_deferred("disabled",false)
+func _on_animated_sprite_2d_animation_finished() -> void:
+	if animated_sprite_2d.animation == "activation":
+		collision_shape_area_death.set_deferred("disabled",false)
+		animated_sprite_2d.play("encours")
+		await get_tree().create_timer(temps_activation).timeout
+		collision_shape_area_death.set_deferred("disabled",true)
+		animated_sprite_2d.play("desactivation")
+		await get_tree().create_timer(1).timeout
+		collision_polygon_1.set_deferred("disabled",false)
+		collision_polygon_2.set_deferred("disabled",true)
+		$activation.start()
+	
+
+
+func _on_area_2d_area_entered(area: Area2D) -> void:
+	if area.get_parent() is script_player:
+		area.get_parent().mort()

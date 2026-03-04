@@ -33,7 +33,7 @@ func _ready() -> void:
 	
 	
 	if GameManager.skin_player == 4:
-		JUMP_VELOCITY = -450.0
+		JUMP_VELOCITY = -370.0
 		SPEED = 400.0
 	
 	
@@ -123,10 +123,10 @@ func get_good_gravity():
 #animation
 func animate():
 	if GameManager.menue_victoire == false and GameManager.paused == false:
-		if Input.is_action_just_pressed("gauche"):
+		if Input.is_action_pressed("gauche"):
 			animated_sprite_2d.flip_h = true
 			animated_sprite_2d.offset.x = -1.5
-		if Input.is_action_just_pressed("droite"):
+		if Input.is_action_pressed("droite"):
 			animated_sprite_2d.flip_h = false
 			animated_sprite_2d.offset.x = 0
 	
@@ -240,6 +240,7 @@ func gain_coin(forme): #forme: 0 = normal, 1 = ralentisseur
 		piece_ui = preload("res://scene/player/ui_piece_sprite.tscn").instantiate()
 		$ui/piece/coin_Container.add_child(piece_ui)
 	if forme == 1:
+		$ui/piece/AnimationPiece.play("slowed")
 		piece_ui_red = preload("res://scene/player/ui_piece_forme_1_sprite.tscn").instantiate()
 		$ui/piece/coin_Container.add_child(piece_ui_red)
 		SPEED /= 1.5
@@ -247,6 +248,7 @@ func drop_coin():
 	GameManager.piece -= 1
 	var piece_ui_delete = $ui/piece/coin_Container.get_child(GameManager.piece)
 	if piece_ui_delete == piece_ui_red:
+		$ui/piece/AnimationPiece.play("RESET")
 		SPEED *= 1.5
 	piece_ui_delete.delete()
 

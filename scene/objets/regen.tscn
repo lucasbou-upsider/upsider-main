@@ -21,12 +21,15 @@ height = 60.0
 script = ExtResource("1_atrwh")
 
 [node name="AnimatedSprite2D" type="Sprite2D" parent="." unique_id=966617268]
-position = Vector2(0, -39)
-scale = Vector2(3, 3)
+position = Vector2(-1.800003, -81.00001)
+scale = Vector2(4.5, 4.5)
 texture = ExtResource("1_6j8wl")
 
 [node name="CPUParticles2D" type="CPUParticles2D" parent="." unique_id=1663991006]
-position = Vector2(0, -1)
+position = Vector2(-0.80000305, -3)
+lifetime = 0.7
+use_fixed_seed = true
+seed = 870694867
 emission_shape = 3
 emission_rect_extents = Vector2(20, 1)
 gravity = Vector2(0, -980)
@@ -36,9 +39,11 @@ scale_amount_curve = SubResource("Curve_4gosb")
 color_ramp = SubResource("Gradient_sk1l7")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="." unique_id=1649257312]
+position = Vector2(-0.80000305, 0)
 polygon = PackedVector2Array(-30, 0, -48, 9, 46, 9, 27, 0)
 
 [node name="Area2D" type="Area2D" parent="." unique_id=1657478804]
+position = Vector2(-0.80000305, 0)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1799812348]
 position = Vector2(0, -6)
@@ -46,7 +51,7 @@ rotation = 1.5708
 shape = SubResource("CapsuleShape2D_wk1e4")
 
 [node name="PointLight2D" type="PointLight2D" parent="." unique_id=1144744805]
-position = Vector2(0, -30)
+position = Vector2(-0.80000305, -30)
 color = Color(0.905882, 0.866667, 0.760784, 1)
 energy = 0.1
 texture = ExtResource("3_jn2cu")
