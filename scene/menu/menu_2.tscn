@@ -3253,15 +3253,16 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = 1052.0
-offset_right = 1152.0
-offset_bottom = 25.0
+offset_left = 1080.0
+offset_top = 1.0
+offset_right = 1180.0
+offset_bottom = 26.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_fonts/normal_font = ExtResource("4_k84a1")
 theme_override_font_sizes/normal_font_size = 18
 bbcode_enabled = true
-text = "[wave]vers 0.0.2[/wave]"
+text = "[wave]vers 0.1[/wave]"
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1227852508]
 stream = ExtResource("6_4ywp1")

@@ -4059,7 +4059,6 @@ anchors_preset = 0
 offset_bottom = 1.0
 
 [node name="ColorRect" type="ColorRect" parent="loading" unique_id=864710857]
-modulate = Color(1, 1, 1, 0)
 layout_mode = 0
 offset_left = -23.0
 offset_top = -26.0
