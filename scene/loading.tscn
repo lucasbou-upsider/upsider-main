@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://bumd4y2xgpiiq" path="res://scene/loading.gd" id="1_qb5h4"]
 
 [node name="loading" type="Node2D" unique_id=2025950854]
+visible = false
 script = ExtResource("1_qb5h4")
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=951538829]
@@ -13,7 +14,6 @@ offset_bottom = 699.0
 color = Color(0, 0, 0, 1)
 
 [node name="ProgressBar" type="ProgressBar" parent="." unique_id=1177211554]
-visible = false
 offset_left = 1010.0
 offset_top = 603.0
 offset_right = 1130.0
